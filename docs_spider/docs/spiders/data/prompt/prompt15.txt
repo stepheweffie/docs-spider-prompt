@@ -1,0 +1,119 @@
+By default, the returned credentials have read-only access to your registry and cannot be used to push images. This is appropriate for most Kubernetes clusters. To retrieve read/write credentials, suitable for use with the Docker client or in a CI system, read_write may be provided as query parameter. For example: /v2/registry/docker-credentials?read_write=true
+
+By default, the returned credentials will not expire. To retrieve credentials with an expiry set, expiry_seconds may be provided as a query parameter. For example: /v2/registry/docker-credentials?expiry_seconds=3600 will return credentials that expire after one hour.
+
+The duration in seconds that the returned registry credentials will be valid. If not set or 0, the credentials will not expire.
+
+By default, the registry credentials allow for read-only access. Set this query parameter to true to obtain read-write credentials.
+
+A Docker config.json file for the container registry.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To validate that a container registry name is available for use, send a POST request to /v2/registry/validate-name.
+
+If the name is both formatted correctly and available, the response code will be 204 and contain no body. If the name is already in use, the response will be a 409 Conflict.
+
+A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and -, up to a limit of 63 characters.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+Conflict
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+This endpoint has been deprecated in favor of the List All Container Registry Repositories [V2] endpoint.
+
+To list all repositories in your container registry, send a GET request to /v2/registry/$REGISTRY_NAME/repositories.
+
+The name of a container registry.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response body will be a JSON object with a key of repositories. This will be set to an array containing objects each representing a repository.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all repositories in your container registry, send a GET request to /v2/registry/$REGISTRY_NAME/repositoriesV2.
+
+The name of a container registry.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return. Ignored when 'page_token' is provided.
+
+Token to retrieve of the next or previous set of results more quickly than using 'page'.
+
+The response body will be a JSON object with a key of repositories. This will be set to an array containing objects each representing a repository.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all tags in your container registry repository, send a GET request to /v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags.
+
+Note that if your repository name contains / characters, it must be URL-encoded in the request URL. For example, to list tags for registry.digitalocean.com/example/my/repo, the path would be /v2/registry/example/repositories/my%2Frepo/tags.
+
+The name of a container registry.
+
+The name of a container registry repository. If the name contains / characters, they must be URL-encoded, e.g. %2F.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response body will be a JSON object with a key of tags. This will be set to an array containing objects each representing a tag.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a container repository tag, send a DELETE request to /v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags/$TAG.
+
+Note that if your repository name contains / characters, it must be URL-encoded in the request URL. For example, to delete registry.digitalocean.com/example/my/repo:mytag, the path would be /v2/registry/example/repositories/my%2Frepo/tags/mytag.

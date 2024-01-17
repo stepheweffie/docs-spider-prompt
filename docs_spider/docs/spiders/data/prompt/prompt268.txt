@@ -1,0 +1,368 @@
+{
+"check":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page check",
+"type": "https",
+"target": "https://www.landingpage.com",
+"regions":
+[
+],
+"enabled": true
+}
+}
+
+/v2/uptime/checks/$CHECK_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/uptime/checks/$CHECK_ID/state
+
+read
+
+state
+
+{
+"state":
+{
+"regions":
+{
+},
+"previous_outage":
+{
+}
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts
+
+read
+
+alerts
+
+{
+"alerts":
+[
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts
+
+write
+
+latency
+
+down
+
+down_global
+
+ssl_expiry
+
+alert
+
+{
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+"email":
+[
+],
+"slack":
+[
+]
+},
+"period": "2m"
+}
+
+{
+"alert":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+},
+"period": "2m"
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID
+
+read
+
+alert
+
+{
+"alert":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+},
+"period": "2m"
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID
+
+write
+
+alert
+
+{
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+"email":
+[
+],
+"slack":
+[
+]
+},
+"period": "2m"
+}
+
+{
+"alert":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+},
+"period": "2m"
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/vpcs
+
+/v2/vpcs
+
+read
+
+vpcs
+
+{
+"vpcs":
+[
+{
+},
+{
+},
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 3
+}
+}
+
+/v2/vpcs
+
+write
+
+/28
+
+/16
+
+/20
+
+vpc
+
+{
+"name": "env.prod-vpc",
+"description": "VPC for production environment",
+"region": "nyc1",
+"ip_range": "10.10.10.0/24"
+}
+
+{
+"vpc":
+{
+"name": "env.prod-vpc",
+"description": "VPC for production environment",
+"region": "nyc1",
+"ip_range": "10.10.10.0/24",
+"default": true,
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"urn": "do:droplet:13457723",
+"created_at": "2020-03-13T19:20:47.442049222Z"
+}
+}
+
+/v2/vpcs/$VPC_ID
+
+read
+
+vpc
+
+{
+"vpc":
+{
+"name": "env.prod-vpc",
+"description": "VPC for production environment",
+"region": "nyc1",
+"ip_range": "10.10.10.0/24",
+"default": true,
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"urn": "do:droplet:13457723",
+"created_at": "2020-03-13T19:20:47.442049222Z"
+}
+}
+
+/v2/vpcs/$VPC_ID
+
+write
+
+default
+
+true
+
+default
+
+default
+
+false
+
+vpc
+
+{
+"name": "env.prod-vpc",
+"description": "VPC for production environment",
+"default": true
+}
+
+{
+"vpc":
+{
+"name": "env.prod-vpc",
+"description": "VPC for production environment",
+"region": "nyc1",
+"ip_range": "10.10.10.0/24",
+"default": true,
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"urn": "do:droplet:13457723",
+"created_at": "2020-03-13T19:20:47.442049222Z"
+}
+}
+
+/v2/vpcs/$VPC_ID
+
+write
+
+default
+
+true
+
+default
+
+default
+
+false
+
+vpc
+
+{
+"name": "env.prod-vpc",
+"description": "VPC for production environment",
+"default": true
+}
+
+{
+"vpc":
+{
+"name": "env.prod-vpc",
+"description": "VPC for production environment",
+"region": "nyc1",
+"ip_range": "10.10.10.0/24",
+"default": true,
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"urn": "do:droplet:13457723",
+"created_at": "2020-03-13T19:20:47.442049222Z"
+}
+}
+
+/v2/vpcs/$VPC_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/vpcs/$VPC_ID/members
+
+resource_type
+
+/v2/vpcs/$VPC_ID/members?resource_type=droplet
+
+read
+
+{
+"members":
+[
+{
+},
+{
+},
+{
+},
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 4
+}
+}
+
+Download OpenAPI specification:Download
+
+The DigitalOcean API allows you to manage Droplets and resources within the DigitalOcean cloud in a simple, programmatic way using conventional HTTP requests.

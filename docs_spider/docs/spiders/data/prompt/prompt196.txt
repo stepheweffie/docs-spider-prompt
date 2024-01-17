@@ -1,0 +1,201 @@
+Delete an existing app. Once deleted, all active deployments will be permanently shut down and the app deleted. If needed, be sure to back up your app specification so that you may re-create it at a later time.
+
+The ID of the app
+
+the ID of the app deleted.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve details about an existing app by either its ID or name. To retrieve an app by its name, do not include an ID in the request path. Information about the current active deployment as well as any in progress ones will also be included in the response.
+
+The ID of the app
+
+The name of the app to retrieve.
+
+A JSON with key app
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Update an existing app by submitting a new app specification. For documentation on app specifications (AppSpec objects), please refer to the product documentation.
+
+The ID of the app
+
+The desired configuration of an application.
+
+A JSON object of the updated app
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve the logs of the active deployment if one exists. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment. Note log_type=BUILD logs will return logs associated with the current active deployment (being served). To view build logs associated with in-progress build, the query must explicitly reference the deployment id.
+
+The app ID
+
+An optional component name. If set, logs will be limited to this component only.
+
+Whether the logs should follow live updates.
+
+The type of logs to retrieve
+
+An optional time duration to wait if the underlying component instance is not immediately available. Default: 3m.
+
+A JSON object with urls that point to archived logs
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+List all deployments of an app.
+
+The app ID
+
+Which 'page' of paginated results to return.
+
+Number of items returned per page
+
+A JSON object with a deployments key. This will be a list of all app deployments
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Creating an app deployment will pull the latest changes from your repository and schedule a new deployment for your app.
+
+The app ID
+
+A JSON object with a deployment key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve information about an app deployment.
+
+The app ID
+
+The deployment ID
+
+A JSON of the requested deployment
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Immediately cancel an in-progress deployment.
+
+The app ID
+
+The deployment ID
+
+A JSON the deployment that was just cancelled.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve the logs of a past, in-progress, or active deployment. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
+
+The app ID
+
+The deployment ID
+
+An optional component name. If set, logs will be limited to this component only.
+
+Whether the logs should follow live updates.
+
+The type of logs to retrieve
+
+An optional time duration to wait if the underlying component instance is not immediately available. Default: 3m.
+
+A JSON object with urls that point to archived logs
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve the logs of a past, in-progress, or active deployment. If a component name is specified, the logs will be limited to only that component. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
+
+The app ID
+
+The deployment ID
+
+Whether the logs should follow live updates.
+
+The type of logs to retrieve

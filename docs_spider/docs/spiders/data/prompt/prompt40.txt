@@ -1,0 +1,95 @@
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a Kubernetes cluster along with a subset of its associated resources, send a DELETE request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective.
+
+The JSON body of the request should include load_balancers, volumes, or volume_snapshots keys each set to an array of IDs for the associated resources to be destroyed.
+
+The IDs can be found by querying the cluster's associated resources endpoint. Any associated resource not included in the request will remain and continue to accrue changes on your account.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A list of IDs for associated load balancers to destroy along with the cluster.
+
+A list of IDs for associated volumes to destroy along with the cluster.
+
+A list of IDs for associated volume snapshots to destroy along with the cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a Kubernetes cluster with all of its associated resources, send a DELETE request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/dangerous. A 204 status code with no body will be returned in response to a successful request.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+This endpoint returns a kubeconfig file in YAML format. It can be used to connect to and administer the cluster using the Kubernetes command line tool, kubectl, or other programs supporting kubeconfig files (e.g., client libraries).
+
+The resulting kubeconfig file uses token-based authentication for clusters supporting it, and certificate-based authentication otherwise. For a list of supported versions and more information, see "How to Connect to a DigitalOcean Kubernetes Cluster with kubectl".
+
+To retrieve a kubeconfig file for use with a Kubernetes cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig.
+
+Clusters supporting token-based authentication may define an expiration by passing a duration in seconds as a query parameter to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig?expiry_seconds=$DURATION_IN_SECONDS. If not set or 0, then the token will have a 7 day expiry. The query parameter has no impact in certificate-based authentication.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The duration in seconds that the returned Kubernetes credentials will be valid. If not set or 0, the credentials will have a 7 day expiry.
+
+A kubeconfig file for the cluster in YAML format.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+This endpoint returns a JSON object . It can be used to programmatically construct Kubernetes clients which cannot parse kubeconfig files.
+
+The resulting JSON object contains token-based authentication for clusters supporting it, and certificate-based authentication otherwise. For a list of supported versions and more information, see "How to Connect to a DigitalOcean Kubernetes Cluster with kubectl".
+
+To retrieve credentials for accessing a Kubernetes cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials.
+
+Clusters supporting token-based authentication may define an expiration by passing a duration in seconds as a query parameter to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials?expiry_seconds=$DURATION_IN_SECONDS. If not set or 0, then the token will have a 7 day expiry. The query parameter has no impact in certificate-based authentication.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The duration in seconds that the returned Kubernetes credentials will be valid. If not set or 0, the credentials will have a 7 day expiry.
+
+A JSON object containing credentials for a cluster.
+
+Unauthorized

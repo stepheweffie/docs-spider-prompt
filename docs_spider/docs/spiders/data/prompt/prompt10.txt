@@ -1,0 +1,107 @@
+The response will be a JSON object with a key called volumes. This will be set to an array of volume objects, each of which will contain the standard volume attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new volume, send a POST request to /v2/volumes. Optionally, a filesystem_type attribute may be provided in order to automatically format the volume's filesystem. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to Droplets without support for auto-mounting is not recommended.
+
+A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and "-", up to a limit of 64 characters. The name must begin with a letter.
+
+An optional free-form text field to describe a block storage volume.
+
+The size of the block storage volume in GiB (1024^3). This field does not apply when creating a volume from a snapshot.
+
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+The unique identifier for the volume snapshot from which to create the volume.
+
+The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are ext4 and xfs. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended.
+
+The slug identifier for the region where the resource will initially be available.
+
+The label applied to the filesystem. Labels for ext4 type filesystems may contain 16 characters while labels for xfs type filesystems are limited to 12 characters. May only be used in conjunction with filesystem_type.
+
+The response will be a JSON object with a key called volume. The value will be an object containing the standard attributes associated with a volume.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Block storage volumes may also be deleted by name by sending a DELETE request with the volume's name and the region slug for the region it is located in as query parameters to /v2/volumes?name=$VOLUME_NAME&region=nyc1. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+The block storage volume's name.
+
+The slug identifier for the region where the resource is available.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve the details of a snapshot that has been created from a volume, send a GET request to /v2/volumes/snapshots/$SNAPSHOT_ID.
+
+Either the ID of an existing snapshot. This will be an integer for a Droplet snapshot or a string for a volume snapshot.
+
+You will get back a JSON object that has a snapshot key. This will contain the standard snapshot attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a volume snapshot, send a DELETE request to /v2/snapshots/$SNAPSHOT_ID.
+
+A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
+
+Either the ID of an existing snapshot. This will be an integer for a Droplet snapshot or a string for a volume snapshot.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about a block storage volume, send a GET request to /v2/volumes/$VOLUME_ID.
+
+The ID of the block storage volume.

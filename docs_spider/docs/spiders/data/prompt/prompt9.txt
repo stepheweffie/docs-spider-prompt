@@ -1,0 +1,145 @@
+Billing History: Billing history is a record of billing events for your account. For example, entries may include events like payments made, invoices issued, or credits granted. To interact with invoices, you will generally send requests to the invoices endpoint at /v2/customers/my/billing_history.
+
+To retrieve the balances on a customer's account, send a GET request to /v2/customers/my/balance.
+
+The response will be a JSON object that contains the following attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of all billing history entries, send a GET request to /v2/customers/my/billing_history.
+
+The response will be a JSON object that contains the following attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of all invoices, send a GET request to /v2/customers/my/invoices.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object contains that contains a list of invoices under the invoices key, and the invoice preview under the invoice_preview key. Each element contains the invoice summary attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve the invoice items for an invoice, send a GET request to /v2/customers/my/invoices/$INVOICE_UUID.
+
+UUID of the invoice
+
+The response will be a JSON object with a key called invoice_items. This will be set to an array of invoice item objects.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a CSV for an invoice, send a GET request to /v2/customers/my/invoices/$INVOICE_UUID/csv.
+
+UUID of the invoice
+
+The response will be a CSV file.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a PDF for an invoice, send a GET request to /v2/customers/my/invoices/$INVOICE_UUID/pdf.
+
+UUID of the invoice
+
+The response will be a PDF file.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a summary for an invoice, send a GET request to /v2/customers/my/invoices/$INVOICE_UUID/summary.
+
+UUID of the invoice
+
+To retrieve a summary for an invoice, send a GET request to /v2/customers/my/invoices/$INVOICE_UUID/summary.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean Block Storage Volumes provide expanded storage capacity for your Droplets and can be moved between Droplets within a specific region.
+
+Volumes function as raw block devices, meaning they appear to the operating system as locally attached storage which can be formatted using any file system supported by the OS. They may be created in sizes from 1GiB to 16TiB.
+
+By sending requests to the /v2/volumes endpoint, you can list, create, or delete volumes as well as attach and detach them from Droplets
+
+To list all of the block storage volumes available on your account, send a GET request to /v2/volumes.
+
+The region may be provided as query parameter in order to restrict results to volumes available in a specific region. For example: /v2/volumes?region=nyc1
+
+It is also possible to list volumes on your account that match a specified name. To do so, send a GET request with the volume's name as a query parameter to /v2/volumes?name=$VOLUME_NAME. Note: You can only create one volume per region with the same name.
+
+It is also possible to retrieve information about a block storage volume by name. To do so, send a GET request with the volume's name and the region slug for the region it is located in as query parameters to /v2/volumes?name=$VOLUME_NAME&region=nyc1.
+
+The block storage volume's name.
+
+The slug identifier for the region where the resource is available.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.

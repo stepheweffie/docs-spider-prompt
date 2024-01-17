@@ -1,0 +1,129 @@
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To configure the window when automatic maintenance should be performed for a database cluster, send a PUT request to /v2/databases/$DATABASE_ID/maintenance. A successful request will receive a 204 No Content status code with no body in response.
+
+A unique identifier for a database cluster.
+
+The day of the week on which to apply maintenance updates.
+
+The hour in UTC at which maintenance updates will be applied in 24 hour format.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the available backups of a PostgreSQL or MySQL database cluster, send a GET request to /v2/databases/$DATABASE_ID/backups. Note: Backups are not supported for Redis clusters. The result will be a JSON object with a backups key. This will be set to an array of backup objects, each of which will contain the size of the backup and the timestamp at which it was created.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of database_backups.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the read-only replicas associated with a database cluster, send a GET request to /v2/databases/$DATABASE_ID/replicas.
+
+Note: Read-only replicas are not supported for Redis clusters.
+
+The result will be a JSON object with a replicas key. This will be set to an array of database replica objects, each of which will contain the standard database replica attributes.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of replicas.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a read-only replica for a PostgreSQL or MySQL database cluster, send a POST request to /v2/databases/$DATABASE_ID/replicas specifying the name it should be given, the size of the node to be used, and the region where it will be located.
+
+Note: Read-only replicas are not supported for Redis clusters.
+
+The response will be a JSON object with a key called replica. The value of this will be an object that contains the standard attributes associated with a database replica. The initial value of the read-only replica's status attribute will be forking. When the replica is ready to receive traffic, this will transition to active.
+
+A unique identifier for a database cluster.
+
+The name to give the read-only replicating
+
+A slug identifier for the region where the read-only replica will be located. If excluded, the replica will be placed in the same region as the cluster.
+
+A slug identifier representing the size of the node for the read-only replica. The size of the replica must be at least as large as the node size for the database cluster from which it is replicating.
+
+A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags.
+
+A string specifying the UUID of the VPC to which the read-only replica will be assigned. If excluded, the replica will be assigned to your account's default VPC for the region.
+
+Additional storage added to the cluster, in MiB. If null, no additional storage is added to the cluster, beyond what is provided as a base amount from the 'size' and any previously added additional storage.
+
+A JSON object with a key of replica.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the cluster events, send a GET request to /v2/databases/$DATABASE_ID/events.
+
+The result will be a JSON object with a events key.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of events.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing database replica, send a GET request to /v2/databases/$DATABASE_ID/replicas/$REPLICA_NAME.

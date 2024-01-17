@@ -1,0 +1,456 @@
+/v2/databases/$DATABASE_ID/upgrade
+
+write
+
+{
+"version": "14"
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/topics
+
+topics
+
+read
+
+topics
+
+{
+"topics":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/databases/$DATABASE_ID/topics
+
+topic
+
+write
+
+topic
+
+{
+"name": "customer-events",
+"partitions": 3,
+"replication": 2,
+"config":
+{
+"retention_bytes": -1,
+"retention_ms": 100000
+}
+}
+
+{
+"topic":
+{
+"name": "customer-events",
+"partitions":
+[
+],
+"replication_factor": 3,
+"state": "active",
+"config":
+{
+}
+}
+}
+
+/v2/databases/$DATABASE_ID/topics/$TOPIC_NAME
+
+topic
+
+read
+
+topic
+
+{
+"topic":
+{
+"name": "customer-events",
+"partitions":
+[
+],
+"replication_factor": 3,
+"state": "active",
+"config":
+{
+}
+}
+}
+
+/v2/databases/$DATABASE_ID/topics/$TOPIC_NAME
+
+topic
+
+write
+
+topic
+
+{
+"partitions": 3,
+"replication": 2,
+"config":
+{
+"retention_bytes": -1,
+"retention_ms": 100000
+}
+}
+
+{
+"topic":
+{
+"name": "customer-events",
+"partitions":
+[
+],
+"replication_factor": 3,
+"state": "active",
+"config":
+{
+}
+}
+}
+
+/v2/databases/$DATABASE_ID/topics/$TOPIC_NAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/domains/$DOMAIN_NAME/records
+
+name
+
+type
+
+/v2/domains/$DOMAIN_NAME/records?type=A
+
+name
+
+sub.example.com
+
+/v2/domains/$DOMAIN_NAME/records?name=sub.example.com
+
+read
+
+/v2/domains/$DOMAIN_NAME/records?name=sub.example.com
+
+domain_records
+
+null
+
+null
+
+weight
+
+port
+
+{
+"domain_records":
+[
+{
+},
+{
+},
+{
+},
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 4
+}
+}
+
+/v2/domains/$DOMAIN_NAME/records
+
+write
+
+domain_record
+
+null
+
+id
+
+{
+"type": "A",
+"name": "www",
+"data": "162.10.66.0",
+"priority": null,
+"port": null,
+"ttl": 1800,
+"weight": null,
+"flags": null,
+"tag": null
+}
+
+{
+"domain_record":
+{
+"id": 28448433,
+"type": "A",
+"name": "www",
+"data": "162.10.66.0",
+"priority": null,
+"port": null,
+"ttl": 1800,
+"weight": null,
+"flags": null,
+"tag": null
+}
+}
+
+/v2/domains/$DOMAIN_NAME/records/$RECORD_ID
+
+read
+
+domain_record
+
+{
+"domain_record":
+{
+"id": 3352896,
+"type": "A",
+"name": "blog",
+"data": "162.10.66.0",
+"priority": null,
+"port": null,
+"ttl": 1800,
+"weight": null,
+"flags": null,
+"tag": null
+}
+}
+
+/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID
+
+write
+
+domain_record
+
+{
+"name": "blog",
+"type": "A"
+}
+
+{
+"domain_record":
+{
+"id": 3352896,
+"type": "A",
+"name": "blog",
+"data": "162.10.66.0",
+"priority": null,
+"port": null,
+"ttl": 1800,
+"weight": null,
+"flags": null,
+"tag": null
+}
+}
+
+/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID
+
+write
+
+domain_record
+
+{
+"name": "blog",
+"type": "CNAME"
+}
+
+{
+"domain_record":
+{
+"id": 3352896,
+"type": "A",
+"name": "blog",
+"data": "162.10.66.0",
+"priority": null,
+"port": null,
+"ttl": 1800,
+"weight": null,
+"flags": null,
+"tag": null
+}
+}
+
+/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/domains
+
+read
+
+domains
+
+{
+"domains":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/domains
+
+write
+
+example.com
+
+domain
+
+{
+"name": "example.com"
+}
+
+{
+"domain":
+{
+"name": "example.com",
+"ttl": 1800,
+"zone_file": null
+}
+}
+
+/v2/domains/$DOMAIN_NAME
+
+read
+
+domain
+
+{
+"domain":
+{
+"name": "example.com",
+"ttl": 1800,
+"zone_file": "$ORIGIN example.com.\n$TTL 1800\nexample.com. IN SOA ns1.digitalocean.com. hostmaster.example.com. 1415982611 10800 3600 604800 1800\nexample.com. 1800 IN NS ns1.digitalocean.com.\nexample.com. 1800 IN NS ns2.digitalocean.com.\nexample.com. 1800 IN NS ns3.digitalocean.com.\nexample.com. 1800 IN A 1.2.3.4\n"
+}
+}
+
+/v2/domains/$DOMAIN_NAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/droplets/$DROPLET_ID/actions
+
+actions
+
+action
+
+action
+
+read
+
+actions
+
+{
+"actions":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/droplets/$DROPLET_ID/actions
+
+type
+
+enable_backups
+
+disable_backups
+
+reboot
+
+reboot
+
+reboot
+
+power_cycle
+
+powercycle
+
+shutdown
+
+shutdown
+
+shutdown
+
+power_off
+
+power_off
+
+power_off
+
+shutdown
+
+power_on
+
+restore
+
+password_reset
+
+resize
+
+size
+
+disk
+
+true
+
+rebuild
+
+image
+
+rename
+
+change_kernel
+
+enable_ipv6
+
+snapshot
+
+write
+
+type
+
+action
+
+{
+"type": "enable_backups"
+}

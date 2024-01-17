@@ -1,0 +1,436 @@
+{
+"data":
+{
+"result":
+[
+],
+"resultType": "matrix"
+},
+"status": "success"
+}
+
+/v2/monitoring/metrics/droplet/load_5
+
+read
+
+data
+
+status
+
+{
+"data":
+{
+"result":
+[
+],
+"resultType": "matrix"
+},
+"status": "success"
+}
+
+/v2/monitoring/metrics/droplet/load_15
+
+read
+
+data
+
+status
+
+{
+"data":
+{
+"result":
+[
+],
+"resultType": "matrix"
+},
+"status": "success"
+}
+
+/v2/monitoring/metrics/droplet/memory_cached
+
+read
+
+data
+
+status
+
+{
+"data":
+{
+"result":
+[
+],
+"resultType": "matrix"
+},
+"status": "success"
+}
+
+/v2/monitoring/metrics/droplet/memory_free
+
+read
+
+data
+
+status
+
+{
+"data":
+{
+"result":
+[
+],
+"resultType": "matrix"
+},
+"status": "success"
+}
+
+/v2/monitoring/metrics/droplet/memory_total
+
+read
+
+data
+
+status
+
+{
+"data":
+{
+"result":
+[
+],
+"resultType": "matrix"
+},
+"status": "success"
+}
+
+/v2/monitoring/metrics/droplet/memory_available
+
+read
+
+data
+
+status
+
+{
+"data":
+{
+"result":
+[
+],
+"resultType": "matrix"
+},
+"status": "success"
+}
+
+/v2/monitoring/metrics/apps/memory_percentage
+
+read
+
+data
+
+status
+
+{
+"status": "success",
+"data":
+{
+"resultType": "matrix",
+"result":
+[
+]
+}
+}
+
+/v2/monitoring/metrics/apps/cpu_percentage
+
+read
+
+data
+
+status
+
+{
+"status": "success",
+"data":
+{
+"resultType": "matrix",
+"result":
+[
+]
+}
+}
+
+/v2/monitoring/metrics/apps/restart_count
+
+read
+
+data
+
+status
+
+{
+"status": "success",
+"data":
+{
+"resultType": "matrix",
+"result":
+[
+]
+}
+}
+
+do:resource_type:resource_id
+
+do:app:be5aab85-851b-4cab-b2ed-98d5a63ba4e8
+
+do:dbaas:83c7a55f-0d84-4760-9245-aba076ec2fb2
+
+do:domain:example.com
+
+do:droplet:4126873
+
+do:floatingip:192.168.99.100
+
+do:kubernetes:bd5f5959-5e1e-4205-a714-a914373942af
+
+do:loadbalancer:39052d89-8dd4-4d49-8d5a-3c3b6b365b5b
+
+do:space:my-website-assets
+
+do:volume:6fc4c277-ea5c-448a-93cd-dd496cfef71f
+
+status
+
+ok
+
+not_found
+
+assigned
+
+already_assigned
+
+service_down
+
+/v2/projects/$PROJECT_ID/resources
+
+read
+
+resources
+
+{
+"resources":
+[
+{
+},
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 2
+}
+}
+
+/v2/projects/$PROJECT_ID/resources
+
+write
+
+resources
+
+{
+"resources":
+[
+"do:droplet:13457723",
+"do:domain:example.com"
+]
+}
+
+{
+"resources":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/projects/default/resources
+
+read
+
+resources
+
+{
+"resources":
+[
+{
+},
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 2
+}
+}
+
+/v2/projects/default/resources
+
+write
+
+resources
+
+{
+"resources":
+[
+"do:droplet:13457723",
+"do:domain:example.com"
+]
+}
+
+{
+"resources":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/projects
+
+read
+
+projects
+
+{
+"projects":
+[
+{
+},
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 2
+}
+}
+
+/v2/projects
+
+write
+
+Other: your custom purpose
+
+project
+
+{
+"name": "my-web-api",
+"description": "My website API",
+"purpose": "Service or API",
+"environment": "Production"
+}
+
+{
+"project":
+{
+"id": "4e1bfbc3-dc3e-41f2-a18f-1b4d7ba71679",
+"owner_uuid": "99525febec065ca37b2ffe4f852fd2b2581895e7",
+"owner_id": 258992,
+"name": "my-web-api",
+"description": "My website API",
+"purpose": "Service or API",
+"environment": "Production",
+"created_at": "2018-09-27T20:10:35Z",
+"updated_at": "2018-09-27T20:10:35Z",
+"is_default": false
+}
+}
+
+/v2/projects/default
+
+read
+
+project
+
+{
+"project":
+{
+"id": "addb4547-6bab-419a-8542-76263a033cf6",
+"owner_uuid": "99525febec065ca37b2ffe4f852fd2b2581895e7",
+"owner_id": 258992,
+"name": "Default",
+"description": "Default project",
+"purpose": "Just trying out DigitalOcean",
+"environment": "Development",
+"is_default": true,
+"created_at": "2017-10-19T21:44:20Z",
+"updated_at": "2019-11-05T18:50:03Z"
+}
+}
+
+/v2/projects/default
+
+write
+
+Other: your custom purpose
+
+project
+
+{
+"name": "my-web-api",
+"description": "My website API",
+"purpose": "Service or API",
+"environment": "Production",
+"is_default": false
+}
+
+{
+"project":
+{
+"id": "4e1bfbc3-dc3e-41f2-a18f-1b4d7ba71679",
+"owner_uuid": "99525febec065ca37b2ffe4f852fd2b2581895e7",
+"owner_id": 258992,
+"name": "my-web-api",
+"description": "My website API",
+"purpose": "Service or API",
+"environment": "Production",
+"created_at": "2018-09-27T20:10:35Z",
+"updated_at": "2018-09-27T20:10:35Z",
+"is_default": false
+}
+}
+
+/v2/projects/default
+
+write
+
+Other: your custom purpose
+
+project
+
+{
+"name": "my-web-api"
+}

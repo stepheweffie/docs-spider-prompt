@@ -1,0 +1,59 @@
+This endpoint serves to provide additional information as to which option values are available when creating a container registry. There are multiple subscription tiers available for container registry. Each tier allows a different number of image repositories to be created in your registry, and has a different amount of storage and transfer included. There are multiple regions available for container registry and controls where your data is stored. To list the available options, send a GET request to /v2/registry/options.
+
+The response will be a JSON object with a key called options which contains a key called subscription_tiers listing the available tiers.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean's managed database service simplifies the creation and management of highly available database clusters. Currently, it offers support for PostgreSQL, Redis, MySQL, and MongoDB.
+
+By sending requests to the /v2/databases endpoint, you can list, create, or delete database clusters as well as scale the size of a cluster, add or remove read-only replicas, and manage other configuration details.
+
+Database clusters may be deployed in a multi-node, high-availability configuration. If your machine type is above the basic nodes, your node plan is above the smallest option, or you are running MongoDB, you may additionally include up to two standby nodes in your cluster.
+
+The size of individual nodes in a database cluster is represented by a human-readable slug, which is used in some of the following requests. Each slug denotes the node's identifier, CPU count, and amount of RAM, in that order.
+
+For a list of currently available database slugs and options, use the /v2/databases/options endpoint or use the doctl databases options command.
+
+To list all of the options available for the offered database engines, send a GET request to /v2/databases/options. The result will be a JSON object with an options key.
+
+A JSON string with a key of options.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the database clusters available on your account, send a GET request to /v2/databases. To limit the results to database clusters with a specific tag, include the tag_name query parameter set to the name of the tag. For example, /v2/databases?tag_name=$TAG_NAME. The result will be a JSON object with a databases key. This will be set to an array of database objects, each of which will contain the standard database attributes. The embedded connection and private_connection objects will contain the information needed to access the database cluster: The embedded maintenance_window object will contain information about any scheduled maintenance for the database cluster.
+
+Limits the results to database clusters with a specific tag.
+
+A JSON object with a key of databases.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a database cluster, send a POST request to /v2/databases. The response will be a JSON object with a key called database. The value of this will be an object that contains the standard attributes associated with a database cluster. The initial value of the database cluster's status attribute will be creating. When the cluster is ready to receive traffic, this will transition to online. The embedded connection and private_connection objects will contain the information needed to access the database cluster. DigitalOcean managed PostgreSQL and MySQL database clusters take automated daily backups. To create a new database cluster based on a backup of an existing cluster, send a POST request to /v2/databases. In addition to the standard database cluster attributes, the JSON body must include a key named backup_restore with the name of the original database cluster and the timestamp of the backup to be restored. Creating a database from a backup is the same as forking a database in the control panel. Note: Backups are not supported for Redis clusters.

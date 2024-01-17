@@ -1,0 +1,135 @@
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information the user associated with a Kubernetes cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/user.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The response will be a JSON object with a key called kubernetes_cluster_user containing the username and in-cluster groups that it belongs to.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list the versions of Kubernetes available for use, the regions that support Kubernetes, and the available node sizes, send a GET request to /v2/kubernetes/options.
+
+The response will be a JSON object with a key called options which contains regions, versions, and sizes objects listing the available options and the matching slugs for use when creating a new cluster.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Clusterlint helps operators conform to Kubernetes best practices around resources, security and reliability to avoid common problems while operating or upgrading the clusters.
+
+To request a clusterlint run on your cluster, send a POST request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint. This will run all checks present in the doks group by default, if a request body is not specified. Optionally specify the below attributes.
+
+For information about the available checks, please refer to the clusterlint check documentation.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+An array of check groups that will be run when clusterlint executes checks.
+
+An array of checks that will be run when clusterlint executes checks.
+
+An array of check groups that will be omitted when clusterlint executes checks.
+
+An array of checks that will be run when clusterlint executes checks.
+
+The response is a JSON object with a key called run_id that you can later use to fetch the run results.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To request clusterlint diagnostics for your cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint. If the run_id query parameter is provided, then the diagnostics for the specific run is fetched. By default, the latest results are shown.
+
+To find out how to address clusterlint feedback, please refer to the clusterlint check documentation.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+Specifies the clusterlint run whose results will be retrieved.
+
+The response is a JSON object which contains the diagnostics on Kubernetes objects in the cluster. Each diagnostic will contain some metadata information about the object and feedback for users to act upon.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To integrate the container registry with Kubernetes clusters, send a POST request to /v2/kubernetes/registry.
+
+An array containing the UUIDs of Kubernetes clusters.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove the container registry from Kubernetes clusters, send a DELETE request to /v2/kubernetes/registry.
+
+An array containing the UUIDs of Kubernetes clusters.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean Load Balancers provide a way to distribute traffic across multiple Droplets. By sending requests to the /v2/load_balancers endpoint, you can list, create, or delete load balancers as well as add or remove Droplets, forwarding rules, and other configuration details.
+
+To create a new load balancer instance, send a POST request to /v2/load_balancers.
+
+You can specify the Droplets that will sit behind the load balancer using one of two methods:
+
+These methods are mutually exclusive.
+
+An array containing the IDs of the Droplets assigned to the load balancer.

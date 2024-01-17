@@ -1,0 +1,421 @@
+{
+"project":
+{
+"id": "4e1bfbc3-dc3e-41f2-a18f-1b4d7ba71679",
+"owner_uuid": "99525febec065ca37b2ffe4f852fd2b2581895e7",
+"owner_id": 258992,
+"name": "my-web-api",
+"description": "My website API",
+"purpose": "Service or API",
+"environment": "Production",
+"created_at": "2018-09-27T20:10:35Z",
+"updated_at": "2018-09-27T20:10:35Z",
+"is_default": false
+}
+}
+
+/v2/projects/$PROJECT_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/regions
+
+regions
+
+region
+
+read
+
+regions
+
+region
+
+region
+
+{
+"regions":
+[
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 13
+}
+}
+
+floating_ips
+
+reserved_ips
+
+floating_ip
+
+reserved_ips
+
+floating_ips
+
+/v2/reserved_ips/$RESERVED_IP/actions
+
+read
+
+actions
+
+{
+"actions":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/reserved_ips/$RESERVED_IP/actions
+
+type
+
+assign
+
+unassign
+
+write
+
+type
+
+action
+
+{
+"type": "unassign"
+}
+
+{
+"action":
+{
+"id": 72531856,
+"status": "completed",
+"type": "assign_ip",
+"started_at": "2015-11-12T17:51:03Z",
+"completed_at": "2015-11-12T17:51:14Z",
+"resource_id": 758604968,
+"resource_type": "reserved_ip",
+"region":
+{
+},
+"region_slug": "nyc3",
+"project_id": "746c6152-2fa2-11ed-92d3-27aaa54e4988"
+}
+}
+
+/v2/reserved_ips/$RESERVED_IP/actions/$ACTION_ID
+
+read
+
+action
+
+{
+"action":
+{
+"id": 72531856,
+"status": "completed",
+"type": "assign_ip",
+"started_at": "2015-11-12T17:51:03Z",
+"completed_at": "2015-11-12T17:51:14Z",
+"resource_id": 758604968,
+"resource_type": "reserved_ip",
+"region":
+{
+},
+"region_slug": "nyc3",
+"project_id": "746c6152-2fa2-11ed-92d3-27aaa54e4988"
+}
+}
+
+floating_ips
+
+reserved_ips
+
+floating_ip
+
+reserved_ips
+
+floating_ips
+
+/v2/reserved_ips
+
+read
+
+reserved_ips
+
+{
+"reserved_ips":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/reserved_ips
+
+droplet_id
+
+/v2/reserved_ips
+
+region
+
+write
+
+reserved_ip
+
+links
+
+{
+"droplet_id": 2457247
+}
+
+{
+"reserved_ip":
+{
+"ip": "45.55.96.47",
+"droplet": null,
+"region":
+{
+},
+"locked": true,
+"project_id": "746c6152-2fa2-11ed-92d3-27aaa54e4988"
+},
+"links":
+{
+"droplets":
+[
+],
+"actions":
+[
+]
+}
+}
+
+/v2/reserved_ips/$RESERVED_IP_ADDR
+
+read
+
+reserved_ip
+
+{
+"reserved_ip":
+{
+"ip": "45.55.96.47",
+"droplet":
+{
+},
+"region":
+{
+},
+"locked": false,
+"project_id": "746c6152-2fa2-11ed-92d3-27aaa54e4988"
+}
+}
+
+/v2/reserved_ips/$RESERVED_IP_ADDR
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/sizes
+
+sizes
+
+size
+
+read
+
+sizes
+
+size
+
+{
+"sizes":
+[
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 64
+}
+}
+
+resource_type
+
+min_disk_size
+
+/v2/snapshots
+
+/v2/snapshots
+
+snapshots
+
+snapshot
+
+resource_type
+
+droplet
+
+/v2/snapshots?resource_type=droplet
+
+resource_type
+
+volume
+
+/v2/snapshots?resource_type=volume
+
+read
+
+snapshots
+
+{
+"snapshots":
+[
+{
+},
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 2
+}
+}
+
+/v2/snapshots/$SNAPSHOT_ID
+
+snapshot
+
+read
+
+snapshot
+
+{
+"snapshot":
+{
+"id": "6372321",
+"name": "web-01-1595954862243",
+"created_at": "2020-07-28T16:47:44Z",
+"regions":
+[
+],
+"min_disk_size": 25,
+"size_gigabytes": 2.34,
+"resource_id": "200776916",
+"resource_type": "droplet",
+"tags":
+[
+]
+}
+}
+
+/v2/snapshots/
+
+/v2/snapshots/$SNAPSHOT_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/account/keys
+
+ssh_keys
+
+read
+
+ssh_keys
+
+ssh_key
+
+ssh_key
+
+{
+"ssh_keys":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/account/keys
+
+name
+
+public_key
+
+write
+
+authorized_keys
+
+ssh_key
+
+{
+"public_key": "ssh-rsa AEXAMPLEaC1yc2EAAAADAQABAAAAQQDDHr/jh2Jy4yALcK4JyWbVkPRaWmhck3IgCoeOO3z1e2dBowLh64QAM+Qb72pxekALga2oi4GvT+TlWNhzPH4V example",
+"name": "My SSH Public Key"
+}
+
+{
+"ssh_key":
+{
+"id": 512189,
+"fingerprint": "3b:16:bf:e4:8b:00:8b:b8:59:8c:a9:d3:f0:19:45:fa",
+"public_key": "ssh-rsa AEXAMPLEaC1yc2EAAAADAQABAAAAQQDDHr/jh2Jy4yALcK4JyWbVkPRaWmhck3IgCoeOO3z1e2dBowLh64QAM+Qb72pxekALga2oi4GvT+TlWNhzPH4V example",
+"name": "My SSH Public Key"
+}
+}
+
+/v2/account/keys/$KEY_ID
+
+/v2/account/keys/$KEY_FINGERPRINT
+
+ssh_key
+
+read
+
+ssh_key
+
+ssh_key
+
+ssh_key

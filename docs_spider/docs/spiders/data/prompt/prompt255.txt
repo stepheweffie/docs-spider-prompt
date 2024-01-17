@@ -1,0 +1,458 @@
+events
+
+read
+
+events
+
+{
+"events":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/databases/$DATABASE_ID/replicas/$REPLICA_NAME
+
+replica key
+
+read
+
+replica
+
+{
+"replica":
+{
+"name": "read-nyc3-01",
+"connection":
+{
+},
+"private_connection":
+{
+},
+"region": "nyc3",
+"status": "online",
+"created_at": "2019-01-11T18:37:36Z"
+}
+}
+
+/v2/databases/$DATABASE_ID/replicas/$REPLICA_NAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/replicas/$REPLICA_NAME/promote
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/users
+
+users
+
+read
+
+users
+
+{
+"users":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/databases/$DATABASE_ID/users
+
+mysql_settings
+
+settings
+
+user
+
+write
+
+true
+
+user
+
+{
+"name": "app-01"
+}
+
+{
+"user":
+{
+"name": "app-01",
+"role": "normal",
+"password": "jge5lfxtzhx42iff"
+}
+}
+
+/v2/databases/$DATABASE_ID/users/$USERNAME
+
+user
+
+mysql_settings
+
+settings
+
+read
+
+user
+
+{
+"user":
+{
+"name": "app-01",
+"role": "normal",
+"password": "jge5lfxtzhx42iff"
+}
+}
+
+/v2/databases/$DATABASE_ID/users/$USERNAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/users/$USERNAME
+
+settings
+
+user
+
+settings
+
+write
+
+user
+
+{
+"settings":
+{
+"acl":
+[
+]
+}
+}
+
+{
+"user":
+{
+"name": "app-01",
+"role": "normal",
+"password": "jge5lfxtzhx42iff"
+}
+}
+
+/v2/databases/$DATABASE_ID/users/$USERNAME/reset_auth
+
+mysql
+
+mysql_settings
+
+auth_plugin
+
+user
+
+write
+
+user
+
+{
+"mysql_settings":
+{
+"auth_plugin": "caching_sha2_password"
+}
+}
+
+{
+"user":
+{
+"name": "app-01",
+"role": "normal",
+"password": "jge5lfxtzhx42iff"
+}
+}
+
+/v2/databases/$DATABASE_ID/dbs
+
+dbs
+
+read
+
+databases
+
+{
+"dbs":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/databases/$DATABASE_ID/dbs
+
+db
+
+write
+
+db
+
+{
+"name": "alpha"
+}
+
+{
+"db":
+{
+"name": "alpha"
+}
+}
+
+/v2/databases/$DATABASE_ID/dbs/$DB_NAME
+
+db
+
+read
+
+db
+
+{
+"db":
+{
+"name": "alpha"
+}
+}
+
+/v2/databases/$DATABASE_ID/dbs/$DB_NAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/pools
+
+pools
+
+read
+
+pools
+
+{
+"pools":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/databases/$DATABASE_ID/pools
+
+write
+
+pool
+
+{
+"name": "backend-pool",
+"mode": "transaction",
+"size": 10,
+"db": "defaultdb",
+"user": "doadmin"
+}
+
+{
+"pool":
+{
+"user": "doadmin",
+"name": "backend-pool",
+"size": 10,
+"db": "defaultdb",
+"mode": "transaction",
+"connection":
+{
+}
+}
+}
+
+/v2/databases/$DATABASE_ID/pools/$POOL_NAME
+
+pool
+
+read
+
+pool
+
+{
+"pool":
+{
+"user": "doadmin",
+"name": "backend-pool",
+"size": 10,
+"db": "defaultdb",
+"mode": "transaction",
+"connection":
+{
+}
+}
+}
+
+/v2/databases/$DATABASE_ID/pools/$POOL_NAME
+
+read
+
+{
+"mode": "transaction",
+"size": 10,
+"db": "defaultdb",
+"user": "doadmin"
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/pools/$POOL_NAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/eviction_policy
+
+eviction_policy
+
+read
+
+eviction_policy
+
+{
+"eviction_policy": "allkeys_lru"
+}
+
+/v2/databases/$DATABASE_ID/eviction_policy
+
+write
+
+noeviction
+
+allkeys_lru:
+
+allkeys_random
+
+volatile_lru
+
+volatile_random
+
+volatile_ttl
+
+{
+"eviction_policy": "allkeys_lru"
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/sql_mode
+
+sql_mode
+
+read
+
+sql_mode
+
+{
+"sql_mode": "ANSI,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,STRICT_ALL_TABLES"
+}
+
+/v2/databases/$DATABASE_ID/sql_mode
+
+write
+
+{
+"sql_mode": "ANSI,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE"
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/upgrade
+
+write
+
+{
+"version": "14"
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/topics
+
+topics
+
+read
+
+topics
+
+{
+"topics":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/databases/$DATABASE_ID/topics
+
+topic
+
+write
+
+topic
+
+{
+"name": "customer-events",
+"partitions": 3,
+"replication": 2,
+"config":
+{
+"retention_bytes": -1,
+"retention_ms": 100000
+}
+}

@@ -1,0 +1,143 @@
+To add an additional forwarding rule to a load balancer instance, send a POST request to /v2/load_balancers/$LOAD_BALANCER_ID/forwarding_rules. In the body of the request, there should be a forwarding_rules attribute containing an array of rules to be added.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique identifier for a load balancer.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove forwarding rules from a load balancer instance, send a DELETE request to /v2/load_balancers/$LOAD_BALANCER_ID/forwarding_rules. In the body of the request, there should be a forwarding_rules attribute containing an array of rules to be removed.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique identifier for a load balancer.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+The DigitalOcean Monitoring API makes it possible to programmatically retrieve metrics as well as configure alert policies based on these metrics. The Monitoring API can help you gain insight into how your apps are performing and consuming resources.
+
+Returns all alert policies that are configured for the given account. To List all alert policies, send a GET request to /v2/monitoring/alerts.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A list of alert policies.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new alert, send a POST request to /v2/monitoring/alerts.
+
+The type field dictates what type of entity that the alert policy applies to and hence what type of entity is passed in the entities array. If both the tags array and entities array are empty the alert policy applies to all entities of the relevant type that are owned by the user account. Otherwise the following table shows the valid entity types for each type of alert policy:
+
+An alert policy.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a given alert policy, send a GET request to /v2/monitoring/alerts/{alert_uuid}
+
+A unique identifier for an alert policy.
+
+An alert policy.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update en existing policy, send a PUT request to v2/monitoring/alerts/{alert_uuid}.
+
+A unique identifier for an alert policy.
+
+The type field dictates what type of entity that the alert policy applies to and hence what type of entity is passed in the entities array. If both the tags array and entities array are empty the alert policy applies to all entities of the relevant type that are owned by the user account. Otherwise the following table shows the valid entity types for each type of alert policy:
+
+An alert policy.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete an alert policy, send a DELETE request to /v2/monitoring/alerts/{alert_uuid}
+
+A unique identifier for an alert policy.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve bandwidth metrics for a given Droplet, send a GET request to /v2/monitoring/metrics/droplet/bandwidth. Use the interface query parameter to specify if the results should be for the private or public interface. Use the direction query parameter to specify if the results should be for inbound or outbound traffic.
+
+The droplet ID.
+
+The network interface.
+
+The traffic direction.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.

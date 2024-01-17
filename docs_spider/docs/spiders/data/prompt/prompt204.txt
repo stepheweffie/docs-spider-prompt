@@ -1,0 +1,111 @@
+DigitalOcean offers the ability for you to create a private container registry to store your Docker images for use with your Kubernetes clusters. This container registry runs inside the same datacenters as your cluster, ensuring reliable and performant rollout of image deployments.
+
+You can only create one registry per DigitalOcean account, but you can use that registry to create as many repositories as you wish.
+
+To get information about your container registry, send a GET request to /v2/registry.
+
+The response will be a JSON object with the key registry containing information about your registry.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create your container registry, send a POST request to /v2/registry.
+
+The name becomes part of the URL for images stored in the registry. For example, if your registry is called example, an image in it will have the URL registry.digitalocean.com/example/image:tag.
+
+A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and -, up to a limit of 63 characters.
+
+The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
+
+Slug of the region where registry data is stored. When not provided, a region will be selected.
+
+The response will be a JSON object with the key registry containing information about your registry.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete your container registry, destroying all container image data stored in it, send a DELETE request to /v2/registry.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+A subscription is automatically created when you configure your container registry. To get information about your subscription, send a GET request to /v2/registry/subscription.
+
+The response will be a JSON object with a key called subscription containing information about your subscription.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+After creating your registry, you can switch to a different subscription tier to better suit your needs. To do this, send a POST request to /v2/registry/subscription.
+
+The slug of the subscription tier to sign up for.
+
+The response will be a JSON object with a key called subscription containing information about your subscription.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+In order to access your container registry with the Docker client or from a Kubernetes cluster, you will need to configure authentication. The necessary JSON configuration can be retrieved by sending a GET request to /v2/registry/docker-credentials.
+
+The response will be in the format of a Docker config.json file. To use the config in your Kubernetes cluster, create a Secret with:
+
+By default, the returned credentials have read-only access to your registry and cannot be used to push images. This is appropriate for most Kubernetes clusters. To retrieve read/write credentials, suitable for use with the Docker client or in a CI system, read_write may be provided as query parameter. For example: /v2/registry/docker-credentials?read_write=true
+
+By default, the returned credentials will not expire. To retrieve credentials with an expiry set, expiry_seconds may be provided as a query parameter. For example: /v2/registry/docker-credentials?expiry_seconds=3600 will return credentials that expire after one hour.
+
+The duration in seconds that the returned registry credentials will be valid. If not set or 0, the credentials will not expire.
+
+By default, the registry credentials allow for read-only access. Set this query parameter to true to obtain read-write credentials.
+
+A Docker config.json file for the container registry.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To validate that a container registry name is available for use, send a POST request to /v2/registry/validate-name.

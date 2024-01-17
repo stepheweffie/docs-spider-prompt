@@ -1,0 +1,439 @@
+{
+"ssh_key":
+{
+"id": 512189,
+"fingerprint": "3b:16:bf:e4:8b:00:8b:b8:59:8c:a9:d3:f0:19:45:fa",
+"public_key": "ssh-rsa AEXAMPLEaC1yc2EAAAADAQABAAAAQQDDHr/jh2Jy4yALcK4JyWbVkPRaWmhck3IgCoeOO3z1e2dBowLh64QAM+Qb72pxekALga2oi4GvT+TlWNhzPH4V example",
+"name": "My SSH Public Key"
+}
+}
+
+/v2/account/keys/$SSH_KEY_ID
+
+/v2/account/keys/$SSH_KEY_FINGERPRINT
+
+name
+
+write
+
+name
+
+ssh_key
+
+ssh_key
+
+ssh_key
+
+{
+"name": "My SSH Public Key"
+}
+
+{
+"ssh_key":
+{
+"id": 512189,
+"fingerprint": "3b:16:bf:e4:8b:00:8b:b8:59:8c:a9:d3:f0:19:45:fa",
+"public_key": "ssh-rsa AEXAMPLEaC1yc2EAAAADAQABAAAAQQDDHr/jh2Jy4yALcK4JyWbVkPRaWmhck3IgCoeOO3z1e2dBowLh64QAM+Qb72pxekALga2oi4GvT+TlWNhzPH4V example",
+"name": "My SSH Public Key"
+}
+}
+
+/v2/account/keys/$KEY_ID
+
+/v2/account/keys/$KEY_FINGERPRINT
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+name
+
+resources
+
+/v2/tags
+
+read
+
+GET
+
+/v2/tags
+
+{
+"tags":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/tags
+
+name
+
+write
+
+https://api.digitalocean.com/v2/tags/PROD/resources
+
+/v2/tags/prod/resources
+
+{
+"name": "extra-awesome"
+}
+
+{
+"tag":
+{
+"name": "extra-awesome",
+"resources":
+{
+}
+}
+}
+
+GET
+
+/v2/tags/$TAG_NAME
+
+read
+
+tag
+
+{
+"tag":
+{
+"tag":
+{
+}
+}
+}
+
+DELETE
+
+/v2/tags/$TAG_NAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/tags/$TAG_NAME/resources
+
+resource_id
+
+resource_type
+
+resource_type
+
+droplet
+
+database
+
+image
+
+volume
+
+volume_snapshot
+
+resource_id
+
+write
+
+{
+"resources":
+[
+{
+},
+{
+},
+{
+}
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/tags/$TAG_NAME/resources
+
+resource_id
+
+resource_type
+
+resource_type
+
+droplet
+
+database
+
+image
+
+volume
+
+volume_snapshot
+
+resource_id
+
+write
+
+{
+"resources":
+[
+{
+},
+{
+},
+{
+}
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/uptime/
+
+/v2/uptime/checks
+
+read
+
+checks
+
+{
+"checks":
+[
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/uptime/checks
+
+write
+
+check
+
+{
+"name": "Landing page check",
+"type": "https",
+"target": "https://www.landingpage.com",
+"regions":
+[
+"us_east",
+"eu_west"
+],
+"enabled": true
+}
+
+{
+"check":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page check",
+"type": "https",
+"target": "https://www.landingpage.com",
+"regions":
+[
+],
+"enabled": true
+}
+}
+
+/v2/uptime/checks/$CHECK_ID
+
+read
+
+check
+
+{
+"check":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page check",
+"type": "https",
+"target": "https://www.landingpage.com",
+"regions":
+[
+],
+"enabled": true
+}
+}
+
+/v2/uptime/checks/$CHECK_ID
+
+write
+
+check
+
+{
+"name": "Landing page check",
+"type": "https",
+"target": "https://www.landingpage.com",
+"regions":
+[
+"us_east",
+"eu_west"
+],
+"enabled": true
+}
+
+{
+"check":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page check",
+"type": "https",
+"target": "https://www.landingpage.com",
+"regions":
+[
+],
+"enabled": true
+}
+}
+
+/v2/uptime/checks/$CHECK_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/uptime/checks/$CHECK_ID/state
+
+read
+
+state
+
+{
+"state":
+{
+"regions":
+{
+},
+"previous_outage":
+{
+}
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts
+
+read
+
+alerts
+
+{
+"alerts":
+[
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts
+
+write
+
+latency
+
+down
+
+down_global
+
+ssl_expiry
+
+alert
+
+{
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+"email":
+[
+],
+"slack":
+[
+]
+},
+"period": "2m"
+}
+
+{
+"alert":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+},
+"period": "2m"
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID
+
+read
+
+alert
+
+{
+"alert":
+{
+"id": "5a4981aa-9653-4bd1-bef5-d6bff52042e4",
+"name": "Landing page degraded performance",
+"type": "latency",
+"threshold": 300,
+"comparison": "greater_than",
+"notifications":
+{
+},
+"period": "2m"
+}
+}
+
+/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID
+
+write
+
+alert

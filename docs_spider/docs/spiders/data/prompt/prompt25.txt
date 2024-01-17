@@ -1,0 +1,123 @@
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a given topic by name from the set of a Kafka cluster's topics, send a GET request to /v2/databases/$DATABASE_ID/topics/$TOPIC_NAME.
+
+The result will be a JSON object with a topic key.
+
+A unique identifier for a database cluster.
+
+The name used to identify the Kafka topic.
+
+A JSON object with a key of topic.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update a topic attached to a Kafka cluster, send a PUT request to /v2/databases/$DATABASE_ID/topics/$TOPIC_NAME.
+
+The result will be a JSON object with a topic key.
+
+A unique identifier for a database cluster.
+
+The name used to identify the Kafka topic.
+
+The number of nodes to replicate data across the cluster.
+
+The number of partitions available for the topic. On update, this value can only be increased.
+
+A JSON object with a key of topic.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a single topic within a Kafka cluster, send a DELETE request to /v2/databases/$DATABASE_ID/topics/$TOPIC_NAME.
+
+A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
+
+A unique identifier for a database cluster.
+
+The name used to identify the Kafka topic.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Domain record resources are used to set or retrieve information about the individual DNS records configured for a domain. This allows you to build and manage DNS zone files by adding and modifying individual records for a domain.
+
+The DigitalOcean DNS management interface allows you to configure the following DNS records:
+
+To get a listing of all records configured for a domain, send a GET request to /v2/domains/$DOMAIN_NAME/records. The list of records returned can be filtered by using the name and type query parameters. For example, to only include A records for a domain, send a GET request to /v2/domains/$DOMAIN_NAME/records?type=A. name must be a fully qualified record name. For example, to only include records matching sub.example.com, send a GET request to /v2/domains/$DOMAIN_NAME/records?name=sub.example.com. Both name and type may be used together.
+
+The name of the domain itself.
+
+A fully qualified record name. For example, to only include records matching sub.example.com, send a GET request to /v2/domains/$DOMAIN_NAME/records?name=sub.example.com.
+
+The type of the DNS record. For example: A, CNAME, TXT, ...
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called domain_records. The value of this will be an array of domain record objects, each of which contains the standard domain record attributes. For attributes that are not used by a specific record type, a value of null will be returned. For instance, all records other than SRV will have null for the weight and port attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new record to a domain, send a POST request to /v2/domains/$DOMAIN_NAME/records.
+
+The request must include all of the required fields for the domain record type being added.
+
+See the attribute table for details regarding record types and their respective required attributes.
+
+The name of the domain itself.
+
+The type of the DNS record. For example: A, CNAME, TXT, ...
+
+The host name, alias, or service being defined by the record.
+
+Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
+
+The priority for SRV and MX records.
+
+The port for SRV records.

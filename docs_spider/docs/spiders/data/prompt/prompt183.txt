@@ -1,0 +1,184 @@
+{
+"kubernetes_cluster":
+{
+"id": "bd5f5959-5e1e-4205-a714-a914373942af",
+"name": "prod-cluster-01",
+"region": "nyc1",
+"version": "1.18.6-do.0",
+"cluster_subnet": "10.244.0.0/16",
+"service_subnet": "10.245.0.0/16",
+"vpc_uuid": "c33931f2-a26a-4e61-b85c-4e95a2ec431b",
+"ipv4": "68.183.121.157",
+"endpoint": "https://bd5f5959-5e1e-4205-a714-a914373942af.k8s.ondigitalocean.com",
+"tags":
+[
+],
+"node_pools":
+[
+],
+"maintenance_policy":
+{
+},
+"auto_upgrade": false,
+"status":
+{
+},
+"created_at": "2018-11-15T16:00:11Z",
+"updated_at": "2018-11-15T16:00:11Z",
+"surge_upgrade": false,
+"registry_enabled": false,
+"ha": false
+}
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID
+
+write
+
+k8s
+
+k8s:$K8S_CLUSTER_ID
+
+kubernetes_cluster
+
+{
+"name": "prod-cluster-01",
+"tags":
+[
+"k8s",
+"k8s:bd5f5959-5e1e-4205-a714-a914373942af",
+"production",
+"web-team"
+],
+"maintenance_policy":
+{
+"start_time": "12:00",
+"day": "any"
+},
+"auto_upgrade": true,
+"surge_upgrade": true,
+"ha": true
+}
+
+{
+"kubernetes_cluster":
+{
+"id": "bd5f5959-5e1e-4205-a714-a914373942af",
+"name": "prod-cluster-01",
+"region": "nyc1",
+"version": "1.18.6-do.0",
+"cluster_subnet": "10.244.0.0/16",
+"service_subnet": "10.245.0.0/16",
+"vpc_uuid": "c33931f2-a26a-4e61-b85c-4e95a2ec431b",
+"ipv4": "68.183.121.157",
+"endpoint": "https://bd5f5959-5e1e-4205-a714-a914373942af.k8s.ondigitalocean.com",
+"tags":
+[
+],
+"node_pools":
+[
+],
+"maintenance_policy":
+{
+},
+"auto_upgrade": true,
+"status":
+{
+},
+"created_at": "2018-11-15T16:00:11Z",
+"updated_at": "2018-11-15T16:00:11Z",
+"surge_upgrade": true,
+"registry_enabled": false,
+"ha": false
+}
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources
+
+read
+
+load_balancers
+
+volumes
+
+volume_snapshots
+
+{
+"load_balancers":
+[
+{
+}
+],
+"volumes":
+[
+{
+}
+],
+"volume_snapshots":
+[
+{
+}
+]
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective
+
+load_balancers
+
+volumes
+
+volume_snapshots
+
+write
+
+{
+"load_balancers":
+[
+"4de7ac8b-495b-4884-9a69-1050c6793cd6"
+],
+"volumes":
+[
+"ba49449a-7435-11ea-b89e-0a58ac14480f"
+],
+"volume_snapshots":
+[
+"edb0478d-7436-11ea-86e6-0a58ac144b91"
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/dangerous
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+kubectl
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig?expiry_seconds=$DURATION_IN_SECONDS
+
+write
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials?expiry_seconds=$DURATION_IN_SECONDS
+
+write

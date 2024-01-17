@@ -1,0 +1,145 @@
+Updates the emails and slack webhook destinations for app alerts. Emails must be associated to a user with access to the app.
+
+The app ID
+
+The alert ID
+
+A JSON object with an alert key. This is an object of type alert.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Rollback an app to a previous deployment. A new deployment will be created to perform the rollback. The app will be pinned to the rollback deployment preventing any new deployments from being created, either manually or through Auto Deploy on Push webhooks. To resume deployments, the rollback must be either committed or reverted.
+
+It is recommended to use the Validate App Rollback endpoint to double check if the rollback is valid and if there are any warnings.
+
+The app ID
+
+The ID of the deployment to rollback to.
+
+Whether to skip pinning the rollback deployment. If false, the rollback deployment will be pinned and any new deployments including Auto Deploy on Push hooks will be disabled until the rollback is either manually committed or reverted via the CommitAppRollback or RevertAppRollback endpoints respectively. If true, the rollback will be immediately committed and the app will remain unpinned.
+
+A JSON object with a deployment key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Check whether an app can be rolled back to a specific deployment. This endpoint can also be used to check if there are any warnings or validation conditions that will cause the rollback to proceed under unideal circumstances. For example, if a component must be rebuilt as part of the rollback causing it to take longer than usual.
+
+The app ID
+
+The ID of the deployment to rollback to.
+
+Whether to skip pinning the rollback deployment. If false, the rollback deployment will be pinned and any new deployments including Auto Deploy on Push hooks will be disabled until the rollback is either manually committed or reverted via the CommitAppRollback or RevertAppRollback endpoints respectively. If true, the rollback will be immediately committed and the app will remain unpinned.
+
+A JSON object with the validation results.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Commit an app rollback. This action permanently applies the rollback and unpins the app to resume new deployments.
+
+The app ID
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Revert an app rollback. This action reverts the active rollback by creating a new deployment from the latest app spec prior to the rollback and unpins the app to resume new deployments.
+
+The app ID
+
+A JSON object with a deployment key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve daily bandwidth usage metrics for a single app.
+
+The app ID
+
+Optional day to query. Only the date component of the timestamp will be considered. Default: yesterday.
+
+A JSON object with a app_bandwidth_usage key
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve daily bandwidth usage metrics for multiple apps.
+
+A list of app IDs to query bandwidth metrics for.
+
+Optional day to query. Only the date component of the timestamp will be considered. Default: yesterday.
+
+A JSON object with a app_bandwidth_usage key
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+The billing endpoints allow you to retrieve your account balance, invoices and billing history.
+
+Balance: By sending requests to the /v2/customers/my/balance endpoint, you can retrieve the balance information for the requested customer account.

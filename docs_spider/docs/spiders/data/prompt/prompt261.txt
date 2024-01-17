@@ -1,0 +1,217 @@
+{
+"kubernetes_cluster":
+{
+"id": "bd5f5959-5e1e-4205-a714-a914373942af",
+"name": "prod-cluster-01",
+"region": "nyc1",
+"version": "1.18.6-do.0",
+"cluster_subnet": "10.244.0.0/16",
+"service_subnet": "10.245.0.0/16",
+"vpc_uuid": "c33931f2-a26a-4e61-b85c-4e95a2ec431b",
+"ipv4": "68.183.121.157",
+"endpoint": "https://bd5f5959-5e1e-4205-a714-a914373942af.k8s.ondigitalocean.com",
+"tags":
+[
+],
+"node_pools":
+[
+],
+"maintenance_policy":
+{
+},
+"auto_upgrade": true,
+"status":
+{
+},
+"created_at": "2018-11-15T16:00:11Z",
+"updated_at": "2018-11-15T16:00:11Z",
+"surge_upgrade": true,
+"registry_enabled": false,
+"ha": false
+}
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources
+
+read
+
+load_balancers
+
+volumes
+
+volume_snapshots
+
+{
+"load_balancers":
+[
+{
+}
+],
+"volumes":
+[
+{
+}
+],
+"volume_snapshots":
+[
+{
+}
+]
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective
+
+load_balancers
+
+volumes
+
+volume_snapshots
+
+write
+
+{
+"load_balancers":
+[
+"4de7ac8b-495b-4884-9a69-1050c6793cd6"
+],
+"volumes":
+[
+"ba49449a-7435-11ea-b89e-0a58ac14480f"
+],
+"volume_snapshots":
+[
+"edb0478d-7436-11ea-86e6-0a58ac144b91"
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/dangerous
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+kubectl
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig?expiry_seconds=$DURATION_IN_SECONDS
+
+write
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials?expiry_seconds=$DURATION_IN_SECONDS
+
+write
+
+{
+"server": "https://bd5f5959-5e1e-4205-a714-a914373942af.k8s.ondigitalocean.com",
+"certificate_authority_data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURKekNDQWcrZ0F3SUJBZ0lDQm5Vd0RRWUpLb1pJaHZjTkFRRUxCUUF3TXpFVk1CTUdBMVVFQ2hNTVJHbG4KYVhSaGJFOWpaV0Z1TVJvd0dBWURWUVFERXhGck9ITmhZWE1nUTJ4MWMzUmxjaUJEUVRBZUZ3MHlNREE0TURNeApOVEkxTWpoYUZ3MDBNREE0TURNeE5USTFNamhhTURNeEZUQVRCZ05WQkFvVERFUnBaMmwwWVd4UFkyVmhiakVhCk1CZ0dBMVVFQXhNUmF6aHpZV0Z6SUVOc2RYTjBaWElnUTBFd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUIKRHdBd2dnRUtBb0lCQVFDc21oa2JrSEpUcGhZQlN0R05VVE1ORVZTd2N3bmRtajArelQvcUZaNGsrOVNxUnYrSgpBd0lCaGpBU0JnTlZIUk1CQWY4RUNEQUdBUUgvQWdFQU1CMEdBMVVkRGdRV0JCUlRzazhhZ1hCUnFyZXdlTXJxClhwa3E1NXg5dVRBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQXB6V2F6bXNqYWxXTEx3ZjVpbWdDblNINDlKcGkKYWkvbzFMdEJvVEpleGdqZzE1ZVppaG5BMUJMc0lWNE9BZGM3UEFsL040L0hlbENrTDVxandjamRnNVdaYnMzYwozcFVUQ0g5bVVwMFg1SVdhT1VKV292Q1hGUlM1R2VKYXlkSDVPUXhqTURzR2N2UlNvZGQrVnQ2MXE3aWdFZ2I1CjBOZ1l5RnRnc2p0MHpJN3hURzZFNnlsOVYvUmFoS3lIQks2eExlM1RnUGU4SXhWa2RwT3QzR0FhSDRaK0pLR3gKYisyMVZia1NnRE1QQTlyR0VKNVZwVXlBV0FEVXZDRVFHV0hmNGpQN2ZGZlc3T050S0JWY3h3YWFjcVBVdUhzWApwRG5DZVR3V1NuUVp6L05xNmQxWUtsMFdtbkwzTEowemJzRVFGbEQ4MkkwL09MY2dZSDVxMklOZHhBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=",
+"client_certificate_data": null,
+"client_key_data": null,
+"token": "$DIGITALOCEAN_TOKEN",
+"expires_at": "2019-11-09T11:50:28.889080521Z"
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades
+
+read
+
+available_upgrade_versions
+
+available_upgrade_versions
+
+null
+
+{
+"available_upgrade_versions":
+[
+{
+}
+]
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrade
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades
+
+write
+
+{
+"version": "1.16.13-do.0"
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools
+
+read
+
+node_pools
+
+{
+"node_pools":
+[
+{
+},
+{
+}
+]
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools
+
+write
+
+k8s
+
+k8s-worker
+
+k8s:$K8S_CLUSTER_ID
+
+0
+
+auto_scale
+
+false
+
+0
+
+auto_scale
+
+false
+
+node_pool
+
+{
+"size": "s-1vcpu-2gb",
+"count": 3,
+"name": "new-pool",
+"tags":
+[
+"frontend"
+],
+"auto_scale": true,
+"min_nodes": 3,
+"max_nodes": 6
+}

@@ -1,0 +1,81 @@
+Rather than returning a single Droplet, the response body will contain a JSON array with a key called droplets. This will be set to an array of JSON objects, each of which will contain the standard Droplet attributes. The response code, 202 Accepted, does not indicate the success or failure of any operation, just that the request has been accepted for processing. The array of actions returned as part of the response's links object can be used to check the status of each individual Droplet create event.
+
+The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
+
+The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. nyc) can be used to deploy the Droplet in any of the that region's locations (nyc1, nyc2, or nyc3). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+
+The slug identifier for the size that you wish to select for this Droplet.
+
+The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+
+An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+
+A boolean indicating whether automated backups should be enabled for the Droplet.
+
+A boolean indicating whether to enable IPv6 on the Droplet.
+
+A boolean indicating whether to install the DigitalOcean agent for monitoring.
+
+A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+
+A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+
+This parameter has been deprecated. Use vpc_uuid instead to specify a VPC network for the Droplet. If no vpc_uuid is provided, the Droplet will be placed in your account's default VPC for the region.
+
+An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+
+A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+
+A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to false. To make installation errors fatal, explicitly set it to true.
+
+Accepted
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete all Droplets assigned to a specific tag, include the tag_name query parameter set to the name of the tag in your DELETE request. For example, /v2/droplets?tag_name=$TAG_NAME.
+
+A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
+
+Specifies Droplets to be deleted by tag.
+
+The action was successful and the response body is empty. This response has content-type set.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an individual Droplet, send a GET request to /v2/droplets/$DROPLET_ID.
+
+A unique identifier for a Droplet instance.
+
+The response will be a JSON object with a key called droplet. This will be set to a JSON object that contains the standard Droplet attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a Droplet, send a DELETE request to /v2/droplets/$DROPLET_ID.

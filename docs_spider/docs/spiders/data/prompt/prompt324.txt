@@ -1,0 +1,165 @@
+A boolean value indicating whether or not the VPC is the default network for the region. All applicable resources are placed into the default VPC network unless otherwise specified during their creation. The default field cannot be unset from true. If you want to set a new default VPC network, update the default field of another VPC network in the same region. The previous network's default field will be set to false when a new default VPC has been defined.
+
+The response will be a JSON object with a key called vpc. The value of this will be an object that contains the standard attributes associated with a VPC.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update a subset of information about a VPC, send a PATCH request to /v2/vpcs/$VPC_ID.
+
+A unique identifier for a VPC.
+
+The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods.
+
+A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters.
+
+A boolean value indicating whether or not the VPC is the default network for the region. All applicable resources are placed into the default VPC network unless otherwise specified during their creation. The default field cannot be unset from true. If you want to set a new default VPC network, update the default field of another VPC network in the same region. The previous network's default field will be set to false when a new default VPC has been defined.
+
+The response will be a JSON object with a key called vpc. The value of this will be an object that contains the standard attributes associated with a VPC.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a VPC, send a DELETE request to /v2/vpcs/$VPC_ID. A 204 status code with no body will be returned in response to a successful request.
+
+The default VPC for a region can not be deleted. Additionally, a VPC can only be deleted if it does not contain any member resources. Attempting to delete a region's default VPC or a VPC that still has members will result in a 403 Forbidden error response.
+
+A unique identifier for a VPC.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the resources that are members of a VPC, send a GET request to /v2/vpcs/$VPC_ID/members.
+
+To only list resources of a specific type that are members of the VPC, included a resource_type query parameter. For example, to only list Droplets in the VPC, send a GET request to /v2/vpcs/$VPC_ID/members?resource_type=droplet.
+
+A unique identifier for a VPC.
+
+Used to filter VPC members by a resource type.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called members. This will be set to an array of objects, each of which will contain the standard attributes associated with a VPC member.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+    HTTP/1.1 403 Forbidden
+    {
+      "id":       "forbidden",
+      "message":  "You do not have access for the attempted action."
+    }
+
+/v2/droplets/$DROPLET_ID
+
+droplet
+
+/v2/droplets
+
+droplets
+
+    {
+        "droplet": {
+            "name": "example.com"
+            . . .
+        }
+    }
+
+    {
+        "droplets": [
+            {
+                "name": "example.com"
+                . . .
+            },
+            {
+                "name": "second.com"
+                . . .
+            }
+        ]
+    }
+
+meta
+
+meta
+
+total
+
+links
+
+meta
+
+meta
+
+droplets
+
+domains
+
+    {
+        . . .
+        "meta": {
+            "total": 43
+        }
+        . . .
+    }
+
+links
+
+links
+
+links
+
+?per_page=
+
+?per_page=2
+
+links
+
+pages
+
+pages
+
+pages
+
+first
+
+prev

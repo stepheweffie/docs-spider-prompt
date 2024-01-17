@@ -1,0 +1,121 @@
+To update an existing record, send a PATCH request to /v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID. Any attribute valid for the record type can be set to a new value for the record.
+
+See the attribute table for details regarding record types and their respective attributes.
+
+The name of the domain itself.
+
+The unique identifier of the domain record.
+
+The type of the DNS record. For example: A, CNAME, TXT, ...
+
+The host name, alias, or service being defined by the record.
+
+Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
+
+The priority for SRV and MX records.
+
+The port for SRV records.
+
+This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
+
+The weight for SRV records.
+
+An unsigned integer between 0-255 used for CAA records.
+
+The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
+
+The response will be a JSON object with a key called domain_record. The value of this will be a domain record object which contains the standard domain record attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update an existing record, send a PUT request to /v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID. Any attribute valid for the record type can be set to a new value for the record.
+
+See the attribute table for details regarding record types and their respective attributes.
+
+The name of the domain itself.
+
+The unique identifier of the domain record.
+
+The type of the DNS record. For example: A, CNAME, TXT, ...
+
+The host name, alias, or service being defined by the record.
+
+Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
+
+The priority for SRV and MX records.
+
+The port for SRV records.
+
+This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
+
+The weight for SRV records.
+
+An unsigned integer between 0-255 used for CAA records.
+
+The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
+
+The response will be a JSON object with a key called domain_record. The value of this will be a domain record object which contains the standard domain record attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a record for a domain, send a DELETE request to /v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID.
+
+The record will be deleted and the response status will be a 204. This indicates a successful request with no body returned.
+
+The name of the domain itself.
+
+The unique identifier of the domain record.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Domain resources are domain names that you have purchased from a domain name registrar that you are managing through the DigitalOcean DNS interface.
+
+This resource establishes top-level control over each domain. Actions that affect individual domain records should be taken on the Domain Records resource.
+
+To retrieve a list of all of the domains in your account, send a GET request to /v2/domains.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called domains. The value of this will be an array of Domain objects, each of which contain the standard domain attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

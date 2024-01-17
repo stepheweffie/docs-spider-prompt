@@ -1,0 +1,123 @@
+The IP address and cluster API server endpoint will not be available until the cluster has finished provisioning. The initial value of the cluster's status.state attribute will be provisioning. When the cluster is ready, this will transition to running.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing Kubernetes cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The response will be a JSON object with a key called kubernetes_cluster. The value of this will be an object containing the standard attributes of a Kubernetes cluster.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update a Kubernetes cluster, send a PUT request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID and specify one or more of the attributes below.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A human-readable name for a Kubernetes cluster.
+
+An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged k8s and k8s:$K8S_CLUSTER_ID.
+
+An object specifying the maintenance window policy for the Kubernetes cluster.
+
+A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.
+
+A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.
+
+A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled.
+
+The response will be a JSON object with a key called kubernetes_cluster. The value of this will be an object containing the standard attributes of a Kubernetes cluster.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a Kubernetes cluster and all services deployed to it, send a DELETE request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID.
+
+A 204 status code with no body will be returned in response to a successful request.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list the associated billable resources that can be destroyed along with a cluster, send a GET request to the /v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources endpoint.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The response will be a JSON object containing load_balancers, volumes, and volume_snapshots keys. Each will be set to an array of objects containing the standard attributes for associated resources.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a Kubernetes cluster along with a subset of its associated resources, send a DELETE request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective.
+
+The JSON body of the request should include load_balancers, volumes, or volume_snapshots keys each set to an array of IDs for the associated resources to be destroyed.
+
+The IDs can be found by querying the cluster's associated resources endpoint. Any associated resource not included in the request will remain and continue to accrue changes on your account.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A list of IDs for associated load balancers to destroy along with the cluster.
+
+A list of IDs for associated volumes to destroy along with the cluster.
+
+A list of IDs for associated volume snapshots to destroy along with the cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

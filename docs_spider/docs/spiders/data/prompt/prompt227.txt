@@ -1,0 +1,95 @@
+Distributions are the public Linux distributions that are available to be used as a base to create Droplets.
+
+Applications, or 1-Click Apps, are distributions pre-configured with additional software.
+
+To interact with images, you will generally send requests to the images endpoint at /v2/images.
+
+To list all of the images available on your account, send a GET request to /v2/images.
+
+It's possible to request filtered results by including certain query parameters.
+
+Image Type
+
+Either 1-Click Application or OS Distribution images can be filtered by using the type query parameter.
+
+Important: The type query parameter does not directly relate to the type attribute.
+
+To retrieve only distribution images, include the type query parameter set to distribution, /v2/images?type=distribution.
+
+To retrieve only application images, include the type query parameter set to application, /v2/images?type=application.
+
+User Images
+
+To retrieve only the private images of a user, include the private query parameter set to true, /v2/images?private=true.
+
+Tags
+
+To list all images assigned to a specific tag, include the tag_name query parameter set to the name of the tag in your GET request. For example, /v2/images?tag_name=$TAG_NAME.
+
+Filters results based on image type which can be either application or distribution.
+
+Used to filter only user images.
+
+Used to filter images by a specific tag.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called images. This will be set to an array of image objects, each of which will contain the standard image attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new custom image, send a POST request to /v2/images. The body must contain a url attribute pointing to a Linux virtual machine image to be imported into DigitalOcean. The image must be in the raw, qcow2, vhdx, vdi, or vmdk format. It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
+
+The display name that has been given to an image. This is what is shown in the control panel and is generally a descriptive title for the image in question.
+
+The name of a custom image's distribution. Currently, the valid values are Arch Linux, CentOS, CoreOS, Debian, Fedora, Fedora Atomic, FreeBSD, Gentoo, openSUSE, RancherOS, Rocky Linux, Ubuntu, and Unknown. Any other value will be accepted but ignored, and Unknown will be used in its place.
+
+An optional free-form text field to describe an image.
+
+A URL from which the custom Linux virtual machine image may be retrieved. The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format. It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
+
+The slug identifier for the region where the resource will initially be available.
+
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+The response will be a JSON object with a key set to image. The value of this will be an image object containing a subset of the standard image attributes as listed below, including the image's id and status. After initial creation, the status will be NEW. Using the image's id, you may query the image's status by sending a GET request to the /v2/images/$IMAGE_ID endpoint. When the status changes to available, the image will be ready for use.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve information about an image, send a GET request to /v2/images/$IDENTIFIER.
+
+A unique number (id) or string (slug) used to identify and reference a specific image.
+
+Public images can be identified by image id or slug.
+
+Private images must be identified by image id.
+
+The response will be a JSON object with a key called image. The value of this will be an image object containing the standard image attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

@@ -1,0 +1,129 @@
+The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
+
+The description of the project. The maximum length is 255 characters.
+
+The purpose of the project. The maximum length is 255 characters. It can have one of the following values:
+
+If another value for purpose is specified, for example, "your custom purpose", your purpose will be stored as Other: your custom purpose.
+
+The environment of the project's resources.
+
+If true, all resources will be added to this project if no project is specified.
+
+The response will be a JSON object with a key called project. The value of this will be an object with the standard project attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update only specific attributes of your default project, send a PATCH request to /v2/projects/default. At least one of the following attributes needs to be sent.
+
+The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
+
+The description of the project. The maximum length is 255 characters.
+
+The purpose of the project. The maximum length is 255 characters. It can have one of the following values:
+
+If another value for purpose is specified, for example, "your custom purpose", your purpose will be stored as Other: your custom purpose.
+
+The environment of the project's resources.
+
+If true, all resources will be added to this project if no project is specified.
+
+The response will be a JSON object with a key called project. The value of this will be an object with the standard project attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To get a project, send a GET request to /v2/projects/$PROJECT_ID.
+
+A unique identifier for a project.
+
+The response will be a JSON object with a key called project. The value of this will be an object with the standard project attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update a project, send a PUT request to /v2/projects/$PROJECT_ID. All of the following attributes must be sent.
+
+A unique identifier for a project.
+
+The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
+
+The description of the project. The maximum length is 255 characters.
+
+The purpose of the project. The maximum length is 255 characters. It can have one of the following values:
+
+If another value for purpose is specified, for example, "your custom purpose", your purpose will be stored as Other: your custom purpose.
+
+The environment of the project's resources.
+
+If true, all resources will be added to this project if no project is specified.
+
+The response will be a JSON object with a key called project. The value of this will be an object with the standard project attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update only specific attributes of a project, send a PATCH request to /v2/projects/$PROJECT_ID. At least one of the following attributes needs to be sent.
+
+A unique identifier for a project.
+
+The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
+
+The description of the project. The maximum length is 255 characters.
+
+The purpose of the project. The maximum length is 255 characters. It can have one of the following values:
+
+If another value for purpose is specified, for example, "your custom purpose", your purpose will be stored as Other: your custom purpose.
+
+The environment of the project's resources.
+
+If true, all resources will be added to this project if no project is specified.
+
+The response will be a JSON object with a key called project. The value of this will be an object with the standard project attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

@@ -1,0 +1,119 @@
+A JSON object with a key called sizes. The value of this will be an array of size objects each of which contain the standard size attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Snapshots are saved instances of a Droplet or a block storage volume, which is reflected in the resource_type attribute. In order to avoid problems with compressing filesystems, each defines a min_disk_size attribute which is the minimum size of the Droplet or volume disk when creating a new resource from the saved snapshot.
+
+To interact with snapshots, you will generally send requests to the snapshots endpoint at /v2/snapshots.
+
+To list all of the snapshots available on your account, send a GET request to /v2/snapshots.
+
+The response will be a JSON object with a key called snapshots. This will be set to an array of snapshot objects, each of which will contain the standard snapshot attributes.
+
+It's possible to request filtered results by including certain query parameters.
+
+To retrieve only snapshots based on Droplets, include the resource_type query parameter set to droplet. For example, /v2/snapshots?resource_type=droplet.
+
+To retrieve only snapshots based on volumes, include the resource_type query parameter set to volume. For example, /v2/snapshots?resource_type=volume.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+Used to filter snapshots by a resource type.
+
+A JSON object with a key of snapshots.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve information about a snapshot, send a GET request to /v2/snapshots/$SNAPSHOT_ID.
+
+The response will be a JSON object with a key called snapshot. The value of this will be an snapshot object containing the standard snapshot attributes.
+
+Either the ID of an existing snapshot. This will be an integer for a Droplet snapshot or a string for a volume snapshot.
+
+A JSON object with a key called snapshot.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Both Droplet and volume snapshots are managed through the /v2/snapshots/ endpoint. To delete a snapshot, send a DELETE request to /v2/snapshots/$SNAPSHOT_ID.
+
+A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
+
+Either the ID of an existing snapshot. This will be an integer for a Droplet snapshot or a string for a volume snapshot.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Manage SSH keys available on your account.
+
+To list all of the keys in your account, send a GET request to /v2/account/keys. The response will be a JSON object with a key set to ssh_keys. The value of this will be an array of ssh_key objects, each of which contains the standard ssh_key attributes.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object with the key set to ssh_keys. The value is an array of ssh_key objects, each of which contains the standard ssh_key attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To add a new SSH public key to your DigitalOcean account, send a POST request to /v2/account/keys. Set the name attribute to the name you wish to use and the public_key attribute to the full public key you are adding.
+
+The entire public key string that was uploaded. Embedded into the root user's authorized_keys file if you include this key during Droplet creation.
+
+A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.
+
+The response body will be a JSON object with a key set to ssh_key.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

@@ -1,0 +1,91 @@
+To create a database cluster, send a POST request to /v2/databases. The response will be a JSON object with a key called database. The value of this will be an object that contains the standard attributes associated with a database cluster. The initial value of the database cluster's status attribute will be creating. When the cluster is ready to receive traffic, this will transition to online. The embedded connection and private_connection objects will contain the information needed to access the database cluster. DigitalOcean managed PostgreSQL and MySQL database clusters take automated daily backups. To create a new database cluster based on a backup of an existing cluster, send a POST request to /v2/databases. In addition to the standard database cluster attributes, the JSON body must include a key named backup_restore with the name of the original database cluster and the timestamp of the backup to be restored. Creating a database from a backup is the same as forking a database in the control panel. Note: Backups are not supported for Redis clusters.
+
+A unique, human-readable name referring to a database cluster.
+
+A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Redis, "mongodb" for MongoDB, and "kafka" for Kafka.
+
+A string representing the version of the database engine in use for the cluster.
+
+The number of nodes in the database cluster.
+
+The slug identifier representing the size of the nodes in the database cluster.
+
+The slug identifier for the region where the database cluster is located.
+
+A string specifying the UUID of the VPC to which the database cluster will be assigned. If excluded, the cluster when creating a new database cluster, it will be assigned to your account's default VPC for the region.
+
+An array of tags that have been applied to the database cluster.
+
+The ID of the project that the database cluster is assigned to. If excluded when creating a new database cluster, it will be assigned to your default project.
+
+Additional storage added to the cluster, in MiB. If null, no additional storage is added to the cluster, beyond what is provided as a base amount from the 'size' and any previously added additional storage.
+
+A JSON object with a key of database.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing database cluster, send a GET request to /v2/databases/$DATABASE_ID. The response will be a JSON object with a database key. This will be set to an object containing the standard database cluster attributes. The embedded connection and private_connection objects will contain the information needed to access the database cluster. The embedded maintenance_window object will contain information about any scheduled maintenance for the database cluster.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of database.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To destroy a specific database, send a DELETE request to /v2/databases/$DATABASE_ID. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
+
+A unique identifier for a database cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Shows configuration parameters for an existing database cluster by sending a GET request to /v2/databases/$DATABASE_ID/config. The response is a JSON object with a config key, which is set to an object containing any database configuration parameters.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of config.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update the configuration for an existing database cluster, send a PATCH request to /v2/databases/$DATABASE_ID/config.

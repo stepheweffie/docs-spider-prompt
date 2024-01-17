@@ -1,0 +1,131 @@
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+The response will be a JSON object with a firewall key. This will be set to an object containing the standard firewall attributes
+
+Bad Request
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing firewall, send a GET request to /v2/firewalls/$FIREWALL_ID.
+
+A unique ID that can be used to identify and reference a firewall.
+
+The response will be a JSON object with a firewall key. This will be set to an object containing the standard firewall attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update the configuration of an existing firewall, send a PUT request to /v2/firewalls/$FIREWALL_ID. The request should contain a full representation of the firewall including existing attributes. Note that any attributes that are not provided will be reset to their default values.
+
+A unique ID that can be used to identify and reference a firewall.
+
+A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
+
+An array containing the IDs of the Droplets assigned to the firewall.
+
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+The response will be a JSON object with a firewall key. This will be set to an object containing the standard firewall attributes.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a firewall send a DELETE request to /v2/firewalls/$FIREWALL_ID.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To assign a Droplet to a firewall, send a POST request to /v2/firewalls/$FIREWALL_ID/droplets. In the body of the request, there should be a droplet_ids attribute containing a list of Droplet IDs.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+An array containing the IDs of the Droplets to be assigned to the firewall.
+
+The action was successful and the response body is empty.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove a Droplet from a firewall, send a DELETE request to /v2/firewalls/$FIREWALL_ID/droplets. In the body of the request, there should be a droplet_ids attribute containing a list of Droplet IDs.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+An array containing the IDs of the Droplets to be removed from the firewall.
+
+The action was successful and the response body is empty.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To assign a tag representing a group of Droplets to a firewall, send a POST request to /v2/firewalls/$FIREWALL_ID/tags. In the body of the request, there should be a tags attribute containing a list of tag names.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.

@@ -1,0 +1,117 @@
+To remove a Droplet from a firewall, send a DELETE request to /v2/firewalls/$FIREWALL_ID/droplets. In the body of the request, there should be a droplet_ids attribute containing a list of Droplet IDs.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+An array containing the IDs of the Droplets to be removed from the firewall.
+
+The action was successful and the response body is empty.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To assign a tag representing a group of Droplets to a firewall, send a POST request to /v2/firewalls/$FIREWALL_ID/tags. In the body of the request, there should be a tags attribute containing a list of tag names.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+The action was successful and the response body is empty.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove a tag representing a group of Droplets from a firewall, send a DELETE request to /v2/firewalls/$FIREWALL_ID/tags. In the body of the request, there should be a tags attribute containing a list of tag names.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+The action was successful and the response body is empty.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To add additional access rules to a firewall, send a POST request to /v2/firewalls/$FIREWALL_ID/rules. The body of the request may include an inbound_rules and/or outbound_rules attribute containing an array of rules to be added.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+The action was successful and the response body is empty.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove access rules from a firewall, send a DELETE request to /v2/firewalls/$FIREWALL_ID/rules. The body of the request may include an inbound_rules and/or outbound_rules attribute containing an array of rules to be removed.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique ID that can be used to identify and reference a firewall.
+
+The action was successful and the response body is empty.
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+As of 16 June 2022, we have renamed the Floating IP product to Reserved IPs. The Reserved IP product's endpoints function the exact same way as Floating IPs. The only difference is the name change throughout the URLs and fields. For example, the floating_ips field is now the reserved_ips field. The Floating IP endpoints will remain active until fall 2023 before being permanently deprecated.

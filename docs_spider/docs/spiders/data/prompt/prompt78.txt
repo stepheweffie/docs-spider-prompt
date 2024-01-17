@@ -1,0 +1,167 @@
+A JSON object with a key of user.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing database user, send a GET request to /v2/databases/$DATABASE_ID/users/$USERNAME.
+
+Note: User management is not supported for Redis clusters.
+
+The response will be a JSON object with a user key. This will be set to an object containing the standard database user attributes.
+
+For MySQL clusters, additional options will be contained in the mysql_settings object.
+
+For Kafka clusters, additional options will be contained in the settings object.
+
+A unique identifier for a database cluster.
+
+The name of the database user.
+
+A JSON object with a key of user.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove a specific database user, send a DELETE request to /v2/databases/$DATABASE_ID/users/$USERNAME.
+
+A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
+
+Note: User management is not supported for Redis clusters.
+
+A unique identifier for a database cluster.
+
+The name of the database user.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update an existing database user, send a PUT request to /v2/databases/$DATABASE_ID/users/$USERNAME with the desired settings.
+
+Note: only settings can be updated via this type of request. If you wish to change the name of a user, you must recreate a new user.
+
+The response will be a JSON object with a key called user. The value of this will be an object that contains the name of the update database user, along with the settings object that has been updated.
+
+A unique identifier for a database cluster.
+
+The name of the database user.
+
+A JSON object with a key of user.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To reset the password for a database user, send a POST request to /v2/databases/$DATABASE_ID/users/$USERNAME/reset_auth.
+
+For mysql databases, the authentication method can be specifying by including a key in the JSON body called mysql_settings with the auth_plugin value specified.
+
+The response will be a JSON object with a user key. This will be set to an object containing the standard database user attributes.
+
+A unique identifier for a database cluster.
+
+The name of the database user.
+
+A JSON object with a key of user.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the databases in a clusters, send a GET request to /v2/databases/$DATABASE_ID/dbs.
+
+The result will be a JSON object with a dbs key. This will be set to an array of database objects, each of which will contain the standard database attributes.
+
+Note: Database management is not supported for Redis clusters.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of databases.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To add a new database to an existing cluster, send a POST request to /v2/databases/$DATABASE_ID/dbs.
+
+Note: Database management is not supported for Redis clusters.
+
+The response will be a JSON object with a key called db. The value of this will be an object that contains the standard attributes associated with a database.
+
+A unique identifier for a database cluster.
+
+The name of the database.
+
+A JSON object with a key of db.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing database cluster, send a GET request to /v2/databases/$DATABASE_ID/dbs/$DB_NAME.
+
+Note: Database management is not supported for Redis clusters.
+
+The response will be a JSON object with a db key. This will be set to an object containing the standard database attributes.
+
+A unique identifier for a database cluster.

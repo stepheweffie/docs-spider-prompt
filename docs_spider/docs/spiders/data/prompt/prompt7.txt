@@ -1,0 +1,201 @@
+Whether the logs should follow live updates.
+
+The type of logs to retrieve
+
+An optional time duration to wait if the underlying component instance is not immediately available. Default: 3m.
+
+A JSON object with urls that point to archived logs
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve the logs of a past, in-progress, or active deployment. If a component name is specified, the logs will be limited to only that component. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
+
+The app ID
+
+The deployment ID
+
+Whether the logs should follow live updates.
+
+The type of logs to retrieve
+
+An optional time duration to wait if the underlying component instance is not immediately available. Default: 3m.
+
+A JSON object with urls that point to archived logs
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve the logs of the active deployment if one exists. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment. Note log_type=BUILD logs will return logs associated with the current active deployment (being served). To view build logs associated with in-progress build, the query must explicitly reference the deployment id.
+
+The app ID
+
+Whether the logs should follow live updates.
+
+The type of logs to retrieve
+
+An optional time duration to wait if the underlying component instance is not immediately available. Default: 3m.
+
+A JSON object with urls that point to archived logs
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+List all app tiers.
+
+A JSON object with a tiers key. This will be a list of all app tiers
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve information about a specific app tier.
+
+The slug of the tier
+
+A JSON with the key tier
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+List all instance sizes for service, worker, and job components.
+
+A JSON with key instance_sizes
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Retrieve information about a specific instance size for service, worker, and job components.
+
+The slug of the instance size
+
+A JSON with key instance_size
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+List all regions supported by App Platform.
+
+A JSON object with key regions
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To propose and validate a spec for a new or existing app, send a POST request to the /v2/apps/propose endpoint. The request returns some information about the proposed app, including app cost and upgrade cost. If an existing app ID is specified, the app spec is treated as a proposed update to the existing app.
+
+The desired configuration of an application.
+
+An optional ID of an existing app. If set, the spec will be treated as a proposed update to the specified app. The existing app is not modified using this method.
+
+A JSON object.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+List alerts associated to the app and any components. This includes configuration information about the alerts including emails, slack webhooks, and triggering events or conditions.
+
+The app ID
+
+A JSON object with a alerts key. This is list of object alerts.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Updates the emails and slack webhook destinations for app alerts. Emails must be associated to a user with access to the app.
+
+The app ID
+
+The alert ID
+
+A JSON object with an alert key. This is an object of type alert.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

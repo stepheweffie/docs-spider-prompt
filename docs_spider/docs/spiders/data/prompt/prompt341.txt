@@ -1,0 +1,302 @@
+{
+"load_balancer":
+{
+"id": "4de7ac8b-495b-4884-9a69-1050c6793cd6",
+"name": "updated-example-lb-01",
+"ip": "104.131.186.241",
+"size": "lb-small",
+"algorithm": "round_robin",
+"status": "new",
+"created_at": "2017-02-01T22:22:58Z",
+"forwarding_rules":
+[
+],
+"health_check":
+{
+},
+"sticky_sessions":
+{
+},
+"region":
+{
+},
+"tag": "",
+"droplet_ids":
+[
+],
+"redirect_http_to_https": false,
+"enable_proxy_protocol": true,
+"enable_backend_keepalive": true,
+"vpc_uuid": "c33931f2-a26a-4e61-b85c-4e95a2ec431b",
+"disable_lets_encrypt_dns_records": false,
+"project_id": "9cc10173-e9ea-4176-9dbc-a4cee4c4ff30",
+"http_idle_timeout_seconds": 60,
+"firewall":
+{
+}
+}
+}
+
+/v2/load_balancers/$LOAD_BALANCER_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/load_balancers/$LOAD_BALANCER_ID/droplets
+
+droplet_ids
+
+write
+
+{
+"droplet_ids":
+[
+3164444,
+3164445
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/load_balancers/$LOAD_BALANCER_ID/droplets
+
+droplet_ids
+
+write
+
+{
+"droplet_ids":
+[
+3164444,
+3164445
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/load_balancers/$LOAD_BALANCER_ID/forwarding_rules
+
+forwarding_rules
+
+write
+
+{
+"forwarding_rules":
+[
+{
+}
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/load_balancers/$LOAD_BALANCER_ID/forwarding_rules
+
+forwarding_rules
+
+write
+
+{
+"forwarding_rules":
+[
+{
+}
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/monitoring/alerts
+
+read
+
+{
+"policies":
+[
+{
+}
+],
+"links":
+{
+"first": "https//api.digitalocean.com/v2/monitoring/alerts?page=1&per_page=10",
+"prev": "https//api.digitalocean.com/v2/monitoring/alerts?page=2&per_page=10",
+"next": "https//api.digitalocean.com/v2/monitoring/alerts?page=4&per_page=10",
+"last": "https//api.digitalocean.com/v2/monitoring/alerts?page=5&per_page=10"
+},
+"meta":
+{
+"total": 50
+}
+}
+
+/v2/monitoring/alerts
+
+write
+
+type
+
+entities
+
+tags
+
+entities
+
+v1/insights/droplet/memory_utilization_percent
+
+v1/insights/droplet/disk_read
+
+v1/insights/droplet/load_5
+
+v1/insights/droplet/load_15
+
+v1/insights/droplet/disk_utilization_percent
+
+v1/insights/droplet/cpu
+
+v1/insights/droplet/disk_write
+
+v1/insights/droplet/public_outbound_bandwidth
+
+v1/insights/droplet/public_inbound_bandwidth
+
+v1/insights/droplet/private_outbound_bandwidth
+
+v1/insights/droplet/private_inbound_bandwidth
+
+v1/insights/droplet/load_1
+
+v1/insights/lbaas/avg_cpu_utilization_percent
+
+v1/insights/lbaas/connection_utilization_percent
+
+v1/insights/lbaas/droplet_health
+
+v1/insights/lbaas/tls_connections_per_second_utilization_percent
+
+v1/insights/lbaas/increase_in_http_error_rate_percentage_5xx
+
+v1/insights/lbaas/increase_in_http_error_rate_percentage_4xx
+
+v1/insights/lbaas/increase_in_http_error_rate_count_5xx
+
+v1/insights/lbaas/increase_in_http_error_rate_count_4xx
+
+v1/insights/lbaas/high_http_request_response_time
+
+v1/insights/lbaas/high_http_request_response_time_50p
+
+v1/insights/lbaas/high_http_request_response_time_95p
+
+v1/insights/lbaas/high_http_request_response_time_99p
+
+v1/dbaas/alerts/load_15_alerts
+
+v1/dbaas/alerts/memory_utilization_alerts
+
+v1/dbaas/alerts/disk_utilization_alerts
+
+v1/dbaas/alerts/cpu_alerts
+
+{
+"alerts":
+{
+"email":
+[
+],
+"slack":
+[
+]
+},
+"compare": "GreaterThan",
+"description": "CPU Alert",
+"enabled": true,
+"entities":
+[
+"192018292"
+],
+"tags":
+[
+"droplet_tag"
+],
+"type": "v1/insights/droplet/cpu",
+"value": 80,
+"window": "5m"
+}
+
+{
+"policy":
+{
+"alerts":
+{
+},
+"compare": "GreaterThan",
+"description": "CPU Alert",
+"enabled": true,
+"entities":
+[
+],
+"tags":
+[
+],
+"type": "v1/insights/droplet/cpu",
+"uuid": "78b3da62-27e5-49ba-ac70-5db0b5935c64",
+"value": 80,
+"window": "5m"
+}
+}
+
+/v2/monitoring/alerts/{alert_uuid}
+
+read
+
+{
+"policy":
+{
+"alerts":
+{
+},
+"compare": "GreaterThan",
+"description": "CPU Alert",
+"enabled": true,
+"entities":
+[
+],
+"tags":
+[
+],
+"type": "v1/insights/droplet/cpu",
+"uuid": "78b3da62-27e5-49ba-ac70-5db0b5935c64",
+"value": 80,
+"window": "5m"
+}
+}
+
+v2/monitoring/alerts/{alert_uuid}
+
+write
+
+type
+
+entities
+
+tags
+
+entities
+
+v1/insights/droplet/memory_utilization_percent

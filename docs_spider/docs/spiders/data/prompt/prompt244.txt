@@ -1,0 +1,133 @@
+The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Resources can be tagged by sending a POST request to /v2/tags/$TAG_NAME/resources with an array of json objects containing resource_id and resource_type attributes. Currently only tagging of Droplets, Databases, Images, Volumes, and Volume Snapshots is supported. resource_type is expected to be the string droplet, database, image, volume or volume_snapshot. resource_id is expected to be the ID of the resource as a string.
+
+The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
+
+An array of objects containing resource_id and resource_type attributes.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Resources can be untagged by sending a DELETE request to /v2/tags/$TAG_NAME/resources with an array of json objects containing resource_id and resource_type attributes. Currently only untagging of Droplets, Databases, Images, Volumes, and Volume Snapshots is supported. resource_type is expected to be the string droplet, database, image, volume or volume_snapshot. resource_id is expected to be the ID of the resource as a string.
+
+The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
+
+An array of objects containing resource_id and resource_type attributes.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean Uptime Checks provide the ability to monitor your endpoints from around the world, and alert you when they're slow, unavailable, or SSL certificates are expiring. To interact with Uptime, you will generally send requests to the Uptime endpoint at /v2/uptime/.
+
+To list all of the Uptime checks on your account, send a GET request to /v2/uptime/checks.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called checks. This will be set to an array of objects, each of which will contain the standard attributes associated with an uptime check
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create an Uptime check, send a POST request to /v2/uptime/checks specifying the attributes in the table below in the JSON body.
+
+A human-friendly display name.
+
+The type of health check to perform.
+
+The endpoint to perform healthchecks on.
+
+An array containing the selected regions to perform healthchecks from.
+
+A boolean value indicating whether the check is enabled/disabled.
+
+The response will be a JSON object with a key called check. The value of this will be an object that contains the standard attributes associated with an uptime check.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing check, send a GET request to /v2/uptime/checks/$CHECK_ID.
+
+A unique identifier for a check.
+
+The response will be a JSON object with a key called check. The value of this will be an object that contains the standard attributes associated with an uptime check.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update the settings of an Uptime check, send a PUT request to /v2/uptime/checks/$CHECK_ID.
+
+A unique identifier for a check.
+
+A human-friendly display name.
+
+The type of health check to perform.
+
+The endpoint to perform healthchecks on.
+
+An array containing the selected regions to perform healthchecks from.
+
+A boolean value indicating whether the check is enabled/disabled.

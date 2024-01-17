@@ -1,0 +1,389 @@
+{
+"node_pool":
+{
+"id": "cdda885e-7663-40c8-bc74-3a036c66545d",
+"name": "new-pool",
+"size": "s-1vcpu-2gb",
+"count": 3,
+"tags":
+[
+],
+"labels": null,
+"taints": [ ],
+"auto_scale": true,
+"min_nodes": 3,
+"max_nodes": 6,
+"nodes":
+[
+]
+}
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID
+
+read
+
+node_pool
+
+{
+"node_pool":
+{
+"id": "cdda885e-7663-40c8-bc74-3a036c66545d",
+"name": "frontend-pool",
+"size": "s-1vcpu-2gb",
+"count": 3,
+"tags":
+[
+],
+"labels":
+{
+},
+"taints":
+[
+],
+"auto_scale": false,
+"min_nodes": 0,
+"max_nodes": 0,
+"nodes":
+[
+]
+}
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID
+
+write
+
+k8s
+
+k8s-worker
+
+k8s:$K8S_CLUSTER_ID
+
+0
+
+auto_scale
+
+false
+
+0
+
+auto_scale
+
+false
+
+node_pool
+
+{
+"name": "frontend-pool",
+"count": 3,
+"tags":
+[
+"k8s",
+"k8s:bd5f5959-5e1e-4205-a714-a914373942af",
+"k8s-worker",
+"production",
+"web-team"
+],
+"labels": null,
+"taints":
+[
+{
+}
+],
+"auto_scale": true,
+"min_nodes": 3,
+"max_nodes": 6
+}
+
+{
+"node_pool":
+{
+"id": "cdda885e-7663-40c8-bc74-3a036c66545d",
+"name": "renamed-pool",
+"size": "s-1vcpu-2gb",
+"count": 3,
+"tags":
+[
+],
+"labels": null,
+"taints": [ ],
+"auto_scale": true,
+"min_nodes": 3,
+"max_nodes": 6,
+"nodes":
+[
+]
+}
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID/nodes/$NODE_ID
+
+skip_drain=1
+
+0
+
+replace=1
+
+0
+
+write
+
+1
+
+0
+
+1
+
+0
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID/nodes/$NODE_ID
+
+write
+
+{
+"nodes":
+[
+"d8db5e1a-6103-43b5-a7b3-8a948210a9fc"
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/user
+
+read
+
+kubernetes_cluster_user
+
+{
+"kubernetes_cluster_user":
+{
+"username": "sammy@digitalocean.com",
+"groups":
+[
+]
+}
+}
+
+/v2/kubernetes/options
+
+read
+
+options
+
+regions
+
+versions
+
+sizes
+
+{
+"options":
+{
+"regions":
+[
+],
+"versions":
+[
+],
+"sizes":
+[
+]
+}
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint
+
+doks
+
+read
+
+run_id
+
+{
+"include_groups":
+[
+"basic",
+"doks",
+"security"
+],
+"include_checks":
+[
+"bare-pods",
+"resource-requirements"
+],
+"exclude_groups":
+[
+"workload-health"
+],
+"exclude_checks":
+[
+"default-namespace"
+]
+}
+
+{
+"run_id": "50c2f44c-011d-493e-aee5-361a4a0d1844"
+}
+
+/v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint
+
+run_id
+
+read
+
+{
+"run_id": "50c2f44c-011d-493e-aee5-361a4a0d1844",
+"requested_at": "2019-10-30T05:34:07Z",
+"completed_at": "2019-10-30T05:34:11Z",
+"diagnostics":
+[
+{
+}
+]
+}
+
+/v2/kubernetes/registry
+
+write
+
+{
+"cluster_uuids":
+[
+"bd5f5959-5e1e-4205-a714-a914373942af",
+"50c2f44c-011d-493e-aee5-361a4a0d1844"
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/kubernetes/registry
+
+write
+
+{
+"cluster_uuids":
+[
+"bd5f5959-5e1e-4205-a714-a914373942af",
+"50c2f44c-011d-493e-aee5-361a4a0d1844"
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/load_balancers
+
+/v2/load_balancers
+
+droplet_ids
+
+tag
+
+write
+
+size
+
+size_unit
+
+lb-small
+
+lb-medium
+
+lb-large
+
+{
+"name": "example-lb-01",
+"region": "nyc3",
+"forwarding_rules":
+[
+{
+},
+{
+}
+],
+"droplet_ids":
+[
+3164444,
+3164445
+],
+"project_id": "9cc10173-e9ea-4176-9dbc-a4cee4c4ff30",
+"http_idle_timeout_seconds": 60,
+"firewall":
+{
+"deny":
+[
+],
+"allow":
+[
+]
+}
+}
+
+{
+"load_balancer":
+{
+"id": "4de7ac8b-495b-4884-9a69-1050c6793cd6",
+"name": "example-lb-01",
+"ip": "104.131.186.241",
+"size": "lb-small",
+"algorithm": "round_robin",
+"status": "new",
+"created_at": "2017-02-01T22:22:58Z",
+"forwarding_rules":
+[
+],
+"health_check":
+{
+},
+"sticky_sessions":
+{
+},
+"region":
+{
+},
+"tag": "",
+"droplet_ids":
+[
+],
+"redirect_http_to_https": false,
+"enable_proxy_protocol": false,
+"enable_backend_keepalive": false,
+"vpc_uuid": "c33931f2-a26a-4e61-b85c-4e95a2ec431b",
+"disable_lets_encrypt_dns_records": false,
+"project_id": "9cc10173-e9ea-4176-9dbc-a4cee4c4ff30",
+"http_idle_timeout_seconds": 60,
+"firewall":
+{
+}
+}
+}
+
+/v2/load_balancers
+
+read
+
+load_balancers

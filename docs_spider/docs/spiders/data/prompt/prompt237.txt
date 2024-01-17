@@ -1,0 +1,223 @@
+To retrieve filesystem size metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/filesystem_size.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve 1 minute load average metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/load_1.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve 5 minute load average metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/load_5.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve 15 minute load average metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/load_15.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve cached memory metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/memory_cached.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve free memory metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/memory_free.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve total memory metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/memory_total.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve available memory metrics for a given droplet, send a GET request to /v2/monitoring/metrics/droplet/memory_available.
+
+The droplet ID.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve memory percentage metrics for a given app, send a GET request to /v2/monitoring/metrics/apps/memory_percentage.
+
+The app UUID.
+
+The app component name.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve cpu percentage metrics for a given app, send a GET request to /v2/monitoring/metrics/apps/cpu_percentage.
+
+The app UUID.
+
+The app component name.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve restart count metrics for a given app, send a GET request to /v2/monitoring/metrics/apps/restart_count.
+
+The app UUID.
+
+The app component name.
+
+Timestamp to start metric window.
+
+Timestamp to end metric window.
+
+The response will be a JSON object with a key called data and status.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

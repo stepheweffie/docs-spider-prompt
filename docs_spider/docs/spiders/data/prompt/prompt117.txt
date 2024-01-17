@@ -1,0 +1,107 @@
+To install a Kubernetes 1-Click application on a cluster, send a POST request to /v2/1-clicks/kubernetes. The addon_slugs and cluster_uuid must be provided as body parameter in order to specify which 1-Click application(s) to install. To list all available 1-Click Kubernetes applications, send a request to /v2/1-clicks?type=kubernetes.
+
+An array of 1-Click Application slugs to be installed to the Kubernetes cluster.
+
+A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed.
+
+The response will verify that a job has been successfully created to install a 1-Click. The post-installation lifecycle of a 1-Click application can not be managed via the DigitalOcean API. For additional details specific to the 1-Click, find and view its DigitalOcean Marketplace page.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Provides information about your current account.
+
+To show information about the current user account, send a GET request to /v2/account.
+
+A JSON object keyed on account with an excerpt of the current user account data.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Actions are records of events that have occurred on the resources in your account. These can be things like rebooting a Droplet, or transferring an image to a new region.
+
+An action object is created every time one of these actions is initiated. The action object contains information about the current status of the action, start and complete timestamps, and the associated resource type and ID.
+
+Every action that creates an action object is available through this endpoint. Completed actions are not removed from this list and are always available for querying.
+
+Note: You can pass the following HTTP header with the request to have the API return the reserved_ips stanza instead of the floating_ips stanza:
+
+This will be the entire list of actions taken on your account, so it will be quite large. As with any large collection returned by the API, the results will be paginated with only 20 on each page by default.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The results will be returned as a JSON object with an actions key. This will be set to an array filled with action objects containing the standard action attributes
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a specific action object, send a GET request to /v2/actions/$ACTION_ID.
+
+A unique numeric ID that can be used to identify and reference an action.
+
+The result will be a JSON object with an action key. This will be set to an action object containing the standard action attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+App Platform is a Platform-as-a-Service (PaaS) offering from DigitalOcean that allows developers to publish code directly to DigitalOcean servers without worrying about the underlying infrastructure.
+
+Most API operations are centered around a few core object types. Following are the definitions of these types. These definitions will be omitted from the operation-specific documentation.
+
+For documentation on app specifications (AppSpec objects), please refer to the product documentation).
+
+List all apps on your account. Information about the current active deployment as well as any in progress ones will also be included for each app.
+
+Which 'page' of paginated results to return.
+
+Number of items returned per page
+
+Whether the project_id of listed apps should be fetched and included.
+
+A JSON object with a apps key. This is list of object apps.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Create a new app by submitting an app specification. For documentation on app specifications (AppSpec objects), please refer to the product documentation.
+
+The content-type that should be used by the response. By default, the response will be application/json. application/yaml is also supported.

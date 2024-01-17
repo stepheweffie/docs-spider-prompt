@@ -1,0 +1,147 @@
+The response will be a JSON object with a key called check. The value of this will be an object that contains the standard attributes associated with an uptime check.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete an Uptime check, send a DELETE request to /v2/uptime/checks/$CHECK_ID. A 204 status code with no body will be returned in response to a successful request.
+
+Deleting a check will also delete alerts associated with the check.
+
+A unique identifier for a check.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing check's state, send a GET request to /v2/uptime/checks/$CHECK_ID/state.
+
+A unique identifier for a check.
+
+The response will be a JSON object with a key called state. The value of this will be an object that contains the standard attributes associated with an uptime check's state.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the alerts for an Uptime check, send a GET request to /v2/uptime/checks/$CHECK_ID/alerts.
+
+A unique identifier for a check.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called alerts. This will be set to an array of objects, each of which will contain the standard attributes associated with an uptime alert.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create an Uptime alert, send a POST request to /v2/uptime/checks/$CHECK_ID/alerts specifying the attributes in the table below in the JSON body.
+
+A unique identifier for a check.
+
+The ''type'' field dictates the type of alert, and hence what type of value to pass into the threshold property. Type | Description | Threshold Value -----|-------------|-------------------- latency | alerts on the response latency | milliseconds down | alerts on a target registering as down in any region | N/A (Not required) down_global | alerts on a target registering as down globally | N/A (Not required) ssl_expiry | alerts on a SSL certificate expiring within $threshold days | days
+
+A human-friendly display name.
+
+The type of alert.
+
+The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
+
+The comparison operator used against the alert's threshold.
+
+The notification settings for a trigger alert.
+
+Period of time the threshold must be exceeded to trigger the alert.
+
+The response will be a JSON object with a key called alert. The value of this will be an object that contains the standard attributes associated with an uptime alert.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing alert, send a GET request to /v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID.
+
+A unique identifier for a check.
+
+A unique identifier for an alert.
+
+The response will be a JSON object with a key called alert. The value of this will be an object that contains the standard attributes associated with an uptime alert.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update the settings of an Uptime alert, send a PUT request to /v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID.
+
+A unique identifier for a check.
+
+A unique identifier for an alert.
+
+A human-friendly display name.
+
+The type of alert.
+
+The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
+
+The comparison operator used against the alert's threshold.
+
+The notification settings for a trigger alert.
+
+Period of time the threshold must be exceeded to trigger the alert.
+
+The response will be a JSON object with a key called alert. The value of this will be an object that contains the standard attributes associated with an uptime alert.
+
+Unauthorized

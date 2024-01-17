@@ -1,0 +1,105 @@
+The response will be a JSON object with a key set to image. The value of this will be an image object containing a subset of the standard image attributes as listed below, including the image's id and status. After initial creation, the status will be NEW. Using the image's id, you may query the image's status by sending a GET request to the /v2/images/$IMAGE_ID endpoint. When the status changes to available, the image will be ready for use.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve information about an image, send a GET request to /v2/images/$IDENTIFIER.
+
+A unique number (id) or string (slug) used to identify and reference a specific image.
+
+Public images can be identified by image id or slug.
+
+Private images must be identified by image id.
+
+The response will be a JSON object with a key called image. The value of this will be an image object containing the standard image attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update an image, send a PUT request to /v2/images/$IMAGE_ID. Set the name attribute to the new value you would like to use. For custom images, the description and distribution attributes may also be updated.
+
+A unique number that can be used to identify and reference a specific image.
+
+The display name that has been given to an image. This is what is shown in the control panel and is generally a descriptive title for the image in question.
+
+The name of a custom image's distribution. Currently, the valid values are Arch Linux, CentOS, CoreOS, Debian, Fedora, Fedora Atomic, FreeBSD, Gentoo, openSUSE, RancherOS, Rocky Linux, Ubuntu, and Unknown. Any other value will be accepted but ignored, and Unknown will be used in its place.
+
+An optional free-form text field to describe an image.
+
+The response will be a JSON object with a key set to image. The value of this will be an image object containing the standard image attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a snapshot or custom image, send a DELETE request to /v2/images/$IMAGE_ID.
+
+A unique number that can be used to identify and reference a specific image.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean Kubernetes allows you to quickly deploy scalable and secure Kubernetes clusters. By sending requests to the /v2/kubernetes/clusters endpoint, you can list, create, or delete clusters as well as scale node pools up and down, recycle individual nodes, and retrieve the kubeconfig file for use with a cluster.
+
+To list all of the Kubernetes clusters on your account, send a GET request to /v2/kubernetes/clusters.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called kubernetes_clusters. This will be set to an array of objects, each of which will contain the standard Kubernetes cluster attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new Kubernetes cluster, send a POST request to /v2/kubernetes/clusters. The request must contain at least one node pool with at least one worker.
+
+The request may contain a maintenance window policy describing a time period when disruptive maintenance tasks may be carried out. Omitting the policy implies that a window will be chosen automatically. See here for details.
+
+A human-readable name for a Kubernetes cluster.
+
+The slug identifier for the region where the Kubernetes cluster is located.
+
+The slug identifier for the version of Kubernetes used for the cluster. If set to a minor version (e.g. "1.14"), the latest version within it will be used (e.g. "1.14.6-do.1"); if set to "latest", the latest published version will be used. See the /v2/kubernetes/options endpoint to find all currently available versions.

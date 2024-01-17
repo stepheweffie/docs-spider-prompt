@@ -1,0 +1,119 @@
+The does not indicate the success or failure of any operation, just that the request has been accepted for processing.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To destroy a Droplet along with all of its associated resources, send a DELETE request to the /v2/droplets/$DROPLET_ID/destroy_with_associated_resources/dangerous endpoint. The headers of this request must include an X-Dangerous key set to true. To preview which resources will be destroyed, first query the Droplet's associated resources. This operation can not be reverse and should be used with caution.
+
+A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources.
+
+A unique identifier for a Droplet instance.
+
+Acknowledge this action will destroy the Droplet and all associated resources and can not be reversed.
+
+The does not indicate the success or failure of any operation, just that the request has been accepted for processing.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To check on the status of a request to destroy a Droplet with its associated resources, send a GET request to the /v2/droplets/$DROPLET_ID/destroy_with_associated_resources/status endpoint.
+
+A unique identifier for a Droplet instance.
+
+A JSON object containing containing the status of a request to destroy a Droplet and its associated resources.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+If the status of a request to destroy a Droplet with its associated resources reported any errors, it can be retried by sending a POST request to the /v2/droplets/$DROPLET_ID/destroy_with_associated_resources/retry endpoint.
+
+Only one destroy can be active at a time per Droplet. If a retry is issued while another destroy is in progress for the Droplet a 409 status code will be returned. A successful response will include a 202 response code and no content.
+
+A unique identifier for a Droplet instance.
+
+The does not indicate the success or failure of any operation, just that the request has been accepted for processing.
+
+Unauthorized
+
+The resource was not found.
+
+Conflict
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of all Droplets that are co-located on the same physical hardware, send a GET request to /v2/reports/droplet_neighbors_ids.
+
+The results will be returned as a JSON object with a key of neighbor_ids. This will be set to an array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server. An empty array indicates that all Droplets associated with your account are located on separate physical hardware.
+
+A JSON object with an neighbor_ids key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean Cloud Firewalls provide the ability to restrict network access to and from a Droplet allowing you to define which ports will accept inbound or outbound connections. By sending requests to the /v2/firewalls endpoint, you can list, create, or delete firewalls as well as modify access rules.
+
+To list all of the firewalls available on your account, send a GET request to /v2/firewalls.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+To list all of the firewalls available on your account, send a GET request to /v2/firewalls.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new firewall, send a POST request to /v2/firewalls. The request must contain at least one inbound or outbound access rule.
+
+A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
+
+An array containing the IDs of the Droplets assigned to the firewall.

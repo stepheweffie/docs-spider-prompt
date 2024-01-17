@@ -1,0 +1,107 @@
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The slug identifier for the version of Kubernetes that the cluster will be upgraded to.
+
+The does not indicate the success or failure of any operation, just that the request has been accepted for processing.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of the node pools in a Kubernetes clusters, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The response will be a JSON object with a key called node_pools. This will be set to an array of objects, each of which will contain the standard node pool attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To add an additional node pool to a Kubernetes clusters, send a POST request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools with the following attributes.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The slug identifier for the type of Droplet used as workers in the node pool.
+
+A human-readable name for the node pool.
+
+The number of Droplet instances in the node pool.
+
+An array containing the tags applied to the node pool. All node pools are automatically tagged k8s, k8s-worker, and k8s:$K8S_CLUSTER_ID.
+
+An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool.
+
+An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.
+
+A boolean value indicating whether auto-scaling is enabled for this node pool.
+
+The minimum number of nodes that this node pool can be auto-scaled to. The value will be 0 if auto_scale is set to false.
+
+The maximum number of nodes that this node pool can be auto-scaled to. The value will be 0 if auto_scale is set to false.
+
+The response will be a JSON object with a key called node_pool. The value of this will be an object containing the standard attributes of a node pool.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about a specific node pool in a Kubernetes cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A unique ID that can be used to reference a Kubernetes node pool.
+
+The response will be a JSON object with a key called node_pool. The value of this will be an object containing the standard attributes of a node pool.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update the name of a node pool, edit the tags applied to it, or adjust its number of nodes, send a PUT request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID with the following attributes.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A unique ID that can be used to reference a Kubernetes node pool.
+
+A human-readable name for the node pool.
+
+The number of Droplet instances in the node pool.
+
+An array containing the tags applied to the node pool. All node pools are automatically tagged k8s, k8s-worker, and k8s:$K8S_CLUSTER_ID.
+
+An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool.
+
+An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.

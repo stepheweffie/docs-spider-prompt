@@ -1,0 +1,87 @@
+To update an image, send a PUT request to /v2/images/$IMAGE_ID. Set the name attribute to the new value you would like to use. For custom images, the description and distribution attributes may also be updated.
+
+A unique number that can be used to identify and reference a specific image.
+
+The display name that has been given to an image. This is what is shown in the control panel and is generally a descriptive title for the image in question.
+
+The name of a custom image's distribution. Currently, the valid values are Arch Linux, CentOS, CoreOS, Debian, Fedora, Fedora Atomic, FreeBSD, Gentoo, openSUSE, RancherOS, Rocky Linux, Ubuntu, and Unknown. Any other value will be accepted but ignored, and Unknown will be used in its place.
+
+An optional free-form text field to describe an image.
+
+The response will be a JSON object with a key set to image. The value of this will be an image object containing the standard image attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a snapshot or custom image, send a DELETE request to /v2/images/$IMAGE_ID.
+
+A unique number that can be used to identify and reference a specific image.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean Kubernetes allows you to quickly deploy scalable and secure Kubernetes clusters. By sending requests to the /v2/kubernetes/clusters endpoint, you can list, create, or delete clusters as well as scale node pools up and down, recycle individual nodes, and retrieve the kubeconfig file for use with a cluster.
+
+To list all of the Kubernetes clusters on your account, send a GET request to /v2/kubernetes/clusters.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called kubernetes_clusters. This will be set to an array of objects, each of which will contain the standard Kubernetes cluster attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new Kubernetes cluster, send a POST request to /v2/kubernetes/clusters. The request must contain at least one node pool with at least one worker.
+
+The request may contain a maintenance window policy describing a time period when disruptive maintenance tasks may be carried out. Omitting the policy implies that a window will be chosen automatically. See here for details.
+
+A human-readable name for a Kubernetes cluster.
+
+The slug identifier for the region where the Kubernetes cluster is located.
+
+The slug identifier for the version of Kubernetes used for the cluster. If set to a minor version (e.g. "1.14"), the latest version within it will be used (e.g. "1.14.6-do.1"); if set to "latest", the latest published version will be used. See the /v2/kubernetes/options endpoint to find all currently available versions.
+
+A string specifying the UUID of the VPC to which the Kubernetes cluster is assigned.
+
+An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged k8s and k8s:$K8S_CLUSTER_ID.
+
+An object specifying the details of the worker nodes available to the Kubernetes cluster.
+
+An object specifying the maintenance window policy for the Kubernetes cluster.
+
+A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.
+
+A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.
+
+A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled.
+
+The response will be a JSON object with a key called kubernetes_cluster. The value of this will be an object containing the standard attributes of a Kubernetes cluster.

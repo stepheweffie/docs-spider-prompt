@@ -1,0 +1,75 @@
+The response will be a JSON object with a key called actions.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a Droplet action, send a GET request to /v2/droplets/$DROPLET_ID/actions/$ACTION_ID.
+
+The response will be a JSON object with a key called action. The value will be a Droplet action object.
+
+A unique identifier for a Droplet instance.
+
+A unique numeric ID that can be used to identify and reference an action.
+
+The result will be a JSON object with an action key. This will be set to an action object containing the standard action attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+A Droplet is a DigitalOcean virtual machine. By sending requests to the Droplet endpoint, you can list, create, or delete Droplets.
+
+Some of the attributes will have an object value. The region and image objects will all contain the standard attributes of their associated types. Find more information about each of these objects in their respective sections.
+
+To list all Droplets in your account, send a GET request to /v2/droplets.
+
+The response body will be a JSON object with a key of droplets. This will be set to an array containing objects each representing a Droplet. These will contain the standard Droplet attributes.
+
+It's possible to request filtered results by including certain query parameters. To only list Droplets assigned to a specific tag, include the tag_name query parameter set to the name of the tag in your GET request. For example, /v2/droplets?tag_name=$TAG_NAME.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+Used to filter Droplets by a specific tag. Can not be combined with name.
+
+Used to filter list response by Droplet name returning only exact matches. It is case-insensitive and can not be combined with tag_name.
+
+A JSON object with a key of droplets.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a new Droplet, send a POST request to /v2/droplets setting the required attributes.
+
+A Droplet will be created using the provided information. The response body will contain a JSON object with a key called droplet. The value will be an object containing the standard attributes for your new Droplet. The response code, 202 Accepted, does not indicate the success or failure of the operation, just that the request has been accepted for processing. The actions returned as part of the response's links object can be used to check the status of the Droplet create event.
+
+Creating multiple Droplets is very similar to creating a single Droplet. Instead of sending name as a string, send names as an array of strings. A Droplet will be created for each name you send using the associated information. Up to ten Droplets may be created this way at a time.
+
+Rather than returning a single Droplet, the response body will contain a JSON array with a key called droplets. This will be set to an array of JSON objects, each of which will contain the standard Droplet attributes. The response code, 202 Accepted, does not indicate the success or failure of any operation, just that the request has been accepted for processing. The array of actions returned as part of the response's links object can be used to check the status of each individual Droplet create event.
+
+The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
+
+The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. nyc) can be used to deploy the Droplet in any of the that region's locations (nyc1, nyc2, or nyc3). If the region is omitted from the create request completely, the Droplet may deploy in any region.

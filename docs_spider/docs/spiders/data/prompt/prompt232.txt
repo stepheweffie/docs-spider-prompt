@@ -1,0 +1,123 @@
+A boolean value indicating whether auto-scaling is enabled for this node pool.
+
+The minimum number of nodes that this node pool can be auto-scaled to. The value will be 0 if auto_scale is set to false.
+
+The maximum number of nodes that this node pool can be auto-scaled to. The value will be 0 if auto_scale is set to false.
+
+The response will be a JSON object with a key called node_pool. The value of this will be an object containing the standard attributes of a node pool.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a node pool, send a DELETE request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID.
+
+A 204 status code with no body will be returned in response to a successful request. Nodes in the pool will subsequently be drained and deleted.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A unique ID that can be used to reference a Kubernetes node pool.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a single node in a pool, send a DELETE request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID/nodes/$NODE_ID.
+
+Appending the skip_drain=1 query parameter to the request causes node draining to be skipped. Omitting the query parameter or setting its value to 0 carries out draining prior to deletion.
+
+Appending the replace=1 query parameter to the request causes the node to be replaced by a new one after deletion. Omitting the query parameter or setting its value to 0 deletes without replacement.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A unique ID that can be used to reference a Kubernetes node pool.
+
+A unique ID that can be used to reference a node in a Kubernetes node pool.
+
+Specifies whether or not to drain workloads from a node before it is deleted. Setting it to 1 causes node draining to be skipped. Omitting the query parameter or setting its value to 0 carries out draining prior to deletion.
+
+Specifies whether or not to replace a node after it has been deleted. Setting it to 1 causes the node to be replaced by a new one after deletion. Omitting the query parameter or setting its value to 0 deletes without replacement.
+
+The does not indicate the success or failure of any operation, just that the request has been accepted for processing.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+The endpoint has been deprecated. Please use the DELETE /v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID/nodes/$NODE_ID method instead.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+A unique ID that can be used to reference a Kubernetes node pool.
+
+The does not indicate the success or failure of any operation, just that the request has been accepted for processing.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information the user associated with a Kubernetes cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/user.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+The response will be a JSON object with a key called kubernetes_cluster_user containing the username and in-cluster groups that it belongs to.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list the versions of Kubernetes available for use, the regions that support Kubernetes, and the available node sizes, send a GET request to /v2/kubernetes/options.
+
+The response will be a JSON object with a key called options which contains regions, versions, and sizes objects listing the available options and the matching slugs for use when creating a new cluster.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

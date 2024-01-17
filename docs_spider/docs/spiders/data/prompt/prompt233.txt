@@ -1,0 +1,103 @@
+Clusterlint helps operators conform to Kubernetes best practices around resources, security and reliability to avoid common problems while operating or upgrading the clusters.
+
+To request a clusterlint run on your cluster, send a POST request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint. This will run all checks present in the doks group by default, if a request body is not specified. Optionally specify the below attributes.
+
+For information about the available checks, please refer to the clusterlint check documentation.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+An array of check groups that will be run when clusterlint executes checks.
+
+An array of checks that will be run when clusterlint executes checks.
+
+An array of check groups that will be omitted when clusterlint executes checks.
+
+An array of checks that will be run when clusterlint executes checks.
+
+The response is a JSON object with a key called run_id that you can later use to fetch the run results.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To request clusterlint diagnostics for your cluster, send a GET request to /v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint. If the run_id query parameter is provided, then the diagnostics for the specific run is fetched. By default, the latest results are shown.
+
+To find out how to address clusterlint feedback, please refer to the clusterlint check documentation.
+
+A unique ID that can be used to reference a Kubernetes cluster.
+
+Specifies the clusterlint run whose results will be retrieved.
+
+The response is a JSON object which contains the diagnostics on Kubernetes objects in the cluster. Each diagnostic will contain some metadata information about the object and feedback for users to act upon.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To integrate the container registry with Kubernetes clusters, send a POST request to /v2/kubernetes/registry.
+
+An array containing the UUIDs of Kubernetes clusters.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove the container registry from Kubernetes clusters, send a DELETE request to /v2/kubernetes/registry.
+
+An array containing the UUIDs of Kubernetes clusters.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+DigitalOcean Load Balancers provide a way to distribute traffic across multiple Droplets. By sending requests to the /v2/load_balancers endpoint, you can list, create, or delete load balancers as well as add or remove Droplets, forwarding rules, and other configuration details.
+
+To create a new load balancer instance, send a POST request to /v2/load_balancers.
+
+You can specify the Droplets that will sit behind the load balancer using one of two methods:
+
+These methods are mutually exclusive.
+
+An array containing the IDs of the Droplets assigned to the load balancer.
+
+The slug identifier for the region where the resource will initially be available.
+
+A human-readable name for a load balancer instance.
+
+The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created.
+
+How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the size field to scale load balancers that reside in these regions.
+
+This field has been replaced by the size_unit field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.

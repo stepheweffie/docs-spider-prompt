@@ -1,0 +1,392 @@
+{
+"app":
+{
+"id": "c2a93513-8d9b-4223-9d61-5e7272c81cf5",
+"owner_uuid": "a4e16f25-cdd1-4483-b246-d77f283c9209",
+"spec":
+{
+},
+"default_ingress": "https://sample-golang-zyhgn.ondigitalocean.app",
+"created_at": "2021-02-10T16:45:14Z",
+"updated_at": "2021-02-10T17:06:56Z",
+"active_deployment":
+{
+},
+"last_deployment_created_at": "2021-02-10T17:05:30Z",
+"live_url": "https://sample-golang-zyhgn.ondigitalocean.app",
+"pending_deployment":
+{
+},
+"region":
+{
+},
+"tier_slug": "basic",
+"live_url_base": "https://sample-golang-zyhgn.ondigitalocean.app",
+"live_domain": "sample-golang-zyhgn.ondigitalocean.app",
+"project_id": "88b72d1a-b78a-4d9f-9090-b53c4399073f",
+"domains":
+[
+]
+}
+}
+
+read
+
+3m
+
+{
+"live_url": "https://logs-example/build.log",
+"url": "https://logs/build.log",
+"historic_logs":
+[
+"https://logs-example/archive/build.log"
+]
+}
+
+read
+
+deployments
+
+{
+"deployments":
+[
+{
+}
+],
+"links":
+{
+"pages": { }
+},
+"meta":
+{
+"total": 1
+}
+}
+
+write
+
+deployment
+
+{
+"force_build": true
+}
+
+{
+"deployment":
+{
+"id": "b6bdf840-2854-4f87-a36c-5f231c617c84",
+"spec":
+{
+},
+"services":
+[
+],
+"phase_last_updated_at": "0001-01-01T00:00:00Z",
+"created_at": "2020-07-28T18:00:00Z",
+"updated_at": "2020-07-28T18:00:00Z",
+"cause": "commit 9a4df0b pushed to github/digitalocean/sample-golang",
+"progress":
+{
+},
+"phase": "PENDING_BUILD",
+"tier_slug": "basic"
+}
+}
+
+read
+
+{
+"deployment":
+{
+"id": "b6bdf840-2854-4f87-a36c-5f231c617c84",
+"spec":
+{
+},
+"services":
+[
+],
+"phase_last_updated_at": "0001-01-01T00:00:00Z",
+"created_at": "2020-07-28T18:00:00Z",
+"updated_at": "2020-07-28T18:00:00Z",
+"cause": "commit 9a4df0b pushed to github/digitalocean/sample-golang",
+"progress":
+{
+},
+"phase": "PENDING_BUILD",
+"tier_slug": "basic"
+}
+}
+
+write
+
+deployment
+
+{
+"deployment":
+{
+"id": "b6bdf840-2854-4f87-a36c-5f231c617c84",
+"spec":
+{
+},
+"services":
+[
+],
+"phase_last_updated_at": "0001-01-01T00:00:00Z",
+"created_at": "2020-07-28T18:00:00Z",
+"updated_at": "2020-07-28T18:00:00Z",
+"cause": "commit 9a4df0b pushed to github/digitalocean/sample-golang",
+"progress":
+{
+},
+"phase": "PENDING_BUILD",
+"tier_slug": "basic"
+}
+}
+
+read
+
+3m
+
+{
+"live_url": "https://logs-example/build.log",
+"url": "https://logs/build.log",
+"historic_logs":
+[
+"https://logs-example/archive/build.log"
+]
+}
+
+read
+
+3m
+
+{
+"live_url": "https://logs-example/build.log",
+"url": "https://logs/build.log",
+"historic_logs":
+[
+"https://logs-example/archive/build.log"
+]
+}
+
+read
+
+3m
+
+{
+"live_url": "https://logs-example/build.log",
+"url": "https://logs/build.log",
+"historic_logs":
+[
+"https://logs-example/archive/build.log"
+]
+}
+
+read
+
+tiers
+
+{
+"tiers":
+[
+{
+},
+{
+},
+{
+}
+]
+}
+
+read
+
+tier
+
+{
+"tier":
+{
+"name": "Basic",
+"slug": "basic",
+"egress_bandwidth_bytes": "42949672960",
+"build_seconds": "24000"
+}
+}
+
+service
+
+worker
+
+job
+
+read
+
+instance_sizes
+
+{
+"instance_sizes":
+[
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+}
+]
+}
+
+service
+
+worker
+
+job
+
+read
+
+instance_size
+
+{
+"instance_size":
+{
+"name": "Basic XXS",
+"slug": "basic-xxs",
+"cpu_type": "SHARED",
+"cpus": "1",
+"memory_bytes": "536870912",
+"usd_per_month": "5.00",
+"usd_per_second": "0.000002066799",
+"tier_slug": "basic",
+"tier_upgrade_to": "professional-xs"
+}
+}
+
+read
+
+regions
+
+{
+"regions":
+[
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+},
+{
+}
+]
+}
+
+/v2/apps/propose
+
+read
+
+{
+"spec":
+{
+"name": "web-app",
+"region": "nyc",
+"services":
+[
+]
+},
+"app_id": "b6bdf840-2854-4f87-a36c-5f231c617c84"
+}
+
+{
+"app_name_available": true,
+"existing_static_apps": "2",
+"max_free_static_apps": "3",
+"spec":
+{
+"name": "sample-golang",
+"services":
+[
+],
+"region": "ams"
+},
+"app_cost": 5,
+"app_tier_upgrade_cost": 17
+}
+
+read
+
+alerts
+
+alerts
+
+{
+"alerts":
+[
+{
+},
+{
+}
+]
+}
+
+write
+
+alert
+
+alert
+
+{
+"emails":
+[
+"sammy@digitalocean.com"
+],
+"slack_webhooks":
+[
+{
+}
+]
+}
+
+{
+"alert":
+{
+"id": "e552e1f9-c1b0-4e6d-8777-ad6f27767306",
+"spec":
+{
+},
+"emails":
+[
+],
+"phase": "ACTIVE",
+"progress":
+{
+}
+}
+}
+
+write
+
+deployment
+
+{
+"deployment_id": "3aa4d20e-5527-4c00-b496-601fbd22520a",
+"skip_pin": false
+}

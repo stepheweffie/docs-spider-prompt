@@ -1,0 +1,181 @@
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To configure an eviction policy for an existing Redis cluster, send a PUT request to /v2/databases/$DATABASE_ID/eviction_policy specifying the desired policy.
+
+A unique identifier for a database cluster.
+
+A string specifying the desired eviction policy for the Redis cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve the configured SQL modes for an existing MySQL cluster, send a GET request to /v2/databases/$DATABASE_ID/sql_mode. The response will be a JSON object with a sql_mode key. This will be set to a string representing the configured SQL modes.
+
+A unique identifier for a database cluster.
+
+A JSON string with a key of sql_mode.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To configure the SQL modes for an existing MySQL cluster, send a PUT request to /v2/databases/$DATABASE_ID/sql_mode specifying the desired modes. See the official MySQL 8 documentation for a full list of supported SQL modes. A successful request will receive a 204 No Content status code with no body in response.
+
+A unique identifier for a database cluster.
+
+A string specifying the configured SQL modes for the MySQL cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To upgrade the major version of a database, send a PUT request to /v2/databases/$DATABASE_ID/upgrade, specifying the target version. A successful request will receive a 204 No Content status code with no body in response.
+
+A unique identifier for a database cluster.
+
+A string representing the version of the database engine in use for the cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list all of a Kafka cluster's topics, send a GET request to /v2/databases/$DATABASE_ID/topics.
+
+The result will be a JSON object with a topics key.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of topics.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a topic attached to a Kafka cluster, send a POST request to /v2/databases/$DATABASE_ID/topics.
+
+The result will be a JSON object with a topic key.
+
+A unique identifier for a database cluster.
+
+The name of the Kafka topic.
+
+The number of nodes to replicate data across the cluster.
+
+The number of partitions available for the topic. On update, this value can only be increased.
+
+A JSON object with a key of topic.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a given topic by name from the set of a Kafka cluster's topics, send a GET request to /v2/databases/$DATABASE_ID/topics/$TOPIC_NAME.
+
+The result will be a JSON object with a topic key.
+
+A unique identifier for a database cluster.
+
+The name used to identify the Kafka topic.
+
+A JSON object with a key of topic.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update a topic attached to a Kafka cluster, send a PUT request to /v2/databases/$DATABASE_ID/topics/$TOPIC_NAME.
+
+The result will be a JSON object with a topic key.
+
+A unique identifier for a database cluster.
+
+The name used to identify the Kafka topic.
+
+The number of nodes to replicate data across the cluster.
+
+The number of partitions available for the topic. On update, this value can only be increased.
+
+A JSON object with a key of topic.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a single topic within a Kafka cluster, send a DELETE request to /v2/databases/$DATABASE_ID/topics/$TOPIC_NAME.

@@ -1,0 +1,394 @@
+{
+"certificates":
+[
+{
+},
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 2
+}
+}
+
+/v2/certificates
+
+private_key
+
+leaf_certificate
+
+certificate_chain
+
+custom
+
+dns_names
+
+lets_encrypt
+
+write
+
+custom
+
+lets_encrypt
+
+*.example.com
+
+certificate
+
+state
+
+pending
+
+verified
+
+{
+"name": "web-cert-01",
+"type": "lets_encrypt",
+"dns_names":
+[
+"www.example.com",
+"example.com"
+]
+}
+
+{
+"certificate":
+{
+"id": "892071a0-bb95-49bc-8021-3afd67a210bf",
+"name": "web-cert-01",
+"not_after": "2017-02-22T00:23:00Z",
+"sha1_fingerprint": "dfcc9f57d86bf58e321c2c6c31c7a971be244ac7",
+"created_at": "2017-02-08T16:02:37Z",
+"dns_names":
+[
+],
+"state": "verified",
+"type": "custom"
+}
+}
+
+/v2/certificates/$CERTIFICATE_ID
+
+read
+
+certificate
+
+{
+"certificate":
+{
+"id": "892071a0-bb95-49bc-8021-3afd67a210bf",
+"name": "web-cert-01",
+"not_after": "2017-02-22T00:23:00Z",
+"sha1_fingerprint": "dfcc9f57d86bf58e321c2c6c31c7a971be244ac7",
+"created_at": "2017-02-08T16:02:37Z",
+"dns_names":
+[
+],
+"state": "verified",
+"type": "custom"
+}
+}
+
+/v2/certificates/$CERTIFICATE_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/registry
+
+read
+
+registry
+
+{
+"registry":
+{
+"name": "example",
+"created_at": "2020-03-21T16:02:37Z",
+"region": "fra1",
+"storage_usage_bytes": 29393920,
+"storage_usage_bytes_updated_at": "2020-11-04T21:39:49.530562231Z",
+"subscription":
+{
+}
+}
+}
+
+/v2/registry
+
+name
+
+example
+
+registry.digitalocean.com/example/image:tag
+
+write
+
+-
+
+registry
+
+{
+"name": "example",
+"subscription_tier_slug": "basic",
+"region": "fra1"
+}
+
+{
+"registry":
+{
+"name": "example",
+"created_at": "2020-03-21T16:02:37Z",
+"region": "fra1",
+"storage_usage_bytes": 29393920,
+"storage_usage_bytes_updated_at": "2020-11-04T21:39:49.530562231Z",
+"subscription":
+{
+}
+}
+}
+
+/v2/registry
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/registry/subscription
+
+read
+
+subscription
+
+{
+"subscription":
+{
+"tier":
+{
+},
+"created_at": "2020-01-23T21:19:12Z",
+"updated_at": "2020-11-05T15:53:24Z"
+}
+}
+
+/v2/registry/subscription
+
+write
+
+subscription
+
+{
+"tier_slug": "basic"
+}
+
+{
+"subscription":
+{
+"tier":
+{
+},
+"created_at": "2020-01-23T21:19:12Z",
+"updated_at": "2020-11-05T15:53:24Z"
+}
+}
+
+/v2/registry/docker-credentials
+
+config.json
+
+kubectl create secret generic docr \
+  --from-file=.dockerconfigjson=config.json \
+  --type=kubernetes.io/dockerconfigjson
+
+/v2/registry/docker-credentials?read_write=true
+
+/v2/registry/docker-credentials?expiry_seconds=3600
+
+read
+
+true
+
+config.json
+
+{
+"auths":
+{
+"registry.digitalocean.com":
+{
+}
+}
+}
+
+/v2/registry/validate-name
+
+write
+
+-
+
+{
+"name": "example"
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/registry/$REGISTRY_NAME/repositories
+
+read
+
+repositories
+
+{
+"repositories":
+[
+{
+}
+],
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/registry/$REGISTRY_NAME/repositoriesV2
+
+read
+
+repositories
+
+{
+"repositories":
+[
+{
+}
+],
+"meta":
+{
+"total": 5
+},
+"links":
+{
+"pages":
+{
+}
+}
+}
+
+/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags
+
+/
+
+registry.digitalocean.com/example/my/repo
+
+/v2/registry/example/repositories/my%2Frepo/tags
+
+read
+
+/
+
+%2F
+
+tags
+
+{
+"tags":
+[
+{
+}
+],
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags/$TAG
+
+/
+
+registry.digitalocean.com/example/my/repo:mytag
+
+/v2/registry/example/repositories/my%2Frepo/tags/mytag
+
+write
+
+/
+
+%2F
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests
+
+/
+
+registry.digitalocean.com/example/my/repo
+
+/v2/registry/example/repositories/my%2Frepo/digests
+
+read
+
+/
+
+%2F
+
+manifests
+
+{
+"manifests":
+[
+{
+}
+],
+"meta":
+{
+"total": 3
+},
+"links":
+{
+"pages":
+{
+}
+}
+}
+
+/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests/$MANIFEST_DIGEST
+
+/
+
+registry.digitalocean.com/example/my/repo@sha256:abcd
+
+/v2/registry/example/repositories/my%2Frepo/digests/sha256:abcd
+
+write
+
+/
+
+%2F
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/registry/$REGISTRY_NAME/garbage-collection
+
+success
+
+write
+
+garbage_collection

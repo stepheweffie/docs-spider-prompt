@@ -1,0 +1,43 @@
+The pages object will only include the links that make sense. So for the first page of results, no first or prev links will ever be set. This convention holds true in other situations where a link would not make sense.
+
+Requests through the API are rate limited per OAuth token. Current rate limits:
+
+Once you exceed either limit, you will be rate limited until the next cycle starts. Space out any requests that you would otherwise issue in bursts for the best results.
+
+The rate limiting information is contained within the response headers of each request. The relevant headers are:
+
+More rate limiting information is returned only within burst limit error response headers:
+
+As long as the ratelimit-remaining count is above zero, you will be able to make additional requests.
+
+The way that a request expires and is removed from the current limit count is important to understand. Rather than counting all of the requests for an hour and resetting the ratelimit-remaining value at the end of the hour, each request instead has its own timer.
+
+This means that each request contributes toward the ratelimit-remaining count for one complete hour after the request is made. When that request's timer runs out, it is no longer counted towards the request limit.
+
+This has implications on the meaning of the ratelimit-reset header as well. Because the entire rate limit is not reset at one time, the value of this header is set to the time when the oldest request will expire.
+
+Keep this in mind if you see your ratelimit-reset value change, but not move an entire hour into the future.
+
+If the ratelimit-remaining reaches zero, subsequent requests will receive a 429 error code until the request reset has been reached.
+
+ratelimit-remaining reaching zero can also indicate that the "burst limit" of 250 requests per minute limit was met, even if the 5,000 requests per hour limit was not. In this case, the 429 error response will include a retry-after header to indicate how long to wait (in seconds) until the request may be retried.
+
+You can see the format of the response in the examples.
+
+Note: The following endpoints have special rate limit requirements that are independent of the limits defined above.
+
+Throughout this document, some example API requests will be given using the curl command. This will allow us to demonstrate the various endpoints in a simple, textual format.
+
+These examples assume that you are using a Linux or macOS command line. To run these commands on a Windows machine, you can either use cmd.exe, PowerShell, or WSL:
+
+For cmd.exe, use the set VAR=VALUE syntax to define environment variables, call them with %VAR%, then replace all backslashes (\) in the examples with carets (^).
+
+For PowerShell, use the $Env:VAR = "VALUE" syntax to define environment variables, call them with $Env:VAR, then replace curl with curl.exe and all backslashes (\) in the examples with backticks (`).
+
+WSL is a compatibility layer that allows you to emulate a Linux terminal on a Windows machine. Install WSL with our community tutorial, then follow this API documentation normally.
+
+The names of account-specific references (like Droplet IDs, for instance) will be represented by variables. For instance, a Droplet ID may be represented by a variable called $DROPLET_ID. You can set the associated variables in your environment if you wish to use the examples without modification.
+
+The first variable that you should set to get started is your OAuth authorization token. The next section will go over the details of this, but you can set an environmental variable for it now.
+
+Generate a token by going to the Apps & API section of the DigitalOcean control panel. Use an existing token if you have saved one, or generate a new token with the "Generate new token" button. Copy the generated token and use it to set and export the TOKEN variable in your environment as the example shows.

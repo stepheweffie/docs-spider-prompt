@@ -1,0 +1,95 @@
+The slug identifier for the region where the resource will initially be available.
+
+A human-readable name for a load balancer instance.
+
+The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created.
+
+How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the size field to scale load balancers that reside in these regions.
+
+This field has been replaced by the size_unit field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.
+
+You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.
+
+This field has been deprecated. You can no longer specify an algorithm for load balancers.
+
+An array of objects specifying the forwarding rules for a load balancer.
+
+An object specifying health check settings for the load balancer.
+
+An object specifying sticky sessions settings for the load balancer.
+
+A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.
+
+A boolean value indicating whether PROXY Protocol is in use.
+
+A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.
+
+An integer value which configures the idle timeout for HTTP requests to the target droplets.
+
+A string specifying the UUID of the VPC to which the load balancer is assigned.
+
+A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.
+
+An object specifying allow and deny rules to control traffic to the load balancer.
+
+Accepted
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Passing requests directly through to 80 and 443.
+
+To list all of the load balancer instances on your account, send a GET request to /v2/load_balancers.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object with a key of load_balancers. This will be set to an array of objects, each of which will contain the standard load balancer attributes.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about a load balancer instance, send a GET request to /v2/load_balancers/$LOAD_BALANCER_ID.
+
+A unique identifier for a load balancer.
+
+The response will be a JSON object with a key called load_balancer. The value of this will be an object that contains the standard attributes associated with a load balancer
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update a load balancer's settings, send a PUT request to /v2/load_balancers/$LOAD_BALANCER_ID. The request should contain a full representation of the load balancer including existing attributes. It may contain one of the droplets_ids or tag attributes as they are mutually exclusive. Note that any attribute that is not provided will be reset to its default value.
+
+A unique identifier for a load balancer.
+
+An array containing the IDs of the Droplets assigned to the load balancer.
+
+The slug identifier for the region where the resource will initially be available.
+
+A human-readable name for a load balancer instance.
+
+The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created.

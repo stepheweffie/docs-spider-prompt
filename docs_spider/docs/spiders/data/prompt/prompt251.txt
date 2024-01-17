@@ -1,0 +1,350 @@
+{
+"snapshot":
+{
+"id": "8fa70202-873f-11e6-8b68-000f533176b1",
+"name": "big-data-snapshot1475261774",
+"regions":
+[
+],
+"created_at": "2020-09-30T18:56:14Z",
+"resource_id": "82a48a18-873f-11e6-96bf-000f53315a41",
+"resource_type": "volume",
+"min_disk_size": 10,
+"size_gigabytes": 10,
+"tags":
+[
+]
+}
+}
+
+/v2/snapshots/$SNAPSHOT_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/volumes/$VOLUME_ID
+
+read
+
+volume
+
+{
+"volume":
+{
+"id": "506f78a4-e098-11e5-ad9f-000f53306ae1",
+"region":
+{
+},
+"droplet_ids": [ ],
+"name": "example",
+"description": "Block store for examples",
+"size_gigabytes": 10,
+"filesystem_type": "ext4",
+"filesystem_label": "example",
+"created_at": "2020-03-02T17:00:49Z"
+}
+}
+
+/v2/volumes/$VOLUME_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/volumes/$VOLUME_ID/snapshots
+
+read
+
+snapshots
+
+{
+"snapshots":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/volumes/$VOLUME_ID/snapshots
+
+write
+
+snapshot
+
+{
+"name": "big-data-snapshot1475261774"
+}
+
+{
+"snapshot":
+{
+"id": "8fa70202-873f-11e6-8b68-000f533176b1",
+"name": "big-data-snapshot1475261774",
+"regions":
+[
+],
+"created_at": "2020-09-30T18:56:14Z",
+"resource_id": "82a48a18-873f-11e6-96bf-000f53315a41",
+"resource_type": "volume",
+"min_disk_size": 10,
+"size_gigabytes": 10,
+"tags":
+[
+]
+}
+}
+
+/v2/volumes/$VOLUME_ID/actions
+
+~/v2/volumes/actions
+
+attach
+
+detach
+
+write
+
+action
+
+{
+"type": "attach",
+"volume_name": "example",
+"droplet_id": 11612190,
+"region": "nyc1",
+"tags":
+[
+"aninterestingtag"
+]
+}
+
+{
+"action":
+{
+"id": 72531856,
+"status": "completed",
+"type": "attach_volume",
+"started_at": "2020-11-12T17:51:03Z",
+"completed_at": "2020-11-12T17:51:14Z",
+"resource_type": "volume",
+"region":
+{
+},
+"region_slug": "nyc1"
+}
+}
+
+/v2/volumes/$VOLUME_ID/actions
+
+read
+
+action
+
+{
+"actions":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+~/v2/volumes/$VOLUME_ID/actions
+
+attach
+
+detach
+
+resize
+
+write
+
+action
+
+{
+"type": "attach",
+"droplet_id": 11612190,
+"region": "nyc1",
+"tags":
+[
+"aninterestingtag"
+]
+}
+
+{
+"action":
+{
+"id": 72531856,
+"status": "completed",
+"type": "attach_volume",
+"started_at": "2020-11-12T17:51:03Z",
+"completed_at": "2020-11-12T17:51:14Z",
+"resource_type": "volume",
+"region":
+{
+},
+"region_slug": "nyc1"
+}
+}
+
+/v2/volumes/$VOLUME_ID/actions/$ACTION_ID
+
+read
+
+action
+
+{
+"action":
+{
+"id": 72531856,
+"status": "completed",
+"type": "attach_volume",
+"started_at": "2020-11-12T17:51:03Z",
+"completed_at": "2020-11-12T17:51:14Z",
+"resource_type": "volume",
+"region":
+{
+},
+"region_slug": "nyc1"
+}
+}
+
+/v2/cdn/endpoints
+
+/v2/cdn/endpoints
+
+read
+
+endpoints
+
+{
+"endpoints":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/cdn/endpoints
+
+ttl
+
+custom_domain
+
+certificate_id
+
+write
+
+endpoint
+
+{
+"origin": "static-images.nyc3.digitaloceanspaces.com",
+"ttl": 3600
+}
+
+{
+"endpoint":
+{
+"id": "19f06b6a-3ace-4315-b086-499a0e521b76",
+"origin": "static-images.nyc3.digitaloceanspaces.com",
+"endpoint": "static-images.nyc3.cdn.digitaloceanspaces.com",
+"created_at": "2018-07-19T15:04:16Z",
+"ttl": 3600
+}
+}
+
+/v2/cdn/endpoints/$ENDPOINT_ID
+
+read
+
+endpoint
+
+{
+"endpoint":
+{
+"id": "19f06b6a-3ace-4315-b086-499a0e521b76",
+"origin": "static-images.nyc3.digitaloceanspaces.com",
+"endpoint": "static-images.nyc3.cdn.digitaloceanspaces.com",
+"created_at": "2018-07-19T15:04:16Z",
+"ttl": 3600
+}
+}
+
+/v2/cdn/endpoints/$ENDPOINT_ID
+
+write
+
+endpoint
+
+{
+"ttl": 3600,
+"certificate_id": "892071a0-bb95-49bc-8021-3afd67a210bf",
+"custom_domain": "static.example.com"
+}
+
+{
+"endpoint":
+{
+"id": "19f06b6a-3ace-4315-b086-499a0e521b76",
+"origin": "static-images.nyc3.digitaloceanspaces.com",
+"endpoint": "static-images.nyc3.cdn.digitaloceanspaces.com",
+"created_at": "2018-07-19T15:04:16Z",
+"ttl": 3600
+}
+}
+
+/v2/cdn/endpoints/$ENDPOINT_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/cdn/endpoints/$ENDPOINT_ID/cache
+
+files
+
+*
+
+write
+
+{
+"files":
+[
+"path/to/image.png",
+"path/to/css/*"
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/certificates
+
+read
+
+certificates

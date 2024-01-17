@@ -1,0 +1,151 @@
+A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
+
+A unique identifier for a Droplet instance.
+
+The action was successful and the response body is empty. This response has content-type set.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve any backups associated with a Droplet, send a GET request to /v2/droplets/$DROPLET_ID/backups.
+
+You will get back a JSON object that has a backups key. This will be set to an array of backup objects, each of which contain the standard Droplet backup attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object with an backups key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve the snapshots that have been created from a Droplet, send a GET request to /v2/droplets/$DROPLET_ID/snapshots.
+
+You will get back a JSON object that has a snapshots key. This will be set to an array of snapshot objects, each of which contain the standard Droplet snapshot attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object with an snapshots key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of all kernels available to a Droplet, send a GET request to /v2/droplets/$DROPLET_ID/kernels
+
+The response will be a JSON object that has a key called kernels. This will be set to an array of kernel objects, each of which contain the standard kernel attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object that has a key called kernels.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of all firewalls available to a Droplet, send a GET request to /v2/droplets/$DROPLET_ID/firewalls
+
+The response will be a JSON object that has a key called firewalls. This will be set to an array of firewall objects, each of which contain the standard firewall attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object that has a key called firewalls.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of any "neighbors" (i.e. Droplets that are co-located on the same physical hardware) for a specific Droplet, send a GET request to /v2/droplets/$DROPLET_ID/neighbors.
+
+The results will be returned as a JSON object with a key of droplets. This will be set to an array containing objects representing any other Droplets that share the same physical hardware. An empty array indicates that the Droplet is not co-located any other Droplets associated with your account.
+
+A unique identifier for a Droplet instance.
+
+A JSON object with an droplets key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list the associated billable resources that can be destroyed along with a Droplet, send a GET request to the /v2/droplets/$DROPLET_ID/destroy_with_associated_resources endpoint.
+
+The response will be a JSON object containing snapshots, volumes, and volume_snapshots keys. Each will be set to an array of objects containing information about the associated resources.
+
+A unique identifier for a Droplet instance.
+
+A JSON object containing snapshots, volumes, and volume_snapshots keys.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

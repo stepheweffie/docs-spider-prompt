@@ -1,0 +1,368 @@
+{
+"floating_ip":
+{
+"ip": "45.55.96.47",
+"droplet": null,
+"region":
+{
+},
+"locked": true,
+"project_id": "746c6152-2fa2-11ed-92d3-27aaa54e4988"
+},
+"links":
+{
+"droplets":
+[
+],
+"actions":
+[
+]
+}
+}
+
+/v2/floating_ips/$FLOATING_IP_ADDR
+
+read
+
+floating_ip
+
+{
+"floating_ip":
+{
+"ip": "45.55.96.47",
+"droplet":
+{
+},
+"region":
+{
+},
+"locked": false,
+"project_id": "746c6152-2fa2-11ed-92d3-27aaa54e4988"
+}
+}
+
+/v2/floating_ips/$FLOATING_IP_ADDR
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+doctl
+
+/v2/functions/namespaces
+
+read
+
+namespaces
+
+{
+"namespaces":
+[
+{
+}
+]
+}
+
+/v2/functions/namespaces
+
+region
+
+label
+
+write
+
+namespace
+
+{
+"region": "nyc1",
+"label": "my namespace"
+}
+
+{
+"namespace":
+{
+"api_host": "https://api_host.io",
+"namespace": "fn-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+"created_at": "2022-09-14T04:16:45Z",
+"updated_at": "2022-09-14T04:16:45Z",
+"label": "my namespace",
+"region": "nyc1",
+"uuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+"key": "d1zcd455h01mqjfs4s2eaewyejehi5f2uj4etqq3h7cera8iwkub6xg5of1wdde2"
+}
+}
+
+/v2/functions/namespaces/$NAMESPACE_ID
+
+read
+
+namespace
+
+{
+"namespace":
+{
+"api_host": "https://api_host.io",
+"namespace": "fn-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+"created_at": "2022-09-14T04:16:45Z",
+"updated_at": "2022-09-14T04:16:45Z",
+"label": "my namespace",
+"region": "nyc1",
+"uuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+"key": "d1zcd455h01mqjfs4s2eaewyejehi5f2uj4etqq3h7cera8iwkub6xg5of1wdde2"
+}
+}
+
+/v2/functions/namespaces/$NAMESPACE_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/functions/namespaces/$NAMESPACE_ID/triggers
+
+read
+
+namespaces
+
+{
+"triggers":
+[
+{
+}
+]
+}
+
+/v2/functions/namespaces/$NAMESPACE_ID/triggers
+
+name
+
+function
+
+type
+
+is_enabled
+
+scheduled_details
+
+write
+
+trigger
+
+{
+"name": "my trigger",
+"function": "hello",
+"type": "SCHEDULED",
+"is_enabled": true,
+"scheduled_details":
+{
+"cron": "* * * * *",
+"body":
+{
+}
+}
+}
+
+{
+"trigger":
+{
+"namespace": "fn-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+"name": "my trigger",
+"function": "hello",
+"type": "SCHEDULED",
+"is_enabled": true,
+"created_at": "2022-11-11T04:16:45Z",
+"updated_at": "2022-11-11T04:16:45Z",
+"scheduled_details":
+{
+},
+"scheduled_runs":
+{
+}
+}
+}
+
+/v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME
+
+read
+
+trigger
+
+{
+"trigger":
+{
+"namespace": "fn-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+"name": "my trigger",
+"function": "hello",
+"type": "SCHEDULED",
+"is_enabled": true,
+"created_at": "2022-11-11T04:16:45Z",
+"updated_at": "2022-11-11T04:16:45Z",
+"scheduled_details":
+{
+},
+"scheduled_runs":
+{
+}
+}
+}
+
+/v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME
+
+is_enabled
+
+scheduled_details
+
+write
+
+trigger
+
+{
+"is_enabled": true,
+"scheduled_details":
+{
+"cron": "* * * * *",
+"body":
+{
+}
+}
+}
+
+{
+"trigger":
+{
+"namespace": "fn-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+"name": "my trigger",
+"function": "hello",
+"type": "SCHEDULED",
+"is_enabled": true,
+"created_at": "2022-11-11T04:16:45Z",
+"updated_at": "2022-11-11T04:16:45Z",
+"scheduled_details":
+{
+},
+"scheduled_runs":
+{
+}
+}
+}
+
+/v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME
+
+read
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/images/$IMAGE_ID/actions
+
+read
+
+actions
+
+{
+"actions":
+[
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 5
+}
+}
+
+/v2/images/$IMAGE_ID/actions
+
+type
+
+convert
+
+/v2/images/$IMAGE_ID/actions
+
+type
+
+transfer
+
+region
+
+write
+
+convert
+
+transfer
+
+action
+
+{
+"type": "convert"
+}
+
+{
+"action":
+{
+"id": 36805527,
+"status": "in-progress",
+"type": "transfer",
+"started_at": "2014-11-14T16:42:45Z",
+"completed_at": null,
+"resource_id": 7938269,
+"resource_type": "image",
+"region":
+{
+},
+"region_slug": "nyc3"
+}
+}
+
+/v2/images/$IMAGE_ID/actions/$IMAGE_ACTION_ID
+
+read
+
+action
+
+{
+"action":
+{
+"id": 36805527,
+"status": "in-progress",
+"type": "transfer",
+"started_at": "2014-11-14T16:42:45Z",
+"completed_at": null,
+"resource_id": 7938269,
+"resource_type": "image",
+"region":
+{
+},
+"region_slug": "nyc3"
+}
+}
+
+type
+
+type
+
+type
+
+type
+
+/v2/images?type=distribution
+
+type
+
+/v2/images?type=application
+
+private

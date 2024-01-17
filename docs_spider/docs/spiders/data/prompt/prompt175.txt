@@ -1,0 +1,367 @@
+/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests
+
+/
+
+registry.digitalocean.com/example/my/repo
+
+/v2/registry/example/repositories/my%2Frepo/digests
+
+read
+
+/
+
+%2F
+
+manifests
+
+{
+"manifests":
+[
+{
+}
+],
+"meta":
+{
+"total": 3
+},
+"links":
+{
+"pages":
+{
+}
+}
+}
+
+/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests/$MANIFEST_DIGEST
+
+/
+
+registry.digitalocean.com/example/my/repo@sha256:abcd
+
+/v2/registry/example/repositories/my%2Frepo/digests/sha256:abcd
+
+write
+
+/
+
+%2F
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/registry/$REGISTRY_NAME/garbage-collection
+
+success
+
+write
+
+garbage_collection
+
+{
+"garbage_collection":
+{
+"uuid": "eff0feee-49c7-4e8f-ba5c-a320c109c8a8",
+"registry_name": "example",
+"status": "requested",
+"created_at": "2020-10-30T21:03:24Z",
+"updated_at": "2020-10-30T21:03:44Z",
+"blobs_deleted": 42,
+"freed_bytes": 667
+}
+}
+
+/v2/registry/$REGISTRY_NAME/garbage-collection
+
+write
+
+garbage_collection
+
+{
+"garbage_collection":
+{
+"uuid": "eff0feee-49c7-4e8f-ba5c-a320c109c8a8",
+"registry_name": "example",
+"status": "requested",
+"created_at": "2020-10-30T21:03:24Z",
+"updated_at": "2020-10-30T21:03:44Z",
+"blobs_deleted": 42,
+"freed_bytes": 667
+}
+}
+
+/v2/registry/$REGISTRY_NAME/garbage-collections
+
+write
+
+garbage_collections
+
+{
+"garbage_collections":
+[
+{
+}
+],
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/registry/$REGISTRY_NAME/garbage-collection/$GC_UUID
+
+write
+
+garbage_collection
+
+{
+"cancel": true
+}
+
+{
+"garbage_collection":
+{
+"uuid": "eff0feee-49c7-4e8f-ba5c-a320c109c8a8",
+"registry_name": "example",
+"status": "requested",
+"created_at": "2020-10-30T21:03:24Z",
+"updated_at": "2020-10-30T21:03:44Z",
+"blobs_deleted": 42,
+"freed_bytes": 667
+}
+}
+
+/v2/registry/options
+
+read
+
+options
+
+subscription_tiers
+
+{
+"options":
+{
+"available_regions":
+[
+],
+"subscription_tiers":
+[
+]
+}
+}
+
+/v2/databases
+
+/v2/databases/options
+
+doctl databases options
+
+/v2/databases/options
+
+options
+
+read
+
+options
+
+{
+"options":
+{
+"kafka":
+{
+},
+"mongodb":
+{
+},
+"mysql":
+{
+},
+"pg":
+{
+},
+"redis":
+{
+}
+},
+"version_availability":
+{
+"kafka":
+[
+],
+"mongodb":
+[
+],
+"mysql":
+[
+],
+"pg":
+[
+],
+"redis":
+[
+]
+}
+}
+
+/v2/databases
+
+tag_name
+
+/v2/databases?tag_name=$TAG_NAME
+
+databases
+
+connection
+
+private_connection
+
+maintenance_window
+
+read
+
+databases
+
+{
+"databases":
+[
+{
+}
+]
+}
+
+/v2/databases
+
+database
+
+status
+
+creating
+
+online
+
+connection
+
+private_connection
+
+/v2/databases
+
+backup_restore
+
+write
+
+database
+
+{
+"name": "backend",
+"engine": "pg",
+"version": "14",
+"region": "nyc3",
+"size": "db-s-2vcpu-4gb",
+"storage_size_mib": 61440,
+"num_nodes": 2,
+"tags":
+[
+"production"
+]
+}
+
+{
+"database":
+{
+"id": "9cc10173-e9ea-4176-9dbc-a4cee4c4ff30",
+"name": "backend",
+"engine": "pg",
+"version": "14",
+"semantic_version": "14.5",
+"connection":
+{
+},
+"private_connection":
+{
+},
+"users":
+[
+],
+"db_names":
+[
+],
+"num_nodes": 2,
+"region": "nyc3",
+"status": "creating",
+"created_at": "2019-01-11T18:37:36Z",
+"maintenance_window":
+{
+},
+"size": "db-s-2vcpu-4gb",
+"tags":
+[
+],
+"private_network_uuid": "d455e75d-4858-4eec-8c95-da2f0a5f93a7",
+"version_end_of_life": "2023-11-09T00:00:00Z",
+"version_end_of_availability": "2023-05-09T00:00:00Z",
+"storage_size_mib": 61440
+}
+}
+
+/v2/databases/$DATABASE_ID
+
+read
+
+database
+
+{
+"database":
+{
+"id": "9cc10173-e9ea-4176-9dbc-a4cee4c4ff30",
+"name": "backend",
+"engine": "pg",
+"version": "14",
+"semantic_version": "14.5",
+"connection":
+{
+},
+"private_connection":
+{
+},
+"users":
+[
+],
+"db_names":
+[
+],
+"num_nodes": 2,
+"region": "nyc3",
+"status": "creating",
+"created_at": "2019-01-11T18:37:36Z",
+"maintenance_window":
+{
+},
+"size": "db-s-2vcpu-4gb",
+"tags":
+[
+],
+"private_network_uuid": "d455e75d-4858-4eec-8c95-da2f0a5f93a7",
+"version_end_of_life": "2023-11-09T00:00:00Z",
+"version_end_of_availability": "2023-05-09T00:00:00Z",
+"storage_size_mib": 61440
+}
+}
+
+/v2/databases/$DATABASE_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/databases/$DATABASE_ID/config
+
+config
+
+read
+
+config

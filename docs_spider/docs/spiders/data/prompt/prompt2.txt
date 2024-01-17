@@ -1,0 +1,39 @@
+The API documentation will start with a general overview about the design and technology that has been implemented, followed by reference information about specific endpoints.
+
+Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI. Requests should be made using the HTTPS protocol so that traffic is encrypted. The interface responds to different methods depending on the action required.
+
+Along with the HTTP methods that the API responds to, it will also return standard HTTP statuses, including error codes.
+
+In the event of a problem, the status will contain the error code, while the body of the response will usually contain additional information about the problem that was encountered.
+
+In general, if the status returned is in the 200 range, it indicates that the request was fulfilled successfully and that no error was encountered.
+
+Return codes in the 400 range typically indicate that there was an issue with the request that was sent. Among other things, this could mean that you did not authenticate correctly, that you are requesting an action that you do not have authorization for, that the object you are requesting does not exist, or that your request is malformed.
+
+If you receive a status in the 500 range, this generally indicates a server-side problem. This means that we are having an issue on our end and cannot fulfill your request currently.
+
+400 and 500 level error responses will include a JSON object in their body, including the following attributes:
+
+When a request is successful, a response body will typically be sent back in the form of a JSON object. An exception to this is when a DELETE request is processed, which will result in a successful HTTP 204 status and an empty response body.
+
+Inside of this JSON object, the resource root that was the target of the request will be set as the key. This will be the singular form of the word if the request operated on a single object, and the plural form of the word if a collection was processed.
+
+For example, if you send a GET request to /v2/droplets/$DROPLET_ID you will get back an object with a key called "droplet". However, if you send the GET request to the general collection at /v2/droplets, you will get back an object with a key called "droplets".
+
+The value of these keys will generally be a JSON object for a request on a single object and an array of objects for a request on a collection of objects.
+
+In addition to the main resource root, the response may also contain a meta object. This object contains information about the response itself.
+
+The meta object contains a total key that is set to the total number of objects returned by the request. This has implications on the links object and pagination.
+
+The meta object will only be displayed when it has a value. Currently, the meta object will have a value when a request is made on a collection (like droplets or domains).
+
+The links object is returned as part of the response body when pagination is enabled. By default, 20 objects are returned per page. If the response contains 20 objects or fewer, no links object will be returned. If the response contains more than 20 objects, the first 20 will be returned along with the links object.
+
+You can request a different pagination limit or force pagination by appending ?per_page= to the request with the number of items you would like per page. For instance, to show only two results per page, you could add ?per_page=2 to the end of your query. The maximum number of results per page is 200.
+
+The links object contains a pages object. The pages object, in turn, contains keys indicating the relationship of additional pages. The values of these are the URLs of the associated pages. The keys will be one of the following:
+
+The pages object will only include the links that make sense. So for the first page of results, no first or prev links will ever be set. This convention holds true in other situations where a link would not make sense.
+
+Requests through the API are rate limited per OAuth token. Current rate limits:

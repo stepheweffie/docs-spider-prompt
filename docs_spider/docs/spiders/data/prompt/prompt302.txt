@@ -1,0 +1,133 @@
+The ID of the Droplet that the floating IP will be assigned to.
+
+The response will be a JSON object with a key called floating_ip. The value of this will be an object that contains the standard attributes associated with a floating IP. When assigning a floating IP to a Droplet at same time as it created, the response's links object will contain links to both the Droplet and the assignment action. The latter can be used to check the status of the action.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about a floating IP, send a GET request to /v2/floating_ips/$FLOATING_IP_ADDR.
+
+A floating IP address.
+
+The response will be a JSON object with a key called floating_ip. The value of this will be an object that contains the standard attributes associated with a floating IP.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a floating IP and remove it from your account, send a DELETE request to /v2/floating_ips/$FLOATING_IP_ADDR.
+
+A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
+
+A floating IP address.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Serverless functions are blocks of code that run on demand without the need to manage any infrastructure. You can develop functions on your local machine and then deploy them to a namespace using doctl, the official DigitalOcean CLI tool.
+
+The Serverless Functions API currently only supports creating and managing namespaces.
+
+Returns a list of namespaces associated with the current user. To get all namespaces, send a GET request to /v2/functions/namespaces.
+
+An array of JSON objects with a key called namespaces. Each object represents a namespace and contains the properties associated with it.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Creates a new serverless functions namespace in the desired region and associates it with the provided label. A namespace is a collection of functions and their associated packages, triggers, and project specifications. To create a namespace, send a POST request to /v2/functions/namespaces with the region and label properties.
+
+The datacenter region in which to create the namespace.
+
+The namespace's unique name.
+
+A JSON response object with a key called namespace. The object contains the properties associated with the namespace.
+
+Unauthorized
+
+Bad Request.
+
+Limit Reached
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Gets the namespace details for the given namespace UUID. To get namespace details, send a GET request to /v2/functions/namespaces/$NAMESPACE_ID with no parameters.
+
+The ID of the namespace to be managed.
+
+A JSON response object with a key called namespace. The object contains the properties associated with the namespace.
+
+Unauthorized
+
+Not Allowed.
+
+Bad Request.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Deletes the given namespace. When a namespace is deleted all assets, in the namespace are deleted, this includes packages, functions and triggers. Deleting a namespace is a destructive operation and assets in the namespace are not recoverable after deletion. Some metadata is retained, such as activations, or soft deleted for reporting purposes. To delete namespace, send a DELETE request to /v2/functions/namespaces/$NAMESPACE_ID. A successful deletion returns a 204 response.
+
+The ID of the namespace to be managed.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+Bad Request.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Returns a list of triggers associated with the current user and namespace. To get all triggers, send a GET request to /v2/functions/namespaces/$NAMESPACE_ID/triggers.
+
+The ID of the namespace to be managed.

@@ -1,0 +1,143 @@
+To update the configuration for an existing database cluster, send a PATCH request to /v2/databases/$DATABASE_ID/config.
+
+A unique identifier for a database cluster.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve the public certificate used to secure the connection to the database cluster send a GET request to /v2/databases/$DATABASE_ID/ca.
+
+The response will be a JSON object with a ca key. This will be set to an object containing the base64 encoding of the public key certificate.
+
+A unique identifier for a database cluster.
+
+A JSON object with a key of ca.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve the status of the most recent online migration, send a GET request to /v2/databases/$DATABASE_ID/online-migration.
+
+A unique identifier for a database cluster.
+
+A JSON object.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To start an online migration, send a PUT request to /v2/databases/$DATABASE_ID/online-migration endpoint. Migrating a cluster establishes a connection with an existing cluster and replicates its contents to the target cluster. Online migration is only available for MySQL, PostgreSQL, and Redis clusters.
+
+A unique identifier for a database cluster.
+
+Enables SSL encryption when connecting to the source database.
+
+List of databases that should be ignored during migration.
+
+A JSON object.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To stop an online migration, send a DELETE request to /v2/databases/$DATABASE_ID/online-migration/$MIGRATION_ID.
+
+A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
+
+A unique identifier for a database cluster.
+
+A unique identifier assigned to the online migration.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To migrate a database cluster to a new region, send a PUT request to /v2/databases/$DATABASE_ID/migrate. The body of the request must specify a region attribute.
+
+A successful request will receive a 202 Accepted status code with no body in response. Querying the database cluster will show that its status attribute will now be set to migrating. This will transition back to online when the migration has completed.
+
+A unique identifier for a database cluster.
+
+A slug identifier for the region to which the database cluster will be migrated.
+
+The does not indicate the success or failure of any operation, just that the request has been accepted for processing.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To resize a database cluster, send a PUT request to /v2/databases/$DATABASE_ID/resize. The body of the request must specify both the size and num_nodes attributes. A successful request will receive a 202 Accepted status code with no body in response. Querying the database cluster will show that its status attribute will now be set to resizing. This will transition back to online when the resize operation has completed.
+
+A unique identifier for a database cluster.
+
+A slug identifier representing desired the size of the nodes in the database cluster.
+
+The number of nodes in the database cluster. Valid values are are 1-3. In addition to the primary node, up to two standby nodes may be added for highly available configurations.
+
+Additional storage added to the cluster, in MiB. If null, no additional storage is added to the cluster, beyond what is provided as a base amount from the 'size' and any previously added additional storage.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

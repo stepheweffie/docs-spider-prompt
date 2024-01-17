@@ -1,0 +1,135 @@
+The response will be a JSON object with a key called volume. The value will be an object containing the standard attributes associated with a volume.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a block storage volume, destroying all data and removing it from your account, send a DELETE request to /v2/volumes/$VOLUME_ID. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+The ID of the block storage volume.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve the snapshots that have been created from a volume, send a GET request to /v2/volumes/$VOLUME_ID/snapshots.
+
+The ID of the block storage volume.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+You will get back a JSON object that has a snapshots key. This will be set to an array of snapshot objects, each of which contain the standard snapshot attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a snapshot from a volume, sent a POST request to /v2/volumes/$VOLUME_ID/snapshots.
+
+The ID of the block storage volume.
+
+A human-readable name for the volume snapshot.
+
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+You will get back a JSON object that has a snapshot key. This will contain the standard snapshot attributes
+
+Bad Request
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Block storage actions are commands that can be given to a DigitalOcean Block Storage Volume. An example would be detaching or attaching a volume from a Droplet. These requests are made on the /v2/volumes/$VOLUME_ID/actions endpoint.
+
+An action object is returned. These objects hold the current status of the requested action.
+
+To initiate an action on a block storage volume by Name, send a POST request to ~/v2/volumes/actions. The body should contain the appropriate attributes for the respective action.
+
+Each volume may only be attached to a single Droplet. However, up to five volumes may be attached to a Droplet at a time. Pre-formatted volumes will be automatically mounted to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018 when attached. On older Droplets, additional configuration is required.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The volume action to initiate.
+
+The slug identifier for the region where the resource will initially be available.
+
+The unique identifier for the Droplet the volume will be attached or detached from.
+
+A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
+
+The response will be an object with a key called action. The value of this will be an object that contains the standard volume action attributes
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve all actions that have been executed on a volume, send a GET request to /v2/volumes/$VOLUME_ID/actions.
+
+The ID of the block storage volume.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be an object with a key called action. The value of this will be an object that contains the standard volume action attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To initiate an action on a block storage volume by Id, send a POST request to ~/v2/volumes/$VOLUME_ID/actions. The body should contain the appropriate attributes for the respective action.

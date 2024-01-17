@@ -1,0 +1,491 @@
+{
+"type": "enable_backups"
+}
+
+{
+"actions":
+[
+{
+}
+]
+}
+
+/v2/droplets/$DROPLET_ID/actions/$ACTION_ID
+
+action
+
+read
+
+{
+"action":
+{
+"id": 36804636,
+"status": "completed",
+"type": "create",
+"started_at": "2020-11-14T16:29:21Z",
+"completed_at": "2020-11-14T16:30:06Z",
+"resource_id": 3164444,
+"resource_type": "droplet",
+"region":
+{
+},
+"region_slug": "string"
+}
+}
+
+region
+
+image
+
+/v2/droplets
+
+droplets
+
+tag_name
+
+/v2/droplets?tag_name=$TAG_NAME
+
+read
+
+name
+
+tag_name
+
+droplets
+
+{
+"droplets":
+[
+{
+},
+{
+},
+{
+}
+],
+"links":
+{
+"pages": { }
+},
+"meta":
+{
+"total": 3
+}
+}
+
+/v2/droplets
+
+droplet
+
+actions
+
+links
+
+name
+
+names
+
+droplets
+
+actions
+
+links
+
+write
+
+nyc
+
+nyc1
+
+nyc2
+
+nyc3
+
+vpc_uuid
+
+vpc_uuid
+
+false
+
+true
+
+{
+"name": "example.com",
+"region": "nyc3",
+"size": "s-1vcpu-1gb",
+"image": "ubuntu-20-04-x64",
+"ssh_keys":
+[
+289794,
+"3b:16:e4:bf:8b:00:8b:b8:59:8c:a9:d3:f0:19:fa:45"
+],
+"backups": true,
+"ipv6": true,
+"monitoring": true,
+"tags":
+[
+"env:prod",
+"web"
+],
+"user_data": "#cloud-config\nruncmd:\n - touch /test.txt\n",
+"vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+}
+
+{
+"droplet":
+{
+"id": 3164444,
+"name": "example.com",
+"memory": 1024,
+"vcpus": 1,
+"disk": 25,
+"locked": false,
+"status": "new",
+"kernel": null,
+"created_at": "2020-07-21T18:37:44Z",
+"features":
+[
+],
+"backup_ids": [ ],
+"next_backup_window": null,
+"snapshot_ids": [ ],
+"image":
+{
+},
+"volume_ids": [ ],
+"size":
+{
+},
+"size_slug": "s-1vcpu-1gb",
+"networks":
+{
+},
+"region":
+{
+},
+"tags":
+[
+]
+},
+"links":
+{
+"actions":
+[
+]
+}
+}
+
+tag_name
+
+/v2/droplets?tag_name=$TAG_NAME
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/droplets/$DROPLET_ID
+
+read
+
+droplet
+
+{
+"droplet":
+{
+"id": 3164444,
+"name": "example.com",
+"memory": 1024,
+"vcpus": 1,
+"disk": 25,
+"locked": false,
+"status": "active",
+"kernel": null,
+"created_at": "2020-07-21T18:37:44Z",
+"features":
+[
+],
+"backup_ids":
+[
+],
+"next_backup_window":
+{
+},
+"snapshot_ids":
+[
+],
+"image":
+{
+},
+"volume_ids": [ ],
+"size":
+{
+},
+"size_slug": "s-1vcpu-1gb",
+"networks":
+{
+},
+"region":
+{
+},
+"tags":
+[
+],
+"vpc_uuid": "760e09ef-dc84-11e8-981e-3cfdfeaae000"
+}
+}
+
+/v2/droplets/$DROPLET_ID
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/droplets/$DROPLET_ID/backups
+
+backups
+
+read
+
+backups
+
+{
+"backups":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/droplets/$DROPLET_ID/snapshots
+
+snapshots
+
+read
+
+snapshots
+
+{
+"snapshots":
+[
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/droplets/$DROPLET_ID/kernels
+
+kernels
+
+kernel
+
+kernel
+
+read
+
+kernels
+
+{
+"kernels":
+[
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 171
+}
+}
+
+/v2/droplets/$DROPLET_ID/firewalls
+
+firewalls
+
+firewall
+
+firewall
+
+read
+
+firewalls
+
+{
+"firewalls":
+[
+{
+}
+],
+"links":
+{
+"pages": { }
+},
+"meta":
+{
+"total": 1
+}
+}
+
+/v2/droplets/$DROPLET_ID/neighbors
+
+droplets
+
+read
+
+droplets
+
+{
+"droplets":
+[
+{
+}
+]
+}
+
+/v2/droplets/$DROPLET_ID/destroy_with_associated_resources
+
+snapshots
+
+volumes
+
+volume_snapshots
+
+read
+
+snapshots
+
+volumes
+
+volume_snapshots
+
+{
+"reserved_ips":
+[
+{
+}
+],
+"floating_ips":
+[
+{
+}
+],
+"snapshots":
+[
+{
+}
+],
+"volumes":
+[
+{
+}
+],
+"volume_snapshots":
+[
+{
+}
+]
+}
+
+/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/selective
+
+reserved_ips
+
+snapshots
+
+volumes
+
+volume_snapshots
+
+write
+
+{
+"floating_ips":
+[
+"6186916"
+],
+"reserved_ips":
+[
+"6186916"
+],
+"snapshots":
+[
+"61486916"
+],
+"volumes":
+[
+"ba49449a-7435-11ea-b89e-0a58ac14480f"
+],
+"volume_snapshots":
+[
+"edb0478d-7436-11ea-86e6-0a58ac144b91"
+]
+}
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/dangerous
+
+X-Dangerous
+
+true
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/status
+
+read
+
+{
+"droplet":
+{
+"id": "187000742",
+"name": "ubuntu-s-1vcpu-1gb-nyc1-01",
+"destroyed_at": "2020-04-01T18:11:49Z"
+},
+"resources":
+{
+"reserved_ips":
+[
+],
+"floating_ips":
+[
+],
+"snapshots":
+[
+],
+"volumes": [ ],
+"volume_snapshots":
+[
+]
+},
+"completed_at": "2020-04-01T18:11:49Z",
+"failures": 0
+}

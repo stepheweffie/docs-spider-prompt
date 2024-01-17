@@ -1,0 +1,125 @@
+You will get back a JSON object that has a snapshots key. This will be set to an array of snapshot objects, each of which contain the standard Droplet snapshot attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object with an snapshots key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of all kernels available to a Droplet, send a GET request to /v2/droplets/$DROPLET_ID/kernels
+
+The response will be a JSON object that has a key called kernels. This will be set to an array of kernel objects, each of which contain the standard kernel attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object that has a key called kernels.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of all firewalls available to a Droplet, send a GET request to /v2/droplets/$DROPLET_ID/firewalls
+
+The response will be a JSON object that has a key called firewalls. This will be set to an array of firewall objects, each of which contain the standard firewall attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object that has a key called firewalls.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a list of any "neighbors" (i.e. Droplets that are co-located on the same physical hardware) for a specific Droplet, send a GET request to /v2/droplets/$DROPLET_ID/neighbors.
+
+The results will be returned as a JSON object with a key of droplets. This will be set to an array containing objects representing any other Droplets that share the same physical hardware. An empty array indicates that the Droplet is not co-located any other Droplets associated with your account.
+
+A unique identifier for a Droplet instance.
+
+A JSON object with an droplets key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To list the associated billable resources that can be destroyed along with a Droplet, send a GET request to the /v2/droplets/$DROPLET_ID/destroy_with_associated_resources endpoint.
+
+The response will be a JSON object containing snapshots, volumes, and volume_snapshots keys. Each will be set to an array of objects containing information about the associated resources.
+
+A unique identifier for a Droplet instance.
+
+A JSON object containing snapshots, volumes, and volume_snapshots keys.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To destroy a Droplet along with a sub-set of its associated resources, send a DELETE request to the /v2/droplets/$DROPLET_ID/destroy_with_associated_resources/selective endpoint. The JSON body of the request should include reserved_ips, snapshots, volumes, or volume_snapshots keys each set to an array of IDs for the associated resources to be destroyed. The IDs can be found by querying the Droplet's associated resources. Any associated resource not included in the request will remain and continue to accrue changes on your account.
+
+A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources.
+
+A unique identifier for a Droplet instance.
+
+An array of unique identifiers for the floating IPs to be scheduled for deletion.
+
+An array of unique identifiers for the reserved IPs to be scheduled for deletion.
+
+An array of unique identifiers for the snapshots to be scheduled for deletion.
+
+An array of unique identifiers for the volumes to be scheduled for deletion.
+
+An array of unique identifiers for the volume snapshots to be scheduled for deletion.

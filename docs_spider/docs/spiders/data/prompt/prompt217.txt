@@ -1,0 +1,115 @@
+To create a new domain, send a POST request to /v2/domains. Set the "name" attribute to the domain name you are adding. Optionally, you may set the "ip_address" attribute, and an A record will be automatically created pointing to the apex domain.
+
+The name of the domain itself. This should follow the standard domain format of domain.TLD. For instance, example.com is a valid domain name.
+
+This optional attribute may contain an IP address. When provided, an A record will be automatically created pointing to the apex domain.
+
+The response will be a JSON object with a key called domain. The value of this will be an object that contains the standard attributes associated with a domain.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To get details about a specific domain, send a GET request to /v2/domains/$DOMAIN_NAME.
+
+The name of the domain itself.
+
+The response will be a JSON object with a key called domain. The value of this will be an object that contains the standard attributes defined for a domain.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a domain, send a DELETE request to /v2/domains/$DOMAIN_NAME.
+
+The name of the domain itself.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Droplet actions are tasks that can be executed on a Droplet. These can be things like rebooting, resizing, snapshotting, etc.
+
+Droplet action requests are generally targeted at one of the "actions" endpoints for a specific Droplet. The specific actions are usually initiated by sending a POST request with the action and arguments as parameters.
+
+Droplet action requests create a Droplet actions object, which can be used to get information about the status of an action. Creating a Droplet action is asynchronous: the HTTP call will return the action object before the action has finished processing on the Droplet. The current status of an action can be retrieved from either the Droplet actions endpoint or the global actions endpoint. If a Droplet action is uncompleted it may block the creation of a subsequent action for that Droplet, the locked attribute of the Droplet will be true and attempts to create a Droplet action will fail with a status of 422.
+
+To retrieve a list of all actions that have been executed for a Droplet, send a GET request to /v2/droplets/$DROPLET_ID/actions.
+
+The results will be returned as a JSON object with an actions key. This will be set to an array filled with action objects containing the standard action attributes.
+
+A unique identifier for a Droplet instance.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+A JSON object with an actions key.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To initiate an action on a Droplet send a POST request to /v2/droplets/$DROPLET_ID/actions. In the JSON body to the request, set the type attribute to on of the supported action types:
+
+A unique identifier for a Droplet instance.
+
+The type attribute set in the request body will specify the action that will be taken on the Droplet. Some actions will require additional attributes to be set as well.
+
+The type of action to initiate for the Droplet.
+
+The response will be a JSON object with a key called action.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Some actions can be performed in bulk on tagged Droplets. The actions can be initiated by sending a POST to /v2/droplets/actions?tag_name=$TAG_NAME with the action arguments.
+
+Only a sub-set of action types are supported:
+
+Used to filter Droplets by a specific tag. Can not be combined with name.
+
+The type attribute set in the request body will specify the action that will be taken on the Droplet. Some actions will require additional attributes to be set as well.
+
+The type of action to initiate for the Droplet.

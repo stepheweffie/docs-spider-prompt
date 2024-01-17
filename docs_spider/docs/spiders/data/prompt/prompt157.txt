@@ -1,0 +1,103 @@
+How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the size field to scale load balancers that reside in these regions.
+
+This field has been replaced by the size_unit field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.
+
+You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.
+
+This field has been deprecated. You can no longer specify an algorithm for load balancers.
+
+An array of objects specifying the forwarding rules for a load balancer.
+
+An object specifying health check settings for the load balancer.
+
+An object specifying sticky sessions settings for the load balancer.
+
+A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.
+
+A boolean value indicating whether PROXY Protocol is in use.
+
+A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.
+
+An integer value which configures the idle timeout for HTTP requests to the target droplets.
+
+A string specifying the UUID of the VPC to which the load balancer is assigned.
+
+A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.
+
+An object specifying allow and deny rules to control traffic to the load balancer.
+
+The response will be a JSON object with a key called load_balancer. The value of this will be an object containing the standard attributes of a load balancer.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete a load balancer instance, disassociating any Droplets assigned to it and removing it from your account, send a DELETE request to /v2/load_balancers/$LOAD_BALANCER_ID.
+
+A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
+
+A unique identifier for a load balancer.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To assign a Droplet to a load balancer instance, send a POST request to /v2/load_balancers/$LOAD_BALANCER_ID/droplets. In the body of the request, there should be a droplet_ids attribute containing a list of Droplet IDs. Individual Droplets can not be added to a load balancer configured with a Droplet tag. Attempting to do so will result in a "422 Unprocessable Entity" response from the API.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique identifier for a load balancer.
+
+An array containing the IDs of the Droplets assigned to the load balancer.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To remove a Droplet from a load balancer instance, send a DELETE request to /v2/load_balancers/$LOAD_BALANCER_ID/droplets. In the body of the request, there should be a droplet_ids attribute containing a list of Droplet IDs.
+
+No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
+
+A unique identifier for a load balancer.
+
+An array containing the IDs of the Droplets assigned to the load balancer.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

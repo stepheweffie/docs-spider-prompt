@@ -1,0 +1,119 @@
+This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
+
+The weight for SRV records.
+
+An unsigned integer between 0-255 used for CAA records.
+
+The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
+
+The response body will be a JSON object with a key called domain_record. The value of this will be an object representing the new record. Attributes that are not applicable for the record type will be set to null. An id attribute is generated for each record as part of the object.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To retrieve a specific domain record, send a GET request to /v2/domains/$DOMAIN_NAME/records/$RECORD_ID.
+
+The name of the domain itself.
+
+The unique identifier of the domain record.
+
+The response will be a JSON object with a key called domain_record. The value of this will be a domain record object which contains the standard domain record attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update an existing record, send a PATCH request to /v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID. Any attribute valid for the record type can be set to a new value for the record.
+
+See the attribute table for details regarding record types and their respective attributes.
+
+The name of the domain itself.
+
+The unique identifier of the domain record.
+
+The type of the DNS record. For example: A, CNAME, TXT, ...
+
+The host name, alias, or service being defined by the record.
+
+Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
+
+The priority for SRV and MX records.
+
+The port for SRV records.
+
+This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
+
+The weight for SRV records.
+
+An unsigned integer between 0-255 used for CAA records.
+
+The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
+
+The response will be a JSON object with a key called domain_record. The value of this will be a domain record object which contains the standard domain record attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update an existing record, send a PUT request to /v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID. Any attribute valid for the record type can be set to a new value for the record.
+
+See the attribute table for details regarding record types and their respective attributes.
+
+The name of the domain itself.
+
+The unique identifier of the domain record.
+
+The type of the DNS record. For example: A, CNAME, TXT, ...
+
+The host name, alias, or service being defined by the record.
+
+Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
+
+The priority for SRV and MX records.
+
+The port for SRV records.
+
+This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
+
+The weight for SRV records.
+
+An unsigned integer between 0-255 used for CAA records.
+
+The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
+
+The response will be a JSON object with a key called domain_record. The value of this will be a domain record object which contains the standard domain record attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

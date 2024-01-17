@@ -1,0 +1,115 @@
+The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
+
+The comparison operator used against the alert's threshold.
+
+The notification settings for a trigger alert.
+
+Period of time the threshold must be exceeded to trigger the alert.
+
+The response will be a JSON object with a key called alert. The value of this will be an object that contains the standard attributes associated with an uptime alert.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To delete an Uptime alert, send a DELETE request to /v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID. A 204 status code with no body will be returned in response to a successful request.
+
+A unique identifier for a check.
+
+A unique identifier for an alert.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+VPCs (virtual private clouds) allow you to create virtual networks containing resources that can communicate with each other in full isolation using private IP addresses.
+
+By sending requests to the /v2/vpcs endpoint, you can create, configure, list, and delete custom VPCs as well as retrieve information about the resources assigned to them.
+
+To list all of the VPCs on your account, send a GET request to /v2/vpcs.
+
+Number of items returned per page
+
+Which 'page' of paginated results to return.
+
+The response will be a JSON object with a key called vpcs. This will be set to an array of objects, each of which will contain the standard attributes associated with a VPC
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To create a VPC, send a POST request to /v2/vpcs specifying the attributes in the table below in the JSON body.
+
+Note: If you do not currently have a VPC network in a specific datacenter region, the first one that you create will be set as the default for that region. The default VPC for a region cannot be changed or deleted.
+
+The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods.
+
+A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters.
+
+The slug identifier for the region where the VPC will be created.
+
+The range of IP addresses in the VPC in CIDR notation. Network ranges cannot overlap with other networks in the same account and must be in range of private addresses as defined in RFC1918. It may not be smaller than /28 nor larger than /16. If no IP range is specified, a /20 network range is generated that won't conflict with other VPC networks in your account.
+
+The response will be a JSON object with a key called vpc. The value of this will be an object that contains the standard attributes associated with a VPC.
+
+Unauthorized
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To show information about an existing VPC, send a GET request to /v2/vpcs/$VPC_ID.
+
+A unique identifier for a VPC.
+
+The response will be a JSON object with a key called vpc. The value of this will be an object that contains the standard attributes associated with a VPC.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+To update information about a VPC, send a PUT request to /v2/vpcs/$VPC_ID.
+
+A unique identifier for a VPC.
+
+The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods.
+
+A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters.

@@ -1,0 +1,155 @@
+An array of JSON objects with a key called namespaces. Each object represents a namespace and contains the properties associated with it.
+
+Unauthorized
+
+Bad Request.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Creates a new trigger for a given function in a namespace. To create a trigger, send a POST request to /v2/functions/namespaces/$NAMESPACE_ID/triggers with the name, function, type, is_enabled and scheduled_details properties.
+
+The ID of the namespace to be managed.
+
+The trigger's unique name within the namespace.
+
+Name of function(action) that exists in the given namespace.
+
+One of different type of triggers. Currently only SCHEDULED is supported.
+
+Indicates weather the trigger is paused or unpaused.
+
+Trigger details for SCHEDULED type, where body is optional.
+
+A JSON response object with a key called trigger. The object contains the properties associated with the trigger.
+
+Bad Request.
+
+Unauthorized
+
+Bad Request.
+
+Limit Reached
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Gets the trigger details. To get the trigger details, send a GET request to /v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME.
+
+The ID of the namespace to be managed.
+
+The name of the trigger to be managed.
+
+A JSON response object with a key called trigger. The object contains the properties associated with the trigger.
+
+Unauthorized
+
+Bad Request.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Updates the details of the given trigger. To update a trigger, send a PUT request to /v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME with new values for the is_enabled or scheduled_details properties.
+
+The ID of the namespace to be managed.
+
+The name of the trigger to be managed.
+
+Indicates weather the trigger is paused or unpaused.
+
+Trigger details for SCHEDULED type, where body is optional.
+
+A JSON response object with a key called trigger. The object contains the properties associated with the trigger.
+
+Bad Request.
+
+Unauthorized
+
+Bad Request.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Deletes the given trigger. To delete trigger, send a DELETE request to /v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME. A successful deletion returns a 204 response.
+
+The ID of the namespace to be managed.
+
+The name of the trigger to be managed.
+
+The action was successful and the response body is empty.
+
+Unauthorized
+
+Bad Request.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+Image actions are commands that can be given to a DigitalOcean image. In general, these requests are made on the actions endpoint of a specific image.
+
+An image action object is returned. These objects hold the current status of the requested action.
+
+To retrieve all actions that have been executed on an image, send a GET request to /v2/images/$IMAGE_ID/actions.
+
+A unique number that can be used to identify and reference a specific image.
+
+The results will be returned as a JSON object with an actions key. This will be set to an array filled with action objects containing the standard action attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error
+
+
+
+The following actions are available on an Image.
+
+To convert an image, for example, a backup to a snapshot, send a POST request to /v2/images/$IMAGE_ID/actions. Set the type attribute to convert.
+
+To transfer an image to another region, send a POST request to /v2/images/$IMAGE_ID/actions. Set the type attribute to transfer and set region attribute to the slug identifier of the region you wish to transfer to.
+
+A unique number that can be used to identify and reference a specific image.
+
+The action to be taken on the image. Can be either convert or transfer.
+
+The response will be a JSON object with a key called action. The value of this will be an object containing the standard image action attributes.
+
+Unauthorized
+
+The resource was not found.
+
+API Rate limit exceeded
+
+Server error.
+
+Unexpected error

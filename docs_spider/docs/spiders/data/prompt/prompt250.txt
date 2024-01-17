@@ -1,0 +1,353 @@
+{
+"deployment":
+{
+"id": "b6bdf840-2854-4f87-a36c-5f231c617c84",
+"spec":
+{
+},
+"services":
+[
+],
+"phase_last_updated_at": "0001-01-01T00:00:00Z",
+"created_at": "2020-07-28T18:00:00Z",
+"updated_at": "2020-07-28T18:00:00Z",
+"cause": "commit 9a4df0b pushed to github/digitalocean/sample-golang",
+"progress":
+{
+},
+"phase": "PENDING_BUILD",
+"tier_slug": "basic"
+}
+}
+
+write
+
+{
+"deployment_id": "3aa4d20e-5527-4c00-b496-601fbd22520a",
+"skip_pin": false
+}
+
+{
+"valid": true
+}
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+write
+
+deployment
+
+{
+"deployment":
+{
+"id": "b6bdf840-2854-4f87-a36c-5f231c617c84",
+"spec":
+{
+},
+"services":
+[
+],
+"phase_last_updated_at": "0001-01-01T00:00:00Z",
+"created_at": "2020-07-28T18:00:00Z",
+"updated_at": "2020-07-28T18:00:00Z",
+"cause": "commit 9a4df0b pushed to github/digitalocean/sample-golang",
+"progress":
+{
+},
+"phase": "PENDING_BUILD",
+"tier_slug": "basic"
+}
+}
+
+read
+
+app_bandwidth_usage
+
+{
+"app_bandwidth_usage":
+[
+{
+}
+],
+"date": "2023-01-17T00:00:00Z"
+}
+
+read
+
+app_bandwidth_usage
+
+{
+"app_ids":
+[
+"4f6c71e2-1e90-4762-9fee-6cc4a0a9f2cf",
+"c2a93513-8d9b-4223-9d61-5e7272c81cf5"
+],
+"date": "2023-01-17T00:00:00Z"
+}
+
+{
+"app_bandwidth_usage":
+[
+{
+},
+{
+}
+],
+"date": "2023-01-17T00:00:00Z"
+}
+
+/v2/customers/my/balance
+
+preview
+
+$INVOICE_UUID
+
+/v2/customers/my/invoices
+
+/v2/customers/my/billing_history
+
+/v2/customers/my/balance
+
+read
+
+{
+"month_to_date_balance": "23.44",
+"account_balance": "12.23",
+"month_to_date_usage": "11.21",
+"generated_at": "2019-07-09T15:01:12Z"
+}
+
+/v2/customers/my/billing_history
+
+read
+
+{
+"billing_history":
+[
+{
+},
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 5
+}
+}
+
+/v2/customers/my/invoices
+
+read
+
+invoices
+
+invoice_preview
+
+{
+"invoices":
+[
+{
+},
+{
+}
+],
+"invoice_preview":
+{
+"invoice_uuid": "1afe95e6-0958-4eb0-8d9a-9c5060d3ef03",
+"amount": "34.56",
+"invoice_period": "2020-02",
+"updated_at": "2020-02-23T06:31:50Z"
+},
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 70
+}
+}
+
+/v2/customers/my/invoices/$INVOICE_UUID
+
+read
+
+invoice_items
+
+{
+"invoice_items":
+[
+{
+},
+{
+}
+],
+"links":
+{
+"pages":
+{
+}
+},
+"meta":
+{
+"total": 6
+}
+}
+
+/v2/customers/my/invoices/$INVOICE_UUID/csv
+
+read
+
+/v2/customers/my/invoices/$INVOICE_UUID/pdf
+
+read
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/customers/my/invoices/$INVOICE_UUID/summary
+
+read
+
+/v2/customers/my/invoices/$INVOICE_UUID/summary
+
+{
+"invoice_uuid": "22737513-0ea7-4206-8ceb-98a575af7681",
+"billing_period": "2020-01",
+"amount": "27.13",
+"user_name": "Sammy Shark",
+"user_billing_address":
+{
+"address_line1": "101 Shark Row",
+"city": "Atlantis",
+"region": "OC",
+"postal_code": "12345",
+"country_iso2_code": "US",
+"created_at": "2019-09-03T16:34:46.000+00:00",
+"updated_at": "2019-09-03T16:34:46.000+00:00"
+},
+"user_company": "DigitalOcean",
+"user_email": "sammy@digitalocean.com",
+"product_charges":
+{
+"name": "Product usage charges",
+"amount": "12.34",
+"items":
+[
+]
+},
+"overages":
+{
+"name": "Overages",
+"amount": "3.45"
+},
+"taxes":
+{
+"name": "Taxes",
+"amount": "4.56"
+},
+"credits_and_adjustments":
+{
+"name": "Credits & adjustments",
+"amount": "6.78"
+}
+}
+
+/v2/volumes
+
+/v2/volumes
+
+region
+
+/v2/volumes?region=nyc1
+
+/v2/volumes?name=$VOLUME_NAME
+
+/v2/volumes?name=$VOLUME_NAME&region=nyc1
+
+read
+
+volumes
+
+{
+"volumes":
+[
+{
+},
+{
+}
+],
+"links": { },
+"meta":
+{
+"total": 2
+}
+}
+
+/v2/volumes
+
+filesystem_type
+
+write
+
+ext4
+
+xfs
+
+volume
+
+{
+"size_gigabytes": 10,
+"name": "ext4-example",
+"description": "Block store for examples",
+"region": "nyc1",
+"filesystem_type": "ext4",
+"filesystem_label": "ext4_volume_01"
+}
+
+{
+"volume":
+{
+"id": "506f78a4-e098-11e5-ad9f-000f53306ae1",
+"region":
+{
+},
+"droplet_ids": [ ],
+"name": "example",
+"description": "Block store for examples",
+"size_gigabytes": 10,
+"filesystem_type": "ext4",
+"filesystem_label": "example",
+"created_at": "2020-03-02T17:00:49Z"
+}
+}
+
+/v2/volumes?name=$VOLUME_NAME&region=nyc1
+
+write
+
+{
+"id": "unauthorized",
+"message": "Unable to authenticate you."
+}
+
+/v2/volumes/snapshots/$SNAPSHOT_ID
+
+read
+
+snapshot
